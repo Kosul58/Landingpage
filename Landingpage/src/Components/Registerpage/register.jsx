@@ -1,8 +1,7 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
-import img1 from "../Assets/Picture1.png";
 
-const Workker = () => {
+const Signup = () => {
   const gcheck1 = useRef(null);
   const gcheck2 = useRef(null);
   const regform1 = useRef(null);
@@ -47,7 +46,7 @@ const Workker = () => {
   const handlecpwd = (event) => {
     setcpassword(event.target.value);
   };
-  const [gender, setgender] = useState(0);
+  const [gender, setgender] = useState(null);
 
   const [height, setheight] = useState(null);
 
@@ -60,14 +59,14 @@ const Workker = () => {
     setweight(event.target.value);
   };
 
-  const [age, setage] = useState(0);
+  const [age, setage] = useState(null);
   const handleage = (event) => {
     setage(event.target.value);
   };
 
-  const [activitylvl, setactivitylvl] = useState(0);
-  const [ugoal, setugoal] = useState(0);
-  const [upreference, setupref] = useState(0);
+  const [activitylvl, setactivitylvl] = useState(null);
+  const [ugoal, setugoal] = useState(null);
+  const [upreference, setupref] = useState(null);
 
   const changegcolor = (a) => {
     if (a == 0) {
@@ -407,4 +406,4 @@ const Workker = () => {
   );
 };
 
-export default Workker;
+export default Signup;
