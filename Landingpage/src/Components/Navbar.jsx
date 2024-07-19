@@ -15,6 +15,7 @@ import { FcCalculator } from "react-icons/fc";
 import { IoIosHome } from "react-icons/io";
 import { FaInfoCircle } from "react-icons/fa";
 import { IoIosCall } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
@@ -42,9 +43,9 @@ const Navbar = () => {
           <img src={Logo} alt="" />
         </div>
         <div className="navbar-links-container">
-          <a href="">Home</a>
-          <a href="">About</a>
-          <a href="">Calculator</a>
+          <Link to="/">Home</Link>
+          <Link to="/about">About</Link>
+          <Link to="/calculate">Calculator</Link>
           <div className="searchcontent">
             <input type="text" placeholder="Search" className="search" />
             <a href="">
@@ -53,8 +54,13 @@ const Navbar = () => {
           </div>
         </div>
         <div className="btnsmanager">
-          <button className="primary-button">Register</button>
-          <button className="primary-button">Log In</button>
+          <Link to={"/signup"}>
+            {" "}
+            <button className="primary-button">Register</button>
+          </Link>
+          <Link to={"/login"}>
+            <button className="primary-button">Log In</button>
+          </Link>
         </div>
         <div className="navbar-menu-container">
           <HiOutlineBars3 onClick={() => setOpenMenu(true)} />

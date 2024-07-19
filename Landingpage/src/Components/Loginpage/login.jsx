@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 const Login = () => {
   const [uname, setuname] = useState(null);
   const handleuname = (event) => {
@@ -15,7 +16,9 @@ const Login = () => {
     <div className="Loginsignup">
       <form className="loginform ">
         <div className="regbackbtn">
-          <button className="signupbtn">Go Back</button>
+          <Link to="/">
+            <button className="signupbtn">Go Back</button>
+          </Link>
         </div>
 
         <div className="signup1" style={{ justifyContent: "center" }}>
@@ -39,7 +42,9 @@ const Login = () => {
           </div>
         </div>
         <div className="signupbtnfront">
-          <button className="signupbtn">Login</button>
+          <Link to={"/dashboard"}>
+            <button className="signupbtn">Login</button>
+          </Link>
         </div>
       </form>
     </div>

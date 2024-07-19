@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
-
+import { Link } from "react-router-dom";
 const Signup = () => {
   const gcheck1 = useRef(null);
   const gcheck2 = useRef(null);
@@ -20,13 +20,10 @@ const Signup = () => {
   const jcheck5 = useRef(null);
   const kcheck1 = useRef(null);
   const kcheck2 = useRef(null);
-  const kcheck3 = useRef(null);
-  const kcheck4 = useRef(null);
-  const kcheck5 = useRef(null);
 
   const icheck = [icheck1, icheck2, icheck3, icheck4];
   const jcheck = [jcheck1, jcheck2, jcheck3, jcheck4, jcheck5];
-  const kcheck = [kcheck1, kcheck2, kcheck3, kcheck4, kcheck5];
+  const kcheck = [kcheck1, kcheck2];
 
   const [uname, setuname] = useState(null);
   const handleuname = (event) => {
@@ -128,6 +125,7 @@ const Signup = () => {
       }
     });
   };
+
   const changepage = (a) => {
     if (a == 0) {
       regform1.current.classList.add("signblock");
@@ -141,10 +139,12 @@ const Signup = () => {
   };
   return (
     <>
-      <form className="Loginsignup">
+      <div className="Loginsignup">
         <div ref={regform1} className="loginform ">
           <div className="regbackbtn">
-            <button className="signupbtn">Go Back</button>
+            <Link to="/">
+              <button className="signupbtn">Go Back</button>
+            </Link>
           </div>
           <div className="signup1" style={{ paddingTop: "90px" }}>
             <div className="signup11">
@@ -363,31 +363,7 @@ const Signup = () => {
                 key={1}
                 onClick={() => changegcolor5(1)}
               >
-                NON VEG1
-              </div>
-              <div
-                ref={kcheck3}
-                className="hissues1"
-                key={2}
-                onClick={() => changegcolor5(2)}
-              >
-                NON VEG1
-              </div>
-              <div
-                ref={kcheck4}
-                className="hissues1"
-                key={3}
-                onClick={() => changegcolor5(3)}
-              >
-                NON VEG1
-              </div>
-              <div
-                ref={kcheck5}
-                className="hissues1"
-                key={4}
-                onClick={() => changegcolor5(4)}
-              >
-                NON VEG1
+                NON VEG
               </div>
             </div>
           </div>
@@ -401,7 +377,7 @@ const Signup = () => {
             </button>
           </div>
         </div>
-      </form>
+      </div>
     </>
   );
 };
