@@ -1,22 +1,60 @@
 // Import TensorFlow.js library for Node.js with CPU support
+// const tf = require("@tensorflow/tfjs-node");
 import * as tf from "@tensorflow/tfjs";
+// import "@tensorflow/tfjs-backend-webgl";
 
+// import "@tensorflow/tfjs-backend-webgpu";
+// tf.setBackend("webgl");
+
+import connectDB from "./db.cjs";
+
+// Define the model
 const model = tf.sequential();
+// tf.setBackend("webgl");
 
 // Input layer and first hidden layer with 10 neurons
 model.add(
   tf.layers.dense({
     inputShape: [2], // 2 input features
-    units: 4,
+    units: 6,
+    activation: "relu",
+  })
+);
+
+model.add(
+  tf.layers.dense({
+    units: 8,
+    activation: "relu",
+  })
+);
+
+model.add(
+  tf.layers.dense({
+    units: 10,
+    activation: "relu",
+  })
+);
+
+model.add(
+  tf.layers.dense({
+    units: 9,
+    activation: "relu",
+  })
+);
+
+model.add(
+  tf.layers.dense({
+    units: 8,
     activation: "relu",
   })
 );
 model.add(
   tf.layers.dense({
-    units: 5,
+    units: 8,
     activation: "relu",
   })
 );
+
 model.add(
   tf.layers.dense({
     units: 7,
@@ -30,6 +68,32 @@ model.add(
     activation: "relu",
   })
 );
+
+model.add(
+  tf.layers.dense({
+    units: 6,
+    activation: "relu",
+  })
+);
+
+model.add(
+  tf.layers.dense({
+    units: 5,
+    activation: "relu",
+  })
+);
+model.add(
+  tf.layers.dense({
+    units: 8,
+    activation: "relu",
+  })
+);
+model.add(
+  tf.layers.dense({
+    units: 5,
+    activation: "relu",
+  })
+);
 model.add(
   tf.layers.dense({
     units: 5,
@@ -42,6 +106,13 @@ model.add(
     activation: "relu",
   })
 );
+model.add(
+  tf.layers.dense({
+    units: 4,
+    activation: "relu",
+  })
+);
+
 // Output layer with 3 neurons for ternary classification
 model.add(
   tf.layers.dense({
@@ -59,49 +130,27 @@ model.compile({
 
 const trainigdata = [
   [1300, 455, 325, 520],
-  [1350, 472.5, 337.5, 540],
   [1400, 490, 350, 560],
-  [1450, 507.5, 362.5, 580],
   [1500, 525, 375, 600],
-  [1550, 542.5, 387.5, 620],
   [1600, 560, 400, 640],
-  [1650, 577.5, 412.5, 660],
   [1700, 595, 425, 680],
-  [1750, 612.5, 437.5, 700],
   [1800, 630, 450, 720],
-  [1850, 647.5, 462.5, 740],
   [1900, 665, 475, 760],
-  [1950, 682.5, 487.5, 780],
   [2000, 700, 500, 800],
-  [2050, 717.5, 512.5, 820],
   [2100, 735, 525, 840],
-  [2150, 752.5, 537.5, 860],
   [2200, 770, 550, 880],
-  [2250, 787.5, 562.5, 900],
   [2300, 805, 575, 920],
-  [2350, 822.5, 587.5, 940],
   [2400, 840, 600, 960],
-  [2450, 857.5, 612.5, 980],
   [2500, 875, 625, 1000],
-  [2550, 892.5, 637.5, 1020],
   [2600, 910, 650, 1040],
-  [2650, 927.5, 662.5, 1060],
   [2700, 945, 675, 1080],
-  [2750, 962.5, 687.5, 1100],
   [2800, 980, 700, 1120],
-  [2850, 997.5, 712.5, 1140],
   [2900, 1015, 725, 1160],
-  [2950, 1032.5, 737.5, 1180],
   [3000, 1050, 750, 1200],
-  [3050, 1067.5, 762.5, 1220],
   [3100, 1085, 775, 1240],
-  [3150, 1102.5, 787.5, 1260],
   [3200, 1120, 800, 1280],
-  [3250, 1137.5, 812.5, 1300],
   [3300, 1155, 825, 1320],
-  [3350, 1172.5, 837.5, 1340],
   [3400, 1190, 850, 1360],
-  [3450, 1207.5, 862.5, 1380],
   [3500, 1225, 875, 1400],
 ];
 
@@ -112,50 +161,37 @@ const xz = trainigdata.map((subArray) => [subArray[0], subArray[3]]);
 const x = xx.concat(xy, xz);
 
 const x99array = x.map((subArray) => [subArray[0], subArray[1] * 0.99]);
-const x995array = x.map((subArray) => [subArray[0], subArray[1] * 0.995]);
 const x98array = x.map((subArray) => [subArray[0], subArray[1] * 0.98]);
-const x985array = x.map((subArray) => [subArray[0], subArray[1] * 0.985]);
 const x97array = x.map((subArray) => [subArray[0], subArray[1] * 0.97]);
-const x975array = x.map((subArray) => [subArray[0], subArray[1] * 0.975]);
 const x103array = x.map((subArray) => [subArray[0], subArray[1] * 1.03]);
-const x1025array = x.map((subArray) => [subArray[0], subArray[1] * 1.025]);
 const x102array = x.map((subArray) => [subArray[0], subArray[1] * 1.02]);
-const x1015array = x.map((subArray) => [subArray[0], subArray[1] * 1.015]);
 const x101array = x.map((subArray) => [subArray[0], subArray[1] * 1.01]);
-const x1005array = x.map((subArray) => [subArray[0], subArray[1] * 1.005]);
 
-let j, k;
-let xi = [];
-let xj = [];
+const x95array = x.map((subArray) => [subArray[0], subArray[1] * 0.95]);
 
-let count1 = 0,
-  count2 = 0;
-for (let i = 95; i >= 75; i = i - 5) {
-  j = x.map((subArray) => [subArray[0], subArray[1] * (i / 100)]);
-  if (!xi.includes(j)) {
-    xi.push(j);
-  }
+const x90array = x.map((subArray) => [subArray[0], subArray[1] * 0.9]);
 
-  count1 = count1 + 1;
-}
+const x80array = x.map((subArray) => [subArray[0], subArray[1] * 0.8]);
 
-for (let i = 105; i <= 125; i = i + 5) {
-  k = x.map((subArray) => [subArray[0], subArray[1] * (i / 100)]);
-  if (!xj.includes(k)) {
-    xj.push(k);
-  }
+const x70array = x.map((subArray) => [subArray[0], subArray[1] * 0.7]);
 
-  count2 = count2 + 1;
-}
-const y1 = Array(45).fill([1, 0, 0]);
-const y2 = Array(45).fill([0, 1, 0]);
-const y3 = Array(45).fill([0, 0, 1]);
+const x105array = x.map((subArray) => [subArray[0], subArray[1] * 1.05]);
 
-const ty = Array(135 * 10).fill([0, 0, 0]);
+const x110array = x.map((subArray) => [subArray[0], subArray[1] * 1.1]);
+
+const x120array = x.map((subArray) => [subArray[0], subArray[1] * 1.2]);
+
+const x130array = x.map((subArray) => [subArray[0], subArray[1] * 1.3]);
+
+const y1 = Array(23).fill([1, 0, 0]);
+const y2 = Array(23).fill([0, 1, 0]);
+const y3 = Array(23).fill([0, 0, 1]);
+
+const ty = Array(69 * 8).fill([0, 0, 0]);
 
 const y = y1.concat(y2, y3);
 
-const yss = y.concat(y, y, y, y, y, y, y, y, y, ty);
+const yss = y.concat(y, y, y, y, y, y, ty);
 
 const xss = x.concat(
   x99array,
@@ -164,14 +200,14 @@ const xss = x.concat(
   x103array,
   x102array,
   x101array,
-  x1005array,
-  x1015array,
-  x1025array,
-  x975array,
-  x985array,
-  x995array,
-  xi.flat(1),
-  xj.flat(1)
+  x95array,
+  x70array,
+  x105array,
+  x130array,
+  x90array,
+  x80array,
+  x110array,
+  x120array
 );
 
 // training data
@@ -181,9 +217,9 @@ const ys = tf.tensor2d(yss);
 // Train the model
 async function trainModel() {
   await model.fit(xs, ys, {
-    epochs: 2000, // Number of training epochs
+    epochs: 20000, // Number of training epochs
     batchSize: 32, // Batch size
-    validationSplit: 0.3, // Split 20% of data for validation
+    validationSplit: 0.2, // Split 20% of data for validation
     callbacks: {
       onEpochEnd: (epoch, logs) => {
         console.log(
@@ -198,12 +234,12 @@ async function trainModel() {
 console.log("Model training started...");
 
 // Call the training function
-// trainModel();
+trainModel();
 
 // // Predict on new data
-const newData = tf.tensor2d([[2400, 600]]);
-const prediction = model.predict(newData);
-prediction.print(); // Print the raw prediction probabilities
+// const newData = tf.tensor2d([[2013, 784]]);
+// const prediction = model.predict(newData);
+// prediction.print(); // Print the raw prediction probabilities
 
 // const predictedClass = prediction.argMax(-1).dataSync()[0];
 // console.log(`Predicted class: ${predictedClass}`);

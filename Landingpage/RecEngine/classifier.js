@@ -7,20 +7,24 @@ const model = tf.sequential();
 model.add(
   tf.layers.dense({
     inputShape: [2], // 2 input features
-    units: 4,
+    units: 6,
     activation: "relu",
+    kernelRegularizer: tf.regularizers.l1l2({ l1: 0.01, l2: 0.01 }),
   })
 );
-model.add(
-  tf.layers.dense({
-    units: 5,
-    activation: "relu",
-  })
-);
+
 model.add(
   tf.layers.dense({
     units: 7,
     activation: "relu",
+    kernelRegularizer: tf.regularizers.l1l2({ l1: 0.01, l2: 0.01 }),
+  })
+);
+model.add(
+  tf.layers.dense({
+    units: 6,
+    activation: "relu",
+    kernelRegularizer: tf.regularizers.l1l2({ l1: 0.01, l2: 0.01 }),
   })
 );
 
@@ -30,18 +34,16 @@ model.add(
     activation: "relu",
   })
 );
-model.add(
-  tf.layers.dense({
-    units: 5,
-    activation: "relu",
-  })
-);
+
 model.add(
   tf.layers.dense({
     units: 4,
     activation: "relu",
+    kernelRegularizer: tf.regularizers.l1l2({ l1: 0.01, l2: 0.01 }),
   })
 );
+// model.add(tf.layers.dropout({ rate: 0.2 }));
+
 // Output layer with 3 neurons for ternary classification
 model.add(
   tf.layers.dense({
@@ -124,29 +126,23 @@ const x1015array = x.map((subArray) => [subArray[0], subArray[1] * 1.015]);
 const x101array = x.map((subArray) => [subArray[0], subArray[1] * 1.01]);
 const x1005array = x.map((subArray) => [subArray[0], subArray[1] * 1.005]);
 
-let j, k;
-let xi = [];
-let xj = [];
+// let j, k;
+// let xi = [];
+// let xj = [];
 
-let count1 = 0,
-  count2 = 0;
-for (let i = 95; i >= 75; i = i - 5) {
-  j = x.map((subArray) => [subArray[0], subArray[1] * (i / 100)]);
-  if (!xi.includes(j)) {
-    xi.push(j);
-  }
+// for (let i = 95; i >= 75; i = i - 5) {
+//   j = x.map((subArray) => [subArray[0], subArray[1] * (i / 100)]);
+//   if (!xi.includes(j)) {
+//     xi.push(j);
+//   }
+// }
 
-  count1 = count1 + 1;
-}
-
-for (let i = 105; i <= 125; i = i + 5) {
-  k = x.map((subArray) => [subArray[0], subArray[1] * (i / 100)]);
-  if (!xj.includes(k)) {
-    xj.push(k);
-  }
-
-  count2 = count2 + 1;
-}
+// for (let i = 105; i <= 125; i = i + 5) {
+//   k = x.map((subArray) => [subArray[0], subArray[1] * (i / 100)]);
+//   if (!xj.includes(k)) {
+//     xj.push(k);
+//   }
+// }
 const y1 = Array(45).fill([1, 0, 0]);
 const y2 = Array(45).fill([0, 1, 0]);
 const y3 = Array(45).fill([0, 0, 1]);
@@ -155,7 +151,7 @@ const ty = Array(135 * 10).fill([0, 0, 0]);
 
 const y = y1.concat(y2, y3);
 
-const yss = y.concat(y, y, y, y, y, y, y, y, y, ty);
+const yss = y.concat(y, y, y, y, y, y, y, y, y, y, y, y);
 
 const xss = x.concat(
   x99array,
@@ -169,9 +165,9 @@ const xss = x.concat(
   x1025array,
   x975array,
   x985array,
-  x995array,
-  xi.flat(1),
-  xj.flat(1)
+  x995array
+  // xi.flat(1),
+  // xj.flat(1)
 );
 
 // training data
@@ -181,9 +177,9 @@ const ys = tf.tensor2d(yss);
 // Train the model
 async function trainModel() {
   await model.fit(xs, ys, {
-    epochs: 2000, // Number of training epochs
-    batchSize: 32, // Batch size
-    validationSplit: 0.3, // Split 20% of data for validation
+    epochs: 5000, // Number of training epochs
+    batchSize: 64, // Batch size
+    validationSplit: 0.2, // Split 20% of data for validation
     callbacks: {
       onEpochEnd: (epoch, logs) => {
         console.log(
@@ -198,12 +194,12 @@ async function trainModel() {
 console.log("Model training started...");
 
 // Call the training function
-// trainModel();
+trainModel();
 
 // // Predict on new data
-const newData = tf.tensor2d([[2400, 600]]);
-const prediction = model.predict(newData);
-prediction.print(); // Print the raw prediction probabilities
+// const newData = tf.tensor2d([[1600, 400]]);
+// const prediction = model.predict(newData);
+// prediction.print(); // Print the raw prediction probabilities
 
 // const predictedClass = prediction.argMax(-1).dataSync()[0];
 // console.log(`Predicted class: ${predictedClass}`);

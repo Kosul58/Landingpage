@@ -112,17 +112,11 @@ const xz = trainigdata.map((subArray) => [subArray[0], subArray[3]]);
 const x = xx.concat(xy, xz);
 
 const x99array = x.map((subArray) => [subArray[0], subArray[1] * 0.99]);
-const x995array = x.map((subArray) => [subArray[0], subArray[1] * 0.995]);
 const x98array = x.map((subArray) => [subArray[0], subArray[1] * 0.98]);
-const x985array = x.map((subArray) => [subArray[0], subArray[1] * 0.985]);
 const x97array = x.map((subArray) => [subArray[0], subArray[1] * 0.97]);
-const x975array = x.map((subArray) => [subArray[0], subArray[1] * 0.975]);
 const x103array = x.map((subArray) => [subArray[0], subArray[1] * 1.03]);
-const x1025array = x.map((subArray) => [subArray[0], subArray[1] * 1.025]);
 const x102array = x.map((subArray) => [subArray[0], subArray[1] * 1.02]);
-const x1015array = x.map((subArray) => [subArray[0], subArray[1] * 1.015]);
 const x101array = x.map((subArray) => [subArray[0], subArray[1] * 1.01]);
-const x1005array = x.map((subArray) => [subArray[0], subArray[1] * 1.005]);
 
 let j, k;
 let xi = [];
@@ -151,11 +145,11 @@ const y1 = Array(45).fill([1, 0, 0]);
 const y2 = Array(45).fill([0, 1, 0]);
 const y3 = Array(45).fill([0, 0, 1]);
 
-const ty = Array(135 * 10).fill([0, 0, 0]);
+const ty = Array(135 * 10).fill([0.001, 0.001, 0.001]);
 
 const y = y1.concat(y2, y3);
 
-const yss = y.concat(y, y, y, y, y, y, y, y, y, ty);
+const yss = y.concat(y, y, y, y, y, y, ty);
 
 const xss = x.concat(
   x99array,
@@ -164,12 +158,6 @@ const xss = x.concat(
   x103array,
   x102array,
   x101array,
-  x1005array,
-  x1015array,
-  x1025array,
-  x975array,
-  x985array,
-  x995array,
   xi.flat(1),
   xj.flat(1)
 );
@@ -201,7 +189,7 @@ console.log("Model training started...");
 // trainModel();
 
 // // Predict on new data
-const newData = tf.tensor2d([[2400, 600]]);
+const newData = tf.tensor2d([[2450, 1050]]);
 const prediction = model.predict(newData);
 prediction.print(); // Print the raw prediction probabilities
 
