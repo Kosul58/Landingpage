@@ -1,15 +1,14 @@
 // Import TensorFlow.js library for Node.js with CPU support
 import * as tf from "@tensorflow/tfjs";
 
-const model = tf.sequential();
+const modelB = tf.sequential();
 
 // Input layer and first hidden layer with 10 neurons
-model.add(
+modelB.add(
   tf.layers.dense({
     inputShape: [2], // 2 input features
     units: 6,
     activation: "relu",
-    kernelRegularizer: tf.regularizers.l1l2({ l1: 0.01, l2: 0.01 }),
   })
 );
 
@@ -17,45 +16,25 @@ model.add(
   tf.layers.dense({
     units: 7,
     activation: "relu",
-    kernelRegularizer: tf.regularizers.l1l2({ l1: 0.01, l2: 0.01 }),
   })
 );
 model.add(
   tf.layers.dense({
     units: 6,
     activation: "relu",
-    kernelRegularizer: tf.regularizers.l1l2({ l1: 0.01, l2: 0.01 }),
   })
 );
-
-model.add(
-  tf.layers.dense({
-    units: 6,
-    activation: "relu",
-  })
-);
-
-model.add(
-  tf.layers.dense({
-    units: 4,
-    activation: "relu",
-    kernelRegularizer: tf.regularizers.l1l2({ l1: 0.01, l2: 0.01 }),
-  })
-);
-// model.add(tf.layers.dropout({ rate: 0.2 }));
-
 // Output layer with 3 neurons for ternary classification
 model.add(
   tf.layers.dense({
-    units: 3,
-    activation: "softmax", // Softmax activation function for classification
+    units: 1,
+    activation: "sigmoid", // Softmax activation function for classification
   })
 );
 
-// Compile the model
 model.compile({
   optimizer: tf.train.adam(), // Adam optimizer
-  loss: "categoricalCrossentropy", // Categorical cross-entropy loss function
+  loss: "binaryCrossentropy", // Categorical cross-entropy loss function
   metrics: ["accuracy"], // Track accuracy during training
 });
 
@@ -177,8 +156,8 @@ const ys = tf.tensor2d(yss);
 // Train the model
 async function trainModel() {
   await model.fit(xs, ys, {
-    epochs: 5000, // Number of training epochs
-    batchSize: 64, // Batch size
+    epochs: 2000, // Number of training epochs
+    batchSize: 32, // Batch size
     validationSplit: 0.2, // Split 20% of data for validation
     callbacks: {
       onEpochEnd: (epoch, logs) => {
@@ -197,7 +176,7 @@ console.log("Model training started...");
 trainModel();
 
 // // Predict on new data
-// const newData = tf.tensor2d([[1600, 400]]);
+// const newData = tf.tensor2d([[1600, 560]]);
 // const prediction = model.predict(newData);
 // prediction.print(); // Print the raw prediction probabilities
 
