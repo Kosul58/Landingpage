@@ -54,7 +54,7 @@ model.add(
 
 // Compile the model
 model.compile({
-  optimizer: tf.train.adam(), // Adam optimizer
+  optimizer: tf.train.adam(0.002), // Adam optimizer
   loss: "categoricalCrossentropy", // Categorical cross-entropy loss function
   metrics: ["accuracy"], // Track accuracy during training
 });

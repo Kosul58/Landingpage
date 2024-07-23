@@ -7,33 +7,35 @@ const modelB = tf.sequential();
 modelB.add(
   tf.layers.dense({
     inputShape: [2], // 2 input features
-    units: 6,
+    units: 20,
     activation: "relu",
   })
 );
 
-model.add(
+modelB.add(
   tf.layers.dense({
-    units: 7,
+    units: 20,
     activation: "relu",
   })
 );
-model.add(
+
+modelB.add(
   tf.layers.dense({
-    units: 6,
+    units: 10,
     activation: "relu",
   })
 );
+
 // Output layer with 3 neurons for ternary classification
-model.add(
+modelB.add(
   tf.layers.dense({
     units: 1,
     activation: "sigmoid", // Softmax activation function for classification
   })
 );
 
-model.compile({
-  optimizer: tf.train.adam(), // Adam optimizer
+modelB.compile({
+  optimizer: tf.train.adam(0.02), // Adam optimizer
   loss: "binaryCrossentropy", // Categorical cross-entropy loss function
   metrics: ["accuracy"], // Track accuracy during training
 });
@@ -86,79 +88,163 @@ const trainigdata = [
   [3500, 1225, 875, 1400],
 ];
 
-const xx = trainigdata.map((subArray) => [subArray[0], subArray[1]]);
-const xy = trainigdata.map((subArray) => [subArray[0], subArray[2]]);
-const xz = trainigdata.map((subArray) => [subArray[0], subArray[3]]);
+console.log(trainigdata.length);
+const td35 = trainigdata.map((subArray) => [subArray[0], subArray[1]]);
+const td25 = trainigdata.map((subArray) => [subArray[0], subArray[2]]);
+const td40 = trainigdata.map((subArray) => [subArray[0], subArray[3]]);
 
-const x = xx.concat(xy, xz);
+// const x99array = x.map((subArray) => [subArray[0], subArray[1] * 0.99]);
+// const x995array = x.map((subArray) => [subArray[0], subArray[1] * 0.995]);
+// const x98array = x.map((subArray) => [subArray[0], subArray[1] * 0.98]);
+// const x985array = x.map((subArray) => [subArray[0], subArray[1] * 0.985]);
+// const x97array = x.map((subArray) => [subArray[0], subArray[1] * 0.97]);
+// const x975array = x.map((subArray) => [subArray[0], subArray[1] * 0.975]);
+// const x103array = x.map((subArray) => [subArray[0], subArray[1] * 1.03]);
+// const x1025array = x.map((subArray) => [subArray[0], subArray[1] * 1.025]);
+// const x102array = x.map((subArray) => [subArray[0], subArray[1] * 1.02]);
+// const x1015array = x.map((subArray) => [subArray[0], subArray[1] * 1.015]);
+// const x101array = x.map((subArray) => [subArray[0], subArray[1] * 1.01]);
+// const x1005array = x.map((subArray) => [subArray[0], subArray[1] * 1.005]);
 
-const x99array = x.map((subArray) => [subArray[0], subArray[1] * 0.99]);
-const x995array = x.map((subArray) => [subArray[0], subArray[1] * 0.995]);
-const x98array = x.map((subArray) => [subArray[0], subArray[1] * 0.98]);
-const x985array = x.map((subArray) => [subArray[0], subArray[1] * 0.985]);
-const x97array = x.map((subArray) => [subArray[0], subArray[1] * 0.97]);
-const x975array = x.map((subArray) => [subArray[0], subArray[1] * 0.975]);
-const x103array = x.map((subArray) => [subArray[0], subArray[1] * 1.03]);
-const x1025array = x.map((subArray) => [subArray[0], subArray[1] * 1.025]);
-const x102array = x.map((subArray) => [subArray[0], subArray[1] * 1.02]);
-const x1015array = x.map((subArray) => [subArray[0], subArray[1] * 1.015]);
-const x101array = x.map((subArray) => [subArray[0], subArray[1] * 1.01]);
-const x1005array = x.map((subArray) => [subArray[0], subArray[1] * 1.005]);
+let j, k;
 
-// let j, k;
-// let xi = [];
-// let xj = [];
+let x35_1 = [];
+let x25_1 = [];
+let x40_1 = [];
+let x35_0 = [];
+let x25_0 = [];
+let x40_0 = [];
 
-// for (let i = 95; i >= 75; i = i - 5) {
-//   j = x.map((subArray) => [subArray[0], subArray[1] * (i / 100)]);
-//   if (!xi.includes(j)) {
-//     xi.push(j);
-//   }
-// }
+let x35i = [];
+let x35j = [];
+let x25i = [];
+let x25j = [];
+let x40i = [];
+let x40j = [];
 
-// for (let i = 105; i <= 125; i = i + 5) {
-//   k = x.map((subArray) => [subArray[0], subArray[1] * (i / 100)]);
-//   if (!xj.includes(k)) {
-//     xj.push(k);
-//   }
-// }
-const y1 = Array(45).fill([1, 0, 0]);
-const y2 = Array(45).fill([0, 1, 0]);
-const y3 = Array(45).fill([0, 0, 1]);
+const datainput2 = (a, b, c) => {
+  for (let i = 98; i <= 100; i = i + 0.5) {
+    j = a.map((subArray) => [
+      subArray[0],
+      parseFloat((subArray[1] * (i / 100)).toFixed(1)),
+    ]);
+    if (!b.includes(j)) {
+      b.push(j);
+    }
+    // b.pop(j);
+  }
+  for (let i = 102; i >= 101; i = i - 0.5) {
+    k = a.map((subArray) => [
+      subArray[0],
+      parseFloat((subArray[1] * (i / 100)).toFixed(1)),
+    ]);
+    if (!c.includes(k)) {
+      c.push(k);
+    }
+    // c.pop(k);
+  }
+};
 
-const ty = Array(135 * 10).fill([0, 0, 0]);
+const datainput = (a, b, c) => {
+  for (let i = 90; i >= 0; i = i - 40) {
+    j = a.map((subArray) => [
+      subArray[0],
+      parseFloat((subArray[1] * (i / 100)).toFixed(1)),
+    ]);
+    if (!b.includes(j)) {
+      b.push(j);
+    }
+    // b.pop(j);
+  }
+  for (let i = 110; i <= 200; i = i + 40) {
+    k = a.map((subArray) => [
+      subArray[0],
+      parseFloat((subArray[1] * (i / 100)).toFixed(1)),
+    ]);
+    if (!c.includes(k)) {
+      c.push(k);
+    }
+    // c.pop(k);
+  }
+};
 
-const y = y1.concat(y2, y3);
+datainput2(td35, x35_1, x35_0);
+datainput2(td25, x25_1, x25_0);
+datainput2(td40, x40_1, x40_0);
 
-const yss = y.concat(y, y, y, y, y, y, y, y, y, y, y, y);
+datainput(td35, x35i, x35j);
+datainput(td25, x25i, x25j);
+datainput(td40, x40i, x40j);
 
-const xss = x.concat(
-  x99array,
-  x98array,
-  x97array,
-  x103array,
-  x102array,
-  x101array,
-  x1005array,
-  x1015array,
-  x1025array,
-  x975array,
-  x985array,
-  x995array
-  // xi.flat(1),
-  // xj.flat(1)
-);
+const xss35 = x35_1
+  .flat(1)
+  .concat(
+    x35_0.flat(1),
+    x35_1.flat(1),
+    x35_0.flat(1),
+    x35i.flat(1),
+    x35j.flat(1)
+  );
+const xss25 = x25_1
+  .flat(1)
+  .concat(
+    x25_0.flat(1),
+    x25_1.flat(1),
+    x25_0.flat(1),
+    x25i.flat(1),
+    x25j.flat(1)
+  );
+const xss40 = x40_1
+  .flat(1)
+  .concat(
+    x40_0.flat(1),
+    x40_1.flat(1),
+    x40_0.flat(1),
+    x40i.flat(1),
+    x40j.flat(1)
+  );
 
-// training data
-const xs = tf.tensor2d(xss);
-const ys = tf.tensor2d(yss);
+console.log(x35_0.flat(1).length, x35_1.flat(1).length);
+console.log(x35i.flat(1).length, x35j.flat(1).length);
 
+const y1 = Array(720).fill([1]);
+const y0 = Array(270).fill([0]);
+
+const yss35 = y1.concat(y0);
+const yss25 = y1.concat(y0);
+const yss40 = y1.concat(y0);
+
+console.log(xss35.length, xss25.length, xss40.length);
+console.log(yss35.length, yss25.length, yss40.length);
+
+// // training data
+const xs35 = tf.tensor2d(xss35);
+const ys35 = tf.tensor2d(yss35);
+// const xs25 = tf.tensor2d(xss25);
+// const ys25 = tf.tensor2d(yss25);
+// const xs40 = tf.tensor2d(xss40);
+// const ys40 = tf.tensor2d(yss40);
+
+// console.log(
+//   x35_0.flat(1).length,
+//   x25_0.flat(1).length,
+//   x40_0.flat(1).length,
+//   x35_1.flat(1).length,
+//   x25_1.flat(1).length,
+//   x40_1.flat(1).length,
+//   x35i.flat(1).length,
+//   x35j.flat(1).length,
+//   x25i.flat(1).length,
+//   x25j.flat(1).length,
+//   x40i.flat(1).length,
+//   x40j.flat(1).length
+// );
 // Train the model
-async function trainModel() {
-  await model.fit(xs, ys, {
-    epochs: 2000, // Number of training epochs
-    batchSize: 32, // Batch size
-    validationSplit: 0.2, // Split 20% of data for validation
+async function trainModel1() {
+  await modelB.fit(xs35, ys35, {
+    epochs: 1000, // Reduced epochs for faster experimentation
+    batchSize: 64, // Reduced batch size for more frequent updates
+    validationSplit: 0.2, // Use 20% for validation
     callbacks: {
       onEpochEnd: (epoch, logs) => {
         console.log(
@@ -173,12 +259,14 @@ async function trainModel() {
 console.log("Model training started...");
 
 // Call the training function
-trainModel();
+// trainModel1();
 
 // // Predict on new data
-// const newData = tf.tensor2d([[1600, 560]]);
-// const prediction = model.predict(newData);
-// prediction.print(); // Print the raw prediction probabilities
+const newData = tf.tensor2d([[3000, 1400]]);
+for (let i = 0; i < 10; i++) {
+  const prediction = modelB.predict(newData);
+  prediction.print(); // Print the raw prediction probabilities
+}
 
 // const predictedClass = prediction.argMax(-1).dataSync()[0];
 // console.log(`Predicted class: ${predictedClass}`);

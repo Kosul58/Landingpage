@@ -1,6 +1,9 @@
 import React from "react";
+import Navbar from "../Navbar";
 import { useRef, useState, useEffect } from "react";
 import { IoIosCloseCircle } from "react-icons/io";
+
+let bmr;
 const Calculate = () => {
   const closemodal1 = useRef(null);
   const closemodal2 = useRef(null);
@@ -49,8 +52,7 @@ const Calculate = () => {
   const handleSubmit2 = (event) => {
     event.preventDefault(); // Prevent the default form submission behavior
 
-    const bmr =
-      (10 * weight1 + 6.25 * height1 - 5 * age1 - gender1) * activitylvl1;
+    bmr = (10 * weight1 + 6.25 * height1 - 5 * age1 - gender1) * activitylvl1;
     setSubmittedValue2(bmr);
   };
 
@@ -105,164 +107,168 @@ const Calculate = () => {
   };
 
   return (
-    <div className="Loginsignup">
-      <div className="loginform ">
-        <div className="regbackbtn">
-          <button className="signupbtn">Go Back</button>
-        </div>
+    <>
+      <Navbar />
+      <div className="Loginsignup">
+        <div className="loginform ">
+          <div className="regbackbtn">
+            <button className="signupbtn">Go Back</button>
+          </div>
 
-        <div className="signup1" style={{ justifyContent: "center" }}>
-          <div className="calc1" onClick={() => modalopen(0)}>
-            BMI
+          <div className="signup1" style={{ justifyContent: "center" }}>
+            <div className="calc1" onClick={() => modalopen(0)}>
+              BMI
+            </div>
+          </div>
+          <div className="signup1" style={{ justifyContent: "center" }}>
+            <div className="calc1" onClick={() => modalopen(1)}>
+              BMR
+            </div>
           </div>
         </div>
-        <div className="signup1" style={{ justifyContent: "center" }}>
-          <div className="calc1" onClick={() => modalopen(1)}>
-            BMR
+        <form
+          onSubmit={handleSubmit}
+          className="loginform1 signblock"
+          ref={closemodal1}
+        >
+          <div className="regbackbtn" onClick={() => modalclose(0)}>
+            <IoIosCloseCircle size={30} />
           </div>
-        </div>
+          <div className="signup11">
+            <label>Height(cm):</label>
+            <input
+              type="number"
+              value={inputValue1}
+              onChange={handleChange1}
+            ></input>
+          </div>
+          <div className="signup11">
+            <label>Weight(kg):</label>
+            <input
+              type="number"
+              value={inputValue2}
+              onChange={handleChange2}
+            ></input>
+          </div>
+          <button type="submit" className="signupbtn">
+            Calculate
+          </button>
+          <div style={{ marginTop: "20px", fontSize: "24px" }}>
+            {submittedValue && <span>BMI: {submittedValue}</span>}
+          </div>
+        </form>
+        <form
+          onSubmit={handleSubmit2}
+          className="loginform1 signblock"
+          ref={closemodal2}
+        >
+          <div className="regbackbtn" onClick={() => modalclose(1)}>
+            <IoIosCloseCircle size={30} />
+          </div>
+          <div className="signup11" style={{ marginTop: "10px" }}>
+            <label>Age(yrs):</label>
+            <input type="number" value={age1} onChange={handleChangex1}></input>
+          </div>
+          <div className="signup11">
+            <label>Height(cm):</label>
+            <input
+              type="number"
+              value={height1}
+              onChange={handleChangex2}
+            ></input>
+          </div>
+          <div className="signup11">
+            <label>Weight(kg):</label>
+            <input
+              type="number"
+              value={weight1}
+              onChange={handleChangex3}
+            ></input>
+          </div>
+
+          <div className="hkkh1">
+            <div className="healthissues" style={{ marginTop: "-40px" }}>
+              <label>Activity Level:</label>
+              <div className="hselect1">
+                <div
+                  ref={jcheck1}
+                  className="hissues1"
+                  style={{ height: "30px" }}
+                  key={0}
+                  onClick={() => changegcolor4(0)}
+                >
+                  Sedentary
+                </div>
+                <div
+                  ref={jcheck2}
+                  className="hissues1"
+                  style={{ height: "30px" }}
+                  key={1}
+                  onClick={() => changegcolor4(1)}
+                >
+                  Lightly Active
+                </div>
+                <div
+                  ref={jcheck3}
+                  className="hissues1"
+                  style={{ height: "30px" }}
+                  key={2}
+                  onClick={() => changegcolor4(2)}
+                >
+                  Moderately Active
+                </div>
+                <div
+                  ref={jcheck4}
+                  className="hissues1"
+                  style={{ height: "30px" }}
+                  key={3}
+                  onClick={() => changegcolor4(3)}
+                >
+                  Very Active
+                </div>
+                <div
+                  ref={jcheck5}
+                  className="hissues1"
+                  style={{ height: "30px" }}
+                  key={4}
+                  onClick={() => changegcolor4(4)}
+                >
+                  Extremely Active
+                </div>
+              </div>
+            </div>
+            <div className="gendercheck">
+              <label>Gender:</label>
+              <div className="genderr">
+                <div
+                  ref={gcheck1}
+                  className="genderchoose"
+                  onClick={() => changegcolor(0)}
+                >
+                  Male
+                </div>
+                <div
+                  ref={gcheck2}
+                  className="genderchoose"
+                  onClick={() => changegcolor(1)}
+                >
+                  Female
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" className="signupbtn">
+            Calculate
+          </button>
+          <div style={{ marginTop: "20px", fontSize: "24px" }}>
+            {submittedValue2 && <span>BMR: {submittedValue2}</span>}
+          </div>
+        </form>
       </div>
-      <form
-        onSubmit={handleSubmit}
-        className="loginform1 signblock"
-        ref={closemodal1}
-      >
-        <div className="regbackbtn" onClick={() => modalclose(0)}>
-          <IoIosCloseCircle size={30} />
-        </div>
-        <div className="signup11">
-          <label>Height(cm):</label>
-          <input
-            type="number"
-            value={inputValue1}
-            onChange={handleChange1}
-          ></input>
-        </div>
-        <div className="signup11">
-          <label>Weight(kg):</label>
-          <input
-            type="number"
-            value={inputValue2}
-            onChange={handleChange2}
-          ></input>
-        </div>
-        <button type="submit" className="signupbtn">
-          Calculate
-        </button>
-        <div style={{ marginTop: "20px", fontSize: "24px" }}>
-          {submittedValue && <span>BMI: {submittedValue}</span>}
-        </div>
-      </form>
-      <form
-        onSubmit={handleSubmit2}
-        className="loginform1 signblock"
-        ref={closemodal2}
-      >
-        <div className="regbackbtn" onClick={() => modalclose(1)}>
-          <IoIosCloseCircle size={30} />
-        </div>
-        <div className="signup11" style={{ marginTop: "10px" }}>
-          <label>Age(yrs):</label>
-          <input type="number" value={age1} onChange={handleChangex1}></input>
-        </div>
-        <div className="signup11">
-          <label>Height(cm):</label>
-          <input
-            type="number"
-            value={height1}
-            onChange={handleChangex2}
-          ></input>
-        </div>
-        <div className="signup11">
-          <label>Weight(kg):</label>
-          <input
-            type="number"
-            value={weight1}
-            onChange={handleChangex3}
-          ></input>
-        </div>
-
-        <div className="hkkh1">
-          <div className="healthissues" style={{ marginTop: "-40px" }}>
-            <label>Activity Level:</label>
-            <div className="hselect1">
-              <div
-                ref={jcheck1}
-                className="hissues1"
-                style={{ height: "30px" }}
-                key={0}
-                onClick={() => changegcolor4(0)}
-              >
-                Sedentary
-              </div>
-              <div
-                ref={jcheck2}
-                className="hissues1"
-                style={{ height: "30px" }}
-                key={1}
-                onClick={() => changegcolor4(1)}
-              >
-                Lightly Active
-              </div>
-              <div
-                ref={jcheck3}
-                className="hissues1"
-                style={{ height: "30px" }}
-                key={2}
-                onClick={() => changegcolor4(2)}
-              >
-                Moderately Active
-              </div>
-              <div
-                ref={jcheck4}
-                className="hissues1"
-                style={{ height: "30px" }}
-                key={3}
-                onClick={() => changegcolor4(3)}
-              >
-                Very Active
-              </div>
-              <div
-                ref={jcheck5}
-                className="hissues1"
-                style={{ height: "30px" }}
-                key={4}
-                onClick={() => changegcolor4(4)}
-              >
-                Extremely Active
-              </div>
-            </div>
-          </div>
-          <div className="gendercheck">
-            <label>Gender:</label>
-            <div className="genderr">
-              <div
-                ref={gcheck1}
-                className="genderchoose"
-                onClick={() => changegcolor(0)}
-              >
-                Male
-              </div>
-              <div
-                ref={gcheck2}
-                className="genderchoose"
-                onClick={() => changegcolor(1)}
-              >
-                Female
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <button type="submit" className="signupbtn">
-          Calculate
-        </button>
-        <div style={{ marginTop: "20px", fontSize: "24px" }}>
-          {submittedValue2 && <span>BMR: {submittedValue2}</span>}
-        </div>
-      </form>
-    </div>
+    </>
   );
 };
 
 export default Calculate;
+export { bmr };

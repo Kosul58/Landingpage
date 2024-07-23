@@ -1,4 +1,5 @@
 import React from "react";
+import Navbar from "../Navbar";
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 const Signup = () => {
@@ -139,6 +140,7 @@ const Signup = () => {
   };
   return (
     <>
+      <Navbar />
       <div className="Loginsignup">
         <div ref={regform1} className="loginform ">
           <div className="regbackbtn">

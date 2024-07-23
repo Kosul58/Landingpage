@@ -10,6 +10,7 @@ import Login from "./Components/Loginpage/login";
 import Signup from "./Components/Registerpage/register";
 import Calculate from "./Components/Calculate/calculate";
 import Dashboard from "./Components/Dashboard/dashboard";
+import About from "./Components/About/about";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/calculate" element={<Calculate />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </Router>
   );
