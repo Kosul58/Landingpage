@@ -30,22 +30,10 @@ const connectDB = async () => {
     process.exit(1);
   }
 };
+
 connectDB();
-
-const fetchAndLogData = async () => {
-  try {
-    const foods = await DFood.find(); // Fetch all documents from the collection
-    for (const food of foods) {
-      console.log(food);
-      return food;
-    }
-  } catch (error) {
-    console.error("Error fetching data:", error.message);
-  }
-};
-
 // fetchAndLogData();
-const classifyresult = async (bmr, userid) => {
+const classifyresult = async (bmr, userid, ftype) => {
   try {
     const foods = await DFood.find(); // Fetch all documents from the collection
 
@@ -78,7 +66,7 @@ const classifyresult = async (bmr, userid) => {
         nf_protein: food.nf_protein,
         food_rating: food.food_rating,
       };
-      if (foodcategory !== "0") {
+      if (foodcategory !== "0" && ftype === food.food_type) {
         const newFood = new UFood(newdata);
         newFood.save();
       }
@@ -88,4 +76,4 @@ const classifyresult = async (bmr, userid) => {
   }
 };
 
-classifyresult(bmr, "kosul");
+classifyresult(bmr, "kosul", "veg");

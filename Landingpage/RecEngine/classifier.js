@@ -7,21 +7,63 @@ const modelB = tf.sequential();
 modelB.add(
   tf.layers.dense({
     inputShape: [2], // 2 input features
-    units: 20,
+    units: 1604,
     activation: "relu",
   })
 );
 
 modelB.add(
   tf.layers.dense({
-    units: 20,
+    units: 1640,
     activation: "relu",
   })
 );
 
 modelB.add(
   tf.layers.dense({
-    units: 10,
+    units: 1720,
+    activation: "relu",
+  })
+);
+
+modelB.add(
+  tf.layers.dense({
+    units: 1640,
+    activation: "relu",
+  })
+);
+
+modelB.add(
+  tf.layers.dense({
+    units: 1320,
+    activation: "relu",
+  })
+);
+
+modelB.add(
+  tf.layers.dense({
+    units: 1160,
+    activation: "relu",
+  })
+);
+
+modelB.add(
+  tf.layers.dense({
+    units: 800,
+    activation: "relu",
+  })
+);
+
+modelB.add(
+  tf.layers.dense({
+    units: 400,
+    activation: "relu",
+  })
+);
+
+modelB.add(
+  tf.layers.dense({
+    units: 200,
     activation: "relu",
   })
 );
@@ -35,7 +77,7 @@ modelB.add(
 );
 
 modelB.compile({
-  optimizer: tf.train.adam(0.02), // Adam optimizer
+  optimizer: tf.train.adam(), // Adam optimizer
   loss: "binaryCrossentropy", // Categorical cross-entropy loss function
   metrics: ["accuracy"], // Track accuracy during training
 });
@@ -259,14 +301,12 @@ async function trainModel1() {
 console.log("Model training started...");
 
 // Call the training function
-// trainModel1();
+trainModel1();
 
 // // Predict on new data
-const newData = tf.tensor2d([[3000, 1400]]);
-for (let i = 0; i < 10; i++) {
-  const prediction = modelB.predict(newData);
-  prediction.print(); // Print the raw prediction probabilities
-}
+// const newData = tf.tensor2d([[3000, 1400]]);
+// const prediction = modelB.predict(newData);
+// prediction.print(); // Print the raw prediction probabilities
 
 // const predictedClass = prediction.argMax(-1).dataSync()[0];
 // console.log(`Predicted class: ${predictedClass}`);
