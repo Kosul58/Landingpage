@@ -4,6 +4,19 @@ import torch.optim as optim
 import numpy as np 
 import matplotlib.pyplot as plt
 
+import json
+
+# Path to the JSON file
+file_path = './Traindata/Modeldata/diabities0.json'
+
+# Read the JSON data from the file
+with open(file_path, 'r') as file:
+    data = json.load(file)
+
+# Print the data
+print(len(data))
+
+
 # Check if GPU is available and set device accordingly
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
