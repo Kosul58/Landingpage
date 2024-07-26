@@ -2283,7 +2283,7 @@
     "_id": {
       "$oid": "669f7c3f65ed4f0ab20351a9"
     },
-    "food_name": "Vegetarian Chili",
+    "food_name": "veg Chili",
     "serving_qty": 1,
     "serving_unit": "bowl",
     "serving_weight_grams": 450,
@@ -2463,7 +2463,7 @@
     "_id": {
       "$oid": "669f7c3f65ed4f0ab20351b2"
     },
-    "food_name": "Vegetarian Shepherd's Pie",
+    "food_name": "veg Shepherd's Pie",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 450,
@@ -2643,7 +2643,7 @@
     "_id": {
       "$oid": "669f7c3f65ed4f0ab20351bb"
     },
-    "food_name": "Vegetarian Sushi Rolls",
+    "food_name": "veg Sushi Rolls",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 400,
@@ -4023,7 +4023,7 @@
     "_id": {
       "$oid": "669f7c3f65ed4f0ab2035202"
     },
-    "food_name": "Vegetarian Lasagna with Garlic Bread",
+    "food_name": "veg Lasagna with Garlic Bread",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 700,
@@ -4123,7 +4123,7 @@
     "_id": {
       "$oid": "669f7c3f65ed4f0ab2035207"
     },
-    "food_name": "Vegetarian Chili with Avocado and Cornbread",
+    "food_name": "veg Chili with Avocado and Cornbread",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 700,
@@ -4163,7 +4163,7 @@
     "_id": {
       "$oid": "669f7c3f65ed4f0ab2035209"
     },
-    "food_name": "Vegetarian Burrito with Beans, Cheese, and Guacamole",
+    "food_name": "veg Burrito with Beans, Cheese, and Guacamole",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 700,
@@ -4243,7 +4243,7 @@
     "_id": {
       "$oid": "669f7c3f65ed4f0ab203520d"
     },
-    "food_name": "Vegetarian pizza",
+    "food_name": "veg pizza",
     "serving_qty": 1,
     "serving_unit": "large pizza",
     "serving_weight_grams": 900,
@@ -4283,7 +4283,7 @@
     "_id": {
       "$oid": "669f7c3f65ed4f0ab203520f"
     },
-    "food_name": "Vegetarian burrito bowl",
+    "food_name": "veg burrito bowl",
     "serving_qty": 1,
     "serving_unit": "large bowl",
     "serving_weight_grams": 850,
@@ -4323,7 +4323,7 @@
     "_id": {
       "$oid": "669f7c3f65ed4f0ab2035211"
     },
-    "food_name": "Vegetarian pad thai",
+    "food_name": "veg pad thai",
     "serving_qty": 1,
     "serving_unit": "large plate",
     "serving_weight_grams": 780,
@@ -4343,7 +4343,7 @@
     "_id": {
       "$oid": "669f7c3f65ed4f0ab2035212"
     },
-    "food_name": "Vegetarian nachos supreme",
+    "food_name": "veg nachos supreme",
     "serving_qty": 1,
     "serving_unit": "large plate",
     "serving_weight_grams": 700,
@@ -4383,7 +4383,7 @@
     "_id": {
       "$oid": "669f7c3f65ed4f0ab2035214"
     },
-    "food_name": "Vegetarian stuffed peppers",
+    "food_name": "veg stuffed peppers",
     "serving_qty": 4,
     "serving_unit": "large peppers",
     "serving_weight_grams": 880,
@@ -4403,7 +4403,7 @@
     "_id": {
       "$oid": "669f7c3f65ed4f0ab2035215"
     },
-    "food_name": "Vegetarian fettuccine alfredo",
+    "food_name": "veg fettuccine alfredo",
     "serving_qty": 1,
     "serving_unit": "large bowl",
     "serving_weight_grams": 720,
@@ -4423,7 +4423,7 @@
     "_id": {
       "$oid": "669f7c3f65ed4f0ab2035216"
     },
-    "food_name": "Vegetarian chili with cornbread",
+    "food_name": "veg chili with cornbread",
     "serving_qty": 1,
     "serving_unit": "large bowl with 2 pieces",
     "serving_weight_grams": 850,
@@ -26335,7 +26335,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876017"
     },
-    "food_name": "Vegetarisches Gulasch (Vegetarian Goulash)",
+    "food_name": "Vegetarisches Gulasch (veg Goulash)",
     "serving_qty": 1,
     "serving_unit": "bowl",
     "serving_weight_grams": 300,
@@ -26356,7 +26356,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876018"
     },
-    "food_name": "Wiener Schnitzel (Vegetarian Version)",
+    "food_name": "Wiener Schnitzel (veg Version)",
     "serving_qty": 1,
     "serving_unit": "piece",
     "serving_weight_grams": 150,
@@ -26902,7 +26902,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876032"
     },
-    "food_name": "Flammkuchen (vegetarian)",
+    "food_name": "Flammkuchen (veg)",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 300,
@@ -27007,7 +27007,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876037"
     },
-    "food_name": "Zwiebelkuchen (vegetarian)",
+    "food_name": "Zwiebelkuchen (veg)",
     "serving_qty": 1,
     "serving_unit": "slice",
     "serving_weight_grams": 200,
@@ -27049,7 +27049,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876039"
     },
-    "food_name": "Maultaschen (vegetarian)",
+    "food_name": "Maultaschen (veg)",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 350,
@@ -27952,7 +27952,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876064"
     },
-    "food_name": "Vegetarisches Sauerbraten (Vegetarian Sauerbraten)",
+    "food_name": "Vegetarisches Sauerbraten (veg Sauerbraten)",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 500,
@@ -28225,7 +28225,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876071"
     },
-    "food_name": "Vegetarische Köttbullar (Vegetarian Meatballs)",
+    "food_name": "Vegetarische Köttbullar (veg Meatballs)",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 400,
@@ -28250,7 +28250,7 @@
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 800,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 950,
     "nf_total_fat": 45,
     "nf_saturated_fat": 20,
@@ -28271,7 +28271,7 @@
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 900,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 930,
     "nf_total_fat": 40,
     "nf_saturated_fat": 15,
@@ -28288,11 +28288,11 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876074"
     },
-    "food_name": "Vegetarian Sauerbraten",
+    "food_name": "veg Sauerbraten",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 850,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 1000,
     "nf_total_fat": 50,
     "nf_saturated_fat": 20,
@@ -28313,7 +28313,7 @@
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 950,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 940,
     "nf_total_fat": 30,
     "nf_saturated_fat": 10,
@@ -28334,7 +28334,7 @@
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 700,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 980,
     "nf_total_fat": 50,
     "nf_saturated_fat": 15,
@@ -28351,11 +28351,11 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876077"
     },
-    "food_name": "Vegetarian Wiener Schnitzel with Cucumber Salad",
+    "food_name": "veg Wiener Schnitzel with Cucumber Salad",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 750,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 990,
     "nf_total_fat": 40,
     "nf_saturated_fat": 15,
@@ -28376,7 +28376,7 @@
     "serving_qty": 1,
     "serving_unit": "bowl",
     "serving_weight_grams": 850,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 950,
     "nf_total_fat": 35,
     "nf_saturated_fat": 12,
@@ -28397,7 +28397,7 @@
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 900,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 970,
     "nf_total_fat": 45,
     "nf_saturated_fat": 18,
@@ -28418,7 +28418,7 @@
     "serving_qty": 1,
     "serving_unit": "bowl",
     "serving_weight_grams": 800,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 930,
     "nf_total_fat": 30,
     "nf_saturated_fat": 8,
@@ -28439,7 +28439,7 @@
     "serving_qty": 1,
     "serving_unit": "bowl",
     "serving_weight_grams": 750,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 960,
     "nf_total_fat": 40,
     "nf_saturated_fat": 12,
@@ -28460,7 +28460,7 @@
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 850,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 990,
     "nf_total_fat": 50,
     "nf_saturated_fat": 18,
@@ -28481,7 +28481,7 @@
     "serving_qty": 1,
     "serving_unit": "roll",
     "serving_weight_grams": 800,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 900,
     "nf_total_fat": 40,
     "nf_saturated_fat": 15,
@@ -28498,11 +28498,11 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc87607e"
     },
-    "food_name": "German Vegetarian Goulash",
+    "food_name": "German veg Goulash",
     "serving_qty": 1,
     "serving_unit": "bowl",
     "serving_weight_grams": 750,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 980,
     "nf_total_fat": 45,
     "nf_saturated_fat": 18,
@@ -28519,11 +28519,11 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc87607f"
     },
-    "food_name": "German Vegetarian Casserole",
+    "food_name": "German veg Casserole",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 800,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 940,
     "nf_total_fat": 35,
     "nf_saturated_fat": 15,
@@ -28544,7 +28544,7 @@
     "serving_qty": 1,
     "serving_unit": "pepper",
     "serving_weight_grams": 700,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 910,
     "nf_total_fat": 40,
     "nf_saturated_fat": 15,
@@ -28565,7 +28565,7 @@
     "serving_qty": 1,
     "serving_unit": "bowl",
     "serving_weight_grams": 800,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 980,
     "nf_total_fat": 40,
     "nf_saturated_fat": 15,
@@ -28586,7 +28586,7 @@
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 750,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 960,
     "nf_total_fat": 35,
     "nf_saturated_fat": 10,
@@ -28607,7 +28607,7 @@
     "serving_qty": 1,
     "serving_unit": "roll",
     "serving_weight_grams": 800,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 950,
     "nf_total_fat": 40,
     "nf_saturated_fat": 15,
@@ -28628,7 +28628,7 @@
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 800,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 970,
     "nf_total_fat": 40,
     "nf_saturated_fat": 12,
@@ -28649,7 +28649,7 @@
     "serving_qty": 1,
     "serving_unit": "bowl",
     "serving_weight_grams": 750,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 930,
     "nf_total_fat": 35,
     "nf_saturated_fat": 10,
@@ -28670,7 +28670,7 @@
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 700,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 940,
     "nf_total_fat": 45,
     "nf_saturated_fat": 20,
@@ -28691,7 +28691,7 @@
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 800,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 980,
     "nf_total_fat": 35,
     "nf_saturated_fat": 12,
@@ -28712,7 +28712,7 @@
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 800,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 950,
     "nf_total_fat": 40,
     "nf_saturated_fat": 15,
@@ -33979,7 +33979,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876189"
     },
-    "food_name": "Vegetarian Ratatouille",
+    "food_name": "veg Ratatouille",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 250,
@@ -34042,7 +34042,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc87618c"
     },
-    "food_name": "Vegetarian Croque Monsieur",
+    "food_name": "veg Croque Monsieur",
     "serving_qty": 1,
     "serving_unit": "sandwich",
     "serving_weight_grams": 250,
@@ -34105,7 +34105,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc87618f"
     },
-    "food_name": "Vegetarian Bouillabaisse",
+    "food_name": "veg Bouillabaisse",
     "serving_qty": 1,
     "serving_unit": "bowl",
     "serving_weight_grams": 300,
@@ -34147,7 +34147,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876191"
     },
-    "food_name": "Vegetarian Cassoulet",
+    "food_name": "veg Cassoulet",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 250,
@@ -34168,7 +34168,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876192"
     },
-    "food_name": "Vegetarian French Toast",
+    "food_name": "veg French Toast",
     "serving_qty": 1,
     "serving_unit": "slice",
     "serving_weight_grams": 150,
@@ -34210,7 +34210,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876194"
     },
-    "food_name": "Vegetarian Bouchees",
+    "food_name": "veg Bouchees",
     "serving_qty": 1,
     "serving_unit": "bowl",
     "serving_weight_grams": 250,
@@ -34231,7 +34231,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876195"
     },
-    "food_name": "Vegetarian Stuffed Peppers",
+    "food_name": "veg Stuffed Peppers",
     "serving_qty": 1,
     "serving_unit": "pepper",
     "serving_weight_grams": 200,
@@ -34252,7 +34252,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876196"
     },
-    "food_name": "Vegetarian Tarte Tatin",
+    "food_name": "veg Tarte Tatin",
     "serving_qty": 1,
     "serving_unit": "slice",
     "serving_weight_grams": 150,
@@ -34273,7 +34273,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876197"
     },
-    "food_name": "Vegetarian Ratatouille with Couscous",
+    "food_name": "veg Ratatouille with Couscous",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 300,
@@ -34315,7 +34315,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876199"
     },
-    "food_name": "Vegetarian Crepes Suzette",
+    "food_name": "veg Crepes Suzette",
     "serving_qty": 1,
     "serving_unit": "crepe",
     "serving_weight_grams": 180,
@@ -34420,7 +34420,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc87619e"
     },
-    "food_name": "Vegetarian Coq au Vin",
+    "food_name": "veg Coq au Vin",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 250,
@@ -34441,7 +34441,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc87619f"
     },
-    "food_name": "Vegetarian Pâté",
+    "food_name": "veg Pâté",
     "serving_qty": 1,
     "serving_unit": "slice",
     "serving_weight_grams": 150,
@@ -34462,7 +34462,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc8761a0"
     },
-    "food_name": "Vegetarian Baguette Sandwich",
+    "food_name": "veg Baguette Sandwich",
     "serving_qty": 1,
     "serving_unit": "sandwich",
     "serving_weight_grams": 200,
@@ -34483,7 +34483,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc8761a1"
     },
-    "food_name": "Vegetarian Potatoes Dauphinoise",
+    "food_name": "veg Potatoes Dauphinoise",
     "serving_qty": 1,
     "serving_unit": "serving",
     "serving_weight_grams": 200,
@@ -34504,7 +34504,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc8761a2"
     },
-    "food_name": "Vegetarian Ratatouille",
+    "food_name": "veg Ratatouille",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 300,
@@ -34546,7 +34546,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc8761a4"
     },
-    "food_name": "French Onion Soup (Vegetarian)",
+    "food_name": "French Onion Soup (veg)",
     "serving_qty": 1,
     "serving_unit": "bowl",
     "serving_weight_grams": 250,
@@ -34630,7 +34630,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc8761a8"
     },
-    "food_name": "Vegetarian French Toast",
+    "food_name": "veg French Toast",
     "serving_qty": 1,
     "serving_unit": "slice",
     "serving_weight_grams": 100,
@@ -34672,7 +34672,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc8761aa"
     },
-    "food_name": "Vegetarian Bouillabaisse",
+    "food_name": "veg Bouillabaisse",
     "serving_qty": 1,
     "serving_unit": "bowl",
     "serving_weight_grams": 300,
@@ -34714,7 +34714,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc8761ac"
     },
-    "food_name": "Vegetarian Cassoulet",
+    "food_name": "veg Cassoulet",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 300,
@@ -34840,7 +34840,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc8761b2"
     },
-    "food_name": "Vegetarian Croque Monsieur",
+    "food_name": "veg Croque Monsieur",
     "serving_qty": 1,
     "serving_unit": "sandwich",
     "serving_weight_grams": 250,
@@ -34903,7 +34903,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc8761b5"
     },
-    "food_name": "Vegetarian Coq au Vin",
+    "food_name": "veg Coq au Vin",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 300,
@@ -35092,7 +35092,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc8761bf"
     },
-    "food_name": "Vegetarian Crepes",
+    "food_name": "veg Crepes",
     "serving_qty": 1,
     "serving_unit": "crepe",
     "serving_weight_grams": 150,
@@ -35176,7 +35176,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc8761c3"
     },
-    "food_name": "Vegetarian Cassoulet",
+    "food_name": "veg Cassoulet",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 400,
@@ -35932,7 +35932,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc8761e8"
     },
-    "food_name": "Vegetarian Cassoulet",
+    "food_name": "veg Cassoulet",
     "serving_qty": 1,
     "serving_unit": "bowl",
     "serving_weight_grams": 300,
@@ -36058,11 +36058,11 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc8761ee"
     },
-    "food_name": "Vegetarian Ratatouille",
+    "food_name": "veg Ratatouille",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 500,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 750,
     "nf_total_fat": 35,
     "nf_saturated_fat": 8,
@@ -36079,11 +36079,11 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc8761ef"
     },
-    "food_name": "Vegetarian Quiche",
+    "food_name": "veg Quiche",
     "serving_qty": 1,
     "serving_unit": "slice",
     "serving_weight_grams": 250,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 750,
     "nf_total_fat": 45,
     "nf_saturated_fat": 20,
@@ -36104,7 +36104,7 @@
     "serving_qty": 1,
     "serving_unit": "piece",
     "serving_weight_grams": 200,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 700,
     "nf_total_fat": 30,
     "nf_saturated_fat": 12,
@@ -36121,11 +36121,11 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc8761f1"
     },
-    "food_name": "French Onion Soup (Vegetarian)",
+    "food_name": "French Onion Soup (veg)",
     "serving_qty": 1,
     "serving_unit": "bowl",
     "serving_weight_grams": 400,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 720,
     "nf_total_fat": 25,
     "nf_saturated_fat": 10,
@@ -36142,11 +36142,11 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc8761f2"
     },
-    "food_name": "Vegetarian Crepes",
+    "food_name": "veg Crepes",
     "serving_qty": 1,
     "serving_unit": "crepe",
     "serving_weight_grams": 150,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 700,
     "nf_total_fat": 28,
     "nf_saturated_fat": 14,
@@ -36167,7 +36167,7 @@
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 400,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 780,
     "nf_total_fat": 35,
     "nf_saturated_fat": 14,
@@ -36188,7 +36188,7 @@
     "serving_qty": 1,
     "serving_unit": "souffle",
     "serving_weight_grams": 200,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 750,
     "nf_total_fat": 40,
     "nf_saturated_fat": 18,
@@ -36205,11 +36205,11 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc8761f5"
     },
-    "food_name": "Vegetarian Cassoulet",
+    "food_name": "veg Cassoulet",
     "serving_qty": 1,
     "serving_unit": "bowl",
     "serving_weight_grams": 400,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 790,
     "nf_total_fat": 30,
     "nf_saturated_fat": 12,
@@ -36230,7 +36230,7 @@
     "serving_qty": 1,
     "serving_unit": "slice",
     "serving_weight_grams": 250,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 710,
     "nf_total_fat": 30,
     "nf_saturated_fat": 12,
@@ -36247,11 +36247,11 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc8761f7"
     },
-    "food_name": "Vegetarian Bouillabaisse",
+    "food_name": "veg Bouillabaisse",
     "serving_qty": 1,
     "serving_unit": "bowl",
     "serving_weight_grams": 400,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 730,
     "nf_total_fat": 25,
     "nf_saturated_fat": 10,
@@ -36268,11 +36268,11 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc8761f8"
     },
-    "food_name": "Vegetarian Coq au Vin",
+    "food_name": "veg Coq au Vin",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 500,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 780,
     "nf_total_fat": 30,
     "nf_saturated_fat": 10,
@@ -36289,11 +36289,11 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc8761f9"
     },
-    "food_name": "Vegetarian Croque Monsieur",
+    "food_name": "veg Croque Monsieur",
     "serving_qty": 1,
     "serving_unit": "sandwich",
     "serving_weight_grams": 250,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 750,
     "nf_total_fat": 35,
     "nf_saturated_fat": 15,
@@ -36314,7 +36314,7 @@
     "serving_qty": 1,
     "serving_unit": "slice",
     "serving_weight_grams": 200,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 700,
     "nf_total_fat": 30,
     "nf_saturated_fat": 12,
@@ -36331,11 +36331,11 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc8761fb"
     },
-    "food_name": "Vegetarian Boulettes",
+    "food_name": "veg Boulettes",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 350,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 780,
     "nf_total_fat": 30,
     "nf_saturated_fat": 12,
@@ -36356,7 +36356,7 @@
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 400,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 720,
     "nf_total_fat": 28,
     "nf_saturated_fat": 12,
@@ -36373,11 +36373,11 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc8761fd"
     },
-    "food_name": "Vegetarian Tarte Tatin",
+    "food_name": "veg Tarte Tatin",
     "serving_qty": 1,
     "serving_unit": "slice",
     "serving_weight_grams": 200,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 740,
     "nf_total_fat": 32,
     "nf_saturated_fat": 15,
@@ -36394,11 +36394,11 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc8761fe"
     },
-    "food_name": "Vegetarian Chateaubriand",
+    "food_name": "veg Chateaubriand",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 450,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 760,
     "nf_total_fat": 32,
     "nf_saturated_fat": 12,
@@ -36415,11 +36415,11 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc8761ff"
     },
-    "food_name": "Vegetarian Pâté en Croûte",
+    "food_name": "veg Pâté en Croûte",
     "serving_qty": 1,
     "serving_unit": "slice",
     "serving_weight_grams": 200,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 740,
     "nf_total_fat": 35,
     "nf_saturated_fat": 14,
@@ -36436,11 +36436,11 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876201"
     },
-    "food_name": "Vegetarian Crepe Suzette",
+    "food_name": "veg Crepe Suzette",
     "serving_qty": 1,
     "serving_unit": "crepe",
     "serving_weight_grams": 150,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 710,
     "nf_total_fat": 30,
     "nf_saturated_fat": 15,
@@ -36457,11 +36457,11 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876202"
     },
-    "food_name": "Vegetarian Fondue",
+    "food_name": "veg Fondue",
     "serving_qty": 1,
     "serving_unit": "bowl",
     "serving_weight_grams": 300,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 750,
     "nf_total_fat": 40,
     "nf_saturated_fat": 20,
@@ -36478,11 +36478,11 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876204"
     },
-    "food_name": "Vegetarian Baguette Sandwich",
+    "food_name": "veg Baguette Sandwich",
     "serving_qty": 1,
     "serving_unit": "sandwich",
     "serving_weight_grams": 250,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 740,
     "nf_total_fat": 35,
     "nf_saturated_fat": 14,
@@ -36499,11 +36499,11 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876205"
     },
-    "food_name": "Vegetarian Gratin Dauphinois",
+    "food_name": "veg Gratin Dauphinois",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 400,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 780,
     "nf_total_fat": 35,
     "nf_saturated_fat": 15,
@@ -36541,7 +36541,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876207"
     },
-    "food_name": "Vegetarian Quiche",
+    "food_name": "veg Quiche",
     "serving_qty": 1,
     "serving_unit": "slice",
     "serving_weight_grams": 300,
@@ -36751,7 +36751,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876213"
     },
-    "food_name": "French Onion Soup (Vegetarian)",
+    "food_name": "French Onion Soup (veg)",
     "serving_qty": 1,
     "serving_unit": "bowl",
     "serving_weight_grams": 500,
@@ -36772,7 +36772,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876214"
     },
-    "food_name": "Vegetarian Bouillabaisse",
+    "food_name": "veg Bouillabaisse",
     "serving_qty": 1,
     "serving_unit": "bowl",
     "serving_weight_grams": 700,
@@ -36835,7 +36835,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876217"
     },
-    "food_name": "Vegetarian Gratin Dauphinois",
+    "food_name": "veg Gratin Dauphinois",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 600,
@@ -36877,7 +36877,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876219"
     },
-    "food_name": "Vegetarian Pâté en Croûte",
+    "food_name": "veg Pâté en Croûte",
     "serving_qty": 1,
     "serving_unit": "slice",
     "serving_weight_grams": 350,
@@ -36898,7 +36898,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc87621a"
     },
-    "food_name": "Vegetarian Bouche à la Reine",
+    "food_name": "veg Bouche à la Reine",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 700,
@@ -36982,7 +36982,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc87621e"
     },
-    "food_name": "Vegetarian Coq au Vin with Mushrooms",
+    "food_name": "veg Coq au Vin with Mushrooms",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 700,
@@ -37003,7 +37003,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc87621f"
     },
-    "food_name": "Vegetarian Ratatouille",
+    "food_name": "veg Ratatouille",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 800,
@@ -37066,7 +37066,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876222"
     },
-    "food_name": "Vegetarian Crepes with Spinach and Cheese",
+    "food_name": "veg Crepes with Spinach and Cheese",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 400,
@@ -37108,7 +37108,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876224"
     },
-    "food_name": "Vegetarian Coq au Vin",
+    "food_name": "veg Coq au Vin",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 600,
@@ -37234,7 +37234,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc87622b"
     },
-    "food_name": "Vegetarian Bouillabaisse",
+    "food_name": "veg Bouillabaisse",
     "serving_qty": 1,
     "serving_unit": "bowl",
     "serving_weight_grams": 700,
@@ -37297,7 +37297,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc87622e"
     },
-    "food_name": "Vegetarian Cassoulet",
+    "food_name": "veg Cassoulet",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 700,
@@ -37318,7 +37318,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc87622f"
     },
-    "food_name": "Vegetarian Shepherd's Pie",
+    "food_name": "veg Shepherd's Pie",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 600,
@@ -37360,7 +37360,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876231"
     },
-    "food_name": "Vegetarian Boulettes",
+    "food_name": "veg Boulettes",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 600,
@@ -37381,7 +37381,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876232"
     },
-    "food_name": "Vegetarian Gratin Dauphinois",
+    "food_name": "veg Gratin Dauphinois",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 500,
@@ -37444,7 +37444,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876235"
     },
-    "food_name": "Vegetarian Casserole with Mushrooms",
+    "food_name": "veg Casserole with Mushrooms",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 700,
@@ -37465,7 +37465,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876236"
     },
-    "food_name": "Vegetarian En Croûte",
+    "food_name": "veg En Croûte",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 500,
@@ -37507,7 +37507,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876238"
     },
-    "food_name": "Vegetarian Quiche Lorraine",
+    "food_name": "veg Quiche Lorraine",
     "serving_qty": 1,
     "serving_unit": "slice",
     "serving_weight_grams": 400,
@@ -37528,7 +37528,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876239"
     },
-    "food_name": "French Onion Soup (Vegetarian)",
+    "food_name": "French Onion Soup (veg)",
     "serving_qty": 1,
     "serving_unit": "bowl",
     "serving_weight_grams": 600,
@@ -37633,7 +37633,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc87623e"
     },
-    "food_name": "Vegetarian Bouillabaisse",
+    "food_name": "veg Bouillabaisse",
     "serving_qty": 1,
     "serving_unit": "bowl",
     "serving_weight_grams": 750,
@@ -37738,7 +37738,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876245"
     },
-    "food_name": "Vegetarian Croque Monsieur",
+    "food_name": "veg Croque Monsieur",
     "serving_qty": 1,
     "serving_unit": "sandwich",
     "serving_weight_grams": 300,
@@ -37759,7 +37759,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876246"
     },
-    "food_name": "Vegetarian Boulettes",
+    "food_name": "veg Boulettes",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 600,
@@ -37780,7 +37780,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876247"
     },
-    "food_name": "Vegetarian Rillettes",
+    "food_name": "veg Rillettes",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 550,
@@ -37801,7 +37801,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876249"
     },
-    "food_name": "Vegetarian Cassoulet",
+    "food_name": "veg Cassoulet",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 700,
@@ -37864,7 +37864,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc87624c"
     },
-    "food_name": "Vegetarian Potato Gratin",
+    "food_name": "veg Potato Gratin",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 600,
@@ -37906,7 +37906,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc87624e"
     },
-    "food_name": "Vegetarian Ratatouille with Baguette",
+    "food_name": "veg Ratatouille with Baguette",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 900,
@@ -37969,7 +37969,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876253"
     },
-    "food_name": "Vegetarian Bouillabaisse",
+    "food_name": "veg Bouillabaisse",
     "serving_qty": 1,
     "serving_unit": "bowl",
     "serving_weight_grams": 800,
@@ -38032,7 +38032,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876256"
     },
-    "food_name": "Vegetarian Coq au Vin",
+    "food_name": "veg Coq au Vin",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 850,
@@ -38053,7 +38053,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876257"
     },
-    "food_name": "Vegetarian Croque Monsieur",
+    "food_name": "veg Croque Monsieur",
     "serving_qty": 1,
     "serving_unit": "sandwich",
     "serving_weight_grams": 300,
@@ -38074,7 +38074,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876258"
     },
-    "food_name": "Vegetarian Bouchees à la Reine",
+    "food_name": "veg Bouchees à la Reine",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 700,
@@ -38116,7 +38116,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc87625a"
     },
-    "food_name": "Vegetarian French Tartiflette",
+    "food_name": "veg French Tartiflette",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 700,
@@ -38137,7 +38137,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc87625b"
     },
-    "food_name": "Vegetarian French Ratatouille",
+    "food_name": "veg French Ratatouille",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 850,
@@ -38158,7 +38158,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc87625c"
     },
-    "food_name": "Vegetarian Baked Camembert with Veggies",
+    "food_name": "veg Baked Camembert with Veggies",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 600,
@@ -38179,7 +38179,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc87625d"
     },
-    "food_name": "Vegetarian French Toast with Fruit Compote",
+    "food_name": "veg French Toast with Fruit Compote",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 500,
@@ -38200,7 +38200,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc87625e"
     },
-    "food_name": "Vegetarian Endive Salad with Cheese",
+    "food_name": "veg Endive Salad with Cheese",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 400,
@@ -38221,7 +38221,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc87625f"
     },
-    "food_name": "Vegetarian French Boule",
+    "food_name": "veg French Boule",
     "serving_qty": 1,
     "serving_unit": "bread",
     "serving_weight_grams": 500,
@@ -38242,7 +38242,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876260"
     },
-    "food_name": "Vegetarian Fricassée of Mushrooms",
+    "food_name": "veg Fricassée of Mushrooms",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 700,
@@ -38263,7 +38263,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876261"
     },
-    "food_name": "Vegetarian Pommes Dauphine",
+    "food_name": "veg Pommes Dauphine",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 650,
@@ -38284,7 +38284,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876262"
     },
-    "food_name": "Vegetarian Lyonnaise Potatoes",
+    "food_name": "veg Lyonnaise Potatoes",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 700,
@@ -38305,7 +38305,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876263"
     },
-    "food_name": "Vegetarian Ratatouille Tart",
+    "food_name": "veg Ratatouille Tart",
     "serving_qty": 1,
     "serving_unit": "slice",
     "serving_weight_grams": 300,
@@ -38326,7 +38326,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876264"
     },
-    "food_name": "Vegetarian French Pea Soup",
+    "food_name": "veg French Pea Soup",
     "serving_qty": 1,
     "serving_unit": "bowl",
     "serving_weight_grams": 650,
@@ -38347,7 +38347,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876265"
     },
-    "food_name": "Vegetarian Ratatouille",
+    "food_name": "veg Ratatouille",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 1000,
@@ -38431,7 +38431,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876269"
     },
-    "food_name": "Vegetarian Cassoulet",
+    "food_name": "veg Cassoulet",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 1000,
@@ -38473,7 +38473,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc87626d"
     },
-    "food_name": "Vegetarian Gratin Dauphinois",
+    "food_name": "veg Gratin Dauphinois",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 1000,
@@ -38515,7 +38515,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc87626f"
     },
-    "food_name": "Vegetarian Croque Monsieur",
+    "food_name": "veg Croque Monsieur",
     "serving_qty": 1,
     "serving_unit": "sandwich",
     "serving_weight_grams": 300,
@@ -38536,7 +38536,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876270"
     },
-    "food_name": "Vegetarian Tarte Tatin",
+    "food_name": "veg Tarte Tatin",
     "serving_qty": 1,
     "serving_unit": "slice",
     "serving_weight_grams": 200,
@@ -38557,7 +38557,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876271"
     },
-    "food_name": "Vegetarian Stuffed Bell Peppers",
+    "food_name": "veg Stuffed Bell Peppers",
     "serving_qty": 1,
     "serving_unit": "pepper",
     "serving_weight_grams": 300,
@@ -38578,7 +38578,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876273"
     },
-    "food_name": "Vegetarian Bouillabaisse",
+    "food_name": "veg Bouillabaisse",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 1000,
@@ -38599,7 +38599,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876275"
     },
-    "food_name": "Vegetarian Quiche Lorraine",
+    "food_name": "veg Quiche Lorraine",
     "serving_qty": 1,
     "serving_unit": "slice",
     "serving_weight_grams": 250,
@@ -38620,7 +38620,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876277"
     },
-    "food_name": "Vegetarian Chateaubriand",
+    "food_name": "veg Chateaubriand",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 1000,
@@ -38641,7 +38641,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876278"
     },
-    "food_name": "Vegetarian Soufflé",
+    "food_name": "veg Soufflé",
     "serving_qty": 1,
     "serving_unit": "soufflé",
     "serving_weight_grams": 300,
@@ -38662,7 +38662,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876279"
     },
-    "food_name": "Vegetarian Potatoes Dauphinoise",
+    "food_name": "veg Potatoes Dauphinoise",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 1000,
@@ -38683,7 +38683,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc87627a"
     },
-    "food_name": "Vegetarian Crepes Suzette",
+    "food_name": "veg Crepes Suzette",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 1000,
@@ -38704,7 +38704,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc87627c"
     },
-    "food_name": "Vegetarian Tartiflette",
+    "food_name": "veg Tartiflette",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 1000,
@@ -38725,7 +38725,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc87627d"
     },
-    "food_name": "Vegetarian Pâté en Croûte",
+    "food_name": "veg Pâté en Croûte",
     "serving_qty": 1,
     "serving_unit": "slice",
     "serving_weight_grams": 250,
@@ -38746,7 +38746,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc87627e"
     },
-    "food_name": "Vegetarian Provençal Stuffed Tomatoes",
+    "food_name": "veg Provençal Stuffed Tomatoes",
     "serving_qty": 1,
     "serving_unit": "tomato",
     "serving_weight_grams": 300,
@@ -41308,7 +41308,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc8762fd"
     },
-    "food_name": "Vegetarian Fettuccine Alfredo",
+    "food_name": "veg Fettuccine Alfredo",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 250,
@@ -41371,7 +41371,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876300"
     },
-    "food_name": "Vegetarian Stuffed Bell Peppers",
+    "food_name": "veg Stuffed Bell Peppers",
     "serving_qty": 1,
     "serving_unit": "pepper",
     "serving_weight_grams": 200,
@@ -41602,7 +41602,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc87630b"
     },
-    "food_name": "Vegetarian Calzone",
+    "food_name": "veg Calzone",
     "serving_qty": 1,
     "serving_unit": "piece",
     "serving_weight_grams": 250,
@@ -42085,7 +42085,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876323"
     },
-    "food_name": "Vegetarian Frittata",
+    "food_name": "veg Frittata",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 300,
@@ -42547,7 +42547,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876339"
     },
-    "food_name": "Vegetarian Stuffed Manicotti",
+    "food_name": "veg Stuffed Manicotti",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 280,
@@ -42631,7 +42631,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc87633d"
     },
-    "food_name": "Vegetarian Gnocchi",
+    "food_name": "veg Gnocchi",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 250,
@@ -43324,7 +43324,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876363"
     },
-    "food_name": "Vegetarian Stuffed Bell Peppers",
+    "food_name": "veg Stuffed Bell Peppers",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 500,
@@ -43429,7 +43429,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876368"
     },
-    "food_name": "Vegetarian Pizza with Bell Peppers",
+    "food_name": "veg Pizza with Bell Peppers",
     "serving_qty": 1,
     "serving_unit": "slice",
     "serving_weight_grams": 250,
@@ -43639,7 +43639,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876373"
     },
-    "food_name": "Vegetarian Manicotti",
+    "food_name": "veg Manicotti",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 600,
@@ -43681,7 +43681,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876375"
     },
-    "food_name": "Vegetarian Lasagna",
+    "food_name": "veg Lasagna",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 800,
@@ -43891,7 +43891,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876381"
     },
-    "food_name": "Vegetarian Stuffed Peppers",
+    "food_name": "veg Stuffed Peppers",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 700,
@@ -44038,7 +44038,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876388"
     },
-    "food_name": "Vegetarian Pasta Bake",
+    "food_name": "veg Pasta Bake",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 800,
@@ -44080,7 +44080,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc87638b"
     },
-    "food_name": "Vegetarian Capricciosa Pizza",
+    "food_name": "veg Capricciosa Pizza",
     "serving_qty": 1,
     "serving_unit": "slice",
     "serving_weight_grams": 250,
@@ -44122,7 +44122,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc87638d"
     },
-    "food_name": "Vegetarian Lasagna",
+    "food_name": "veg Lasagna",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 850,
@@ -44311,7 +44311,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc876396"
     },
-    "food_name": "Vegetarian Pizza with Extra Veggies",
+    "food_name": "veg Pizza with Extra Veggies",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 950,
@@ -44584,7 +44584,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc8763a3"
     },
-    "food_name": "Vegetarian Gnocchi with Tomato Sauce",
+    "food_name": "veg Gnocchi with Tomato Sauce",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 900,
@@ -44605,7 +44605,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc8763a4"
     },
-    "food_name": "Vegetarian Frittata with Herbs",
+    "food_name": "veg Frittata with Herbs",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 800,
@@ -44630,7 +44630,7 @@
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 1000,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 1180,
     "nf_total_fat": 35,
     "nf_saturated_fat": 10,
@@ -44651,7 +44651,7 @@
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 950,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 1130,
     "nf_total_fat": 42,
     "nf_saturated_fat": 17,
@@ -44672,7 +44672,7 @@
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 950,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 1170,
     "nf_total_fat": 48,
     "nf_saturated_fat": 22,
@@ -44693,7 +44693,7 @@
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 900,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 1190,
     "nf_total_fat": 43,
     "nf_saturated_fat": 19,
@@ -44714,7 +44714,7 @@
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 950,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 1110,
     "nf_total_fat": 38,
     "nf_saturated_fat": 12,
@@ -44735,7 +44735,7 @@
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 900,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 1130,
     "nf_total_fat": 40,
     "nf_saturated_fat": 18,
@@ -44756,7 +44756,7 @@
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 950,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 1190,
     "nf_total_fat": 45,
     "nf_saturated_fat": 20,
@@ -44773,11 +44773,11 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc8763af"
     },
-    "food_name": "Vegetarian Fettuccine Alfredo",
+    "food_name": "veg Fettuccine Alfredo",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 950,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 1140,
     "nf_total_fat": 44,
     "nf_saturated_fat": 19,
@@ -44798,7 +44798,7 @@
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 950,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 1170,
     "nf_total_fat": 42,
     "nf_saturated_fat": 18,
@@ -44819,7 +44819,7 @@
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 950,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 1120,
     "nf_total_fat": 36,
     "nf_saturated_fat": 14,
@@ -44840,7 +44840,7 @@
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 1000,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 1150,
     "nf_total_fat": 38,
     "nf_saturated_fat": 12,
@@ -44861,7 +44861,7 @@
     "serving_qty": 1,
     "serving_unit": "bowl",
     "serving_weight_grams": 850,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 1120,
     "nf_total_fat": 41,
     "nf_saturated_fat": 16,
@@ -44878,11 +44878,11 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc8763b4"
     },
-    "food_name": "Vegetarian Frittata",
+    "food_name": "veg Frittata",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 900,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 1190,
     "nf_total_fat": 46,
     "nf_saturated_fat": 20,
@@ -44903,7 +44903,7 @@
     "serving_qty": 1,
     "serving_unit": "slice",
     "serving_weight_grams": 250,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 1120,
     "nf_total_fat": 45,
     "nf_saturated_fat": 22,
@@ -44924,7 +44924,7 @@
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 900,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 1160,
     "nf_total_fat": 41,
     "nf_saturated_fat": 18,
@@ -44945,7 +44945,7 @@
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 950,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 1150,
     "nf_total_fat": 39,
     "nf_saturated_fat": 17,
@@ -44966,7 +44966,7 @@
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 1000,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 1170,
     "nf_total_fat": 44,
     "nf_saturated_fat": 19,
@@ -44983,7 +44983,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc8763b9"
     },
-    "food_name": "Vegetarian Penne Baked Pasta",
+    "food_name": "veg Penne Baked Pasta",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 950,
@@ -45008,7 +45008,7 @@
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 950,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 1140,
     "nf_total_fat": 42,
     "nf_saturated_fat": 17,
@@ -45025,11 +45025,11 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc8763bb"
     },
-    "food_name": "Vegetarian Eggplant Rollatini",
+    "food_name": "veg Eggplant Rollatini",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 950,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 1180,
     "nf_total_fat": 45,
     "nf_saturated_fat": 20,
@@ -45050,7 +45050,7 @@
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 900,
-    "food_type": "vegetarian",
+    "food_type": "veg",
     "nf_calories": 1190,
     "nf_total_fat": 47,
     "nf_saturated_fat": 21,
@@ -45067,7 +45067,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc8763bd"
     },
-    "food_name": "Vegetarian Lasagna",
+    "food_name": "veg Lasagna",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 900,
@@ -45256,7 +45256,7 @@
     "_id": {
       "$oid": "66a297cd2f91f388cc8763c7"
     },
-    "food_name": "Vegetarian Cannelloni",
+    "food_name": "veg Cannelloni",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 950,
@@ -49751,7 +49751,7 @@
     "_id": {
       "$oid": "66a298b42f91f388cc8764aa"
     },
-    "food_name": "vegetarian pad thai",
+    "food_name": "veg pad thai",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 500,
@@ -51151,7 +51151,7 @@
     "_id": {
       "$oid": "66a298b42f91f388cc8764fa"
     },
-    "food_name": "vegetarian shepherd's pie",
+    "food_name": "veg shepherd's pie",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 600,
@@ -51211,7 +51211,7 @@
     "_id": {
       "$oid": "66a298b42f91f388cc8764fd"
     },
-    "food_name": "vegetarian chili",
+    "food_name": "veg chili",
     "serving_qty": 1,
     "serving_unit": "bowl",
     "serving_weight_grams": 600,
@@ -51251,7 +51251,7 @@
     "_id": {
       "$oid": "66a298b42f91f388cc8764ff"
     },
-    "food_name": "vegetarian curry with basmati rice",
+    "food_name": "veg curry with basmati rice",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 600,
@@ -54071,7 +54071,7 @@
     "_id": {
       "$oid": "66a298b42f91f388cc87658e"
     },
-    "food_name": "Vegetarian Chili with Cornbread",
+    "food_name": "veg Chili with Cornbread",
     "serving_qty": 1,
     "serving_unit": "bowl",
     "serving_weight_grams": 500,
@@ -55151,7 +55151,7 @@
     "_id": {
       "$oid": "66a298b42f91f388cc8765c6"
     },
-    "food_name": "Vegetarian Chili with Brown Rice",
+    "food_name": "veg Chili with Brown Rice",
     "serving_qty": 1,
     "serving_unit": "bowl",
     "serving_weight_grams": 700,
@@ -55231,7 +55231,7 @@
     "_id": {
       "$oid": "66a298b42f91f388cc8765cb"
     },
-    "food_name": "Vegetarian Stuffed Eggplant with Couscous",
+    "food_name": "veg Stuffed Eggplant with Couscous",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 700,
@@ -55351,7 +55351,7 @@
     "_id": {
       "$oid": "66a298b42f91f388cc8765d1"
     },
-    "food_name": "Vegetarian Lasagna with Whole Wheat Noodles",
+    "food_name": "veg Lasagna with Whole Wheat Noodles",
     "serving_qty": 1,
     "serving_unit": "plate",
     "serving_weight_grams": 800,
@@ -55411,7 +55411,7 @@
     "_id": {
       "$oid": "66a298b42f91f388cc8765d4"
     },
-    "food_name": "Vegetarian Chili with Quinoa and Avocado",
+    "food_name": "veg Chili with Quinoa and Avocado",
     "serving_qty": 1,
     "serving_unit": "bowl",
     "serving_weight_grams": 800,

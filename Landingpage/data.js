@@ -59746,11 +59746,26 @@ console.log(x.length);
 
 const fs = require("fs");
 
-const jsonData = JSON.stringify(uniqueFoods, null, 2);
-fs.writeFile("fooddata.json", jsonData, (err) => {
-  if (err) {
-    console.error("Error writing file", err);
-  } else {
-    console.log("File has been saved");
-  }
-});
+// const jsonData = JSON.stringify(uniqueFoods, null, 2);
+// fs.writeFile("fooddata.json", jsonData, (err) => {
+//   if (err) {
+//     console.error("Error writing file", err);
+//   } else {
+//     console.log("File has been saved");
+//   }
+// });
+
+// script.js
+const socket = new WebSocket("ws://localhost:6789");
+
+socket.onopen = () => {
+  const dataToSend = {
+    key: "value",
+    number: 123,
+  };
+  socket.send(JSON.stringify(dataToSend));
+};
+
+socket.onmessage = (event) => {
+  console.log("Server says:", event.data);
+};
