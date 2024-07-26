@@ -31,7 +31,6 @@ const connectDB = async () => {
   }
 };
 
-connectDB();
 // fetchAndLogData();
 const classifyresult = async (bmr, userid, ftype) => {
   try {
@@ -66,9 +65,20 @@ const classifyresult = async (bmr, userid, ftype) => {
         nf_protein: food.nf_protein,
         food_rating: food.food_rating,
       };
-      if (foodcategory !== "0" && ftype === food.food_type) {
-        const newFood = new UFood(newdata);
-        newFood.save();
+      if (foodcategory !== "0") {
+        if (ftype === "veg" && ftype === food.food_type) {
+          await UFood.findOneAndUpdate(
+            { user_id: userid },
+            { $push: { foods: newdata } },
+            { upsert: true, new: true }
+          );
+        } else if (ftype === "nonveg") {
+          await UFood.findOneAndUpdate(
+            { user_id: userid },
+            { $push: { foods: newdata } },
+            { upsert: true, new: true }
+          );
+        }
       }
     }
   } catch (error) {
@@ -76,4 +86,20 @@ const classifyresult = async (bmr, userid, ftype) => {
   }
 };
 
-classifyresult(bmr, "kosul", "veg");
+const closeconnection = async () => {
+  await connectDB();
+  try {
+    await classifyresult(bmr, "kosul", "veg");
+  } catch (error) {
+    console.error("MongoDB connection close error:", error.message);
+  } finally {
+    try {
+      await mongoose.connection.close();
+      console.log("MongoDB connection closed");
+    } catch (error) {
+      console.error("MongoDB connection close error:", error.message);
+    }
+  }
+};
+
+closeconnection();

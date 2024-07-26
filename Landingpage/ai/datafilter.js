@@ -3,7 +3,7 @@ function Classify(a, b) {
   // Define the percentage targets
   const percentages = [0.35, 0.25, 0.4];
 
-  const tolerance = 0.03; // 5%
+  const tolerance = 0.04; // 4%
 
   const ratio = b / a;
 

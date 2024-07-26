@@ -7,13 +7,14 @@ const modelB = tf.sequential();
 modelB.add(
   tf.layers.dense({
     inputShape: [2], // 2 input features
-    units: 600,
+    units: 100,
     activation: "relu",
   })
 );
+
 modelB.add(
   tf.layers.dense({
-    units: 600,
+    units: 120,
     activation: "relu",
     kernelRegularizer: tf.regularizers.l1l2({ l1: 0.01, l2: 0.01 }),
   })
@@ -21,25 +22,63 @@ modelB.add(
 
 modelB.add(
   tf.layers.dense({
-    units: 600,
+    units: 100,
     activation: "relu",
   })
 );
 
 modelB.add(
   tf.layers.dense({
-    units: 600,
+    units: 86,
+    activation: "relu",
+    kernelRegularizer: tf.regularizers.l1l2({ l1: 0.01, l2: 0.01 }),
+  })
+);
+
+modelB.add(
+  tf.layers.dense({
+    units: 68,
     activation: "relu",
   })
 );
 modelB.add(
   tf.layers.dropout({
-    rate: 0.2,
+    rate: 0.3,
   })
 );
+
 modelB.add(
   tf.layers.dense({
-    units: 10,
+    units: 54,
+    activation: "relu",
+  })
+);
+
+modelB.add(
+  tf.layers.dense({
+    units: 38,
+    activation: "relu",
+    kernelRegularizer: tf.regularizers.l1l2({ l1: 0.01, l2: 0.01 }),
+  })
+);
+
+modelB.add(
+  tf.layers.dense({
+    units: 19,
+    activation: "relu",
+  })
+);
+
+modelB.add(
+  tf.layers.dense({
+    units: 12,
+    activation: "relu",
+  })
+);
+
+modelB.add(
+  tf.layers.dense({
+    units: 6,
     activation: "relu",
   })
 );
@@ -58,71 +97,12 @@ modelB.compile({
   metrics: ["accuracy"], // Track accuracy during training
 });
 
-const trainigdata = [
-  [1300, 455, 325, 520],
-  [1350, 472.5, 337.5, 540],
-  [1400, 490, 350, 560],
-  [1450, 507.5, 362.5, 580],
-  [1500, 525, 375, 600],
-  [1550, 542.5, 387.5, 620],
-  [1600, 560, 400, 640],
-  [1650, 577.5, 412.5, 660],
-  [1700, 595, 425, 680],
-  [1750, 612.5, 437.5, 700],
-  [1800, 630, 450, 720],
-  [1850, 647.5, 462.5, 740],
-  [1900, 665, 475, 760],
-  [1950, 682.5, 487.5, 780],
-  [2000, 700, 500, 800],
-  [2050, 717.5, 512.5, 820],
-  [2100, 735, 525, 840],
-  [2150, 752.5, 537.5, 860],
-  [2200, 770, 550, 880],
-  [2250, 787.5, 562.5, 900],
-  [2300, 805, 575, 920],
-  [2350, 822.5, 587.5, 940],
-  [2400, 840, 600, 960],
-  [2450, 857.5, 612.5, 980],
-  [2500, 875, 625, 1000],
-  [2550, 892.5, 637.5, 1020],
-  [2600, 910, 650, 1040],
-  [2650, 927.5, 662.5, 1060],
-  [2700, 945, 675, 1080],
-  [2750, 962.5, 687.5, 1100],
-  [2800, 980, 700, 1120],
-  [2850, 997.5, 712.5, 1140],
-  [2900, 1015, 725, 1160],
-  [2950, 1032.5, 737.5, 1180],
-  [3000, 1050, 750, 1200],
-  [3050, 1067.5, 762.5, 1220],
-  [3100, 1085, 775, 1240],
-  [3150, 1102.5, 787.5, 1260],
-  [3200, 1120, 800, 1280],
-  [3250, 1137.5, 812.5, 1300],
-  [3300, 1155, 825, 1320],
-  [3350, 1172.5, 837.5, 1340],
-  [3400, 1190, 850, 1360],
-  [3450, 1207.5, 862.5, 1380],
-  [3500, 1225, 875, 1400],
-];
+const trainigdata = [];
 
 console.log(trainigdata.length);
 const td35 = trainigdata.map((subArray) => [subArray[0], subArray[1]]);
 const td25 = trainigdata.map((subArray) => [subArray[0], subArray[2]]);
 const td40 = trainigdata.map((subArray) => [subArray[0], subArray[3]]);
-
-// const x99array = x.map((subArray) => [subArray[0], subArray[1] * 0.99]);
-// const x995array = x.map((subArray) => [subArray[0], subArray[1] * 0.995]);
-// const x98array = x.map((subArray) => [subArray[0], subArray[1] * 0.98]);
-// const x985array = x.map((subArray) => [subArray[0], subArray[1] * 0.985]);
-// const x97array = x.map((subArray) => [subArray[0], subArray[1] * 0.97]);
-// const x975array = x.map((subArray) => [subArray[0], subArray[1] * 0.975]);
-// const x103array = x.map((subArray) => [subArray[0], subArray[1] * 1.03]);
-// const x1025array = x.map((subArray) => [subArray[0], subArray[1] * 1.025]);
-// const x102array = x.map((subArray) => [subArray[0], subArray[1] * 1.02]);
-// const x1015array = x.map((subArray) => [subArray[0], subArray[1] * 1.015]);
-// const x101array = x.map((subArray) => [subArray[0], subArray[1] * 1.01]);
-// const x1005array = x.map((subArray) => [subArray[0], subArray[1] * 1.005]);
 
 let j, k;
 
@@ -151,6 +131,7 @@ const datainput2 = (a, b, c) => {
     }
     // b.pop(j);
   }
+
   for (let i = 102; i >= 101; i = i - 0.5) {
     k = a.map((subArray) => [
       subArray[0],
@@ -238,26 +219,12 @@ console.log(yss35.length, yss25.length, yss40.length);
 // // training data
 const xs35 = tf.tensor2d(xss35);
 const ys35 = tf.tensor2d(yss35);
+
 // const xs25 = tf.tensor2d(xss25);
 // const ys25 = tf.tensor2d(yss25);
 // const xs40 = tf.tensor2d(xss40);
 // const ys40 = tf.tensor2d(yss40);
 
-// console.log(
-//   x35_0.flat(1).length,
-//   x25_0.flat(1).length,
-//   x40_0.flat(1).length,
-//   x35_1.flat(1).length,
-//   x25_1.flat(1).length,
-//   x40_1.flat(1).length,
-//   x35i.flat(1).length,
-//   x35j.flat(1).length,
-//   x25i.flat(1).length,
-//   x25j.flat(1).length,
-//   x40i.flat(1).length,
-//   x40j.flat(1).length
-// );
-// Train the model
 async function trainModel1() {
   await modelB.fit(xs35, ys35, {
     epochs: 1000, // Reduced epochs for faster experimentation

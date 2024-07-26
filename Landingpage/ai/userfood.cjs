@@ -14,8 +14,16 @@ const FoodSchema = new mongoose.Schema({
   nf_sugars: { type: Number, required: true },
   nf_protein: { type: Number, required: true },
   food_rating: { type: Number, required: false },
+  nf_iron: { type: Number, required: true },
 });
 
-const UFood = mongoose.model("UserFoodRecomend", FoodSchema);
+const user = new mongoose.Schema({
+  user_id: { type: String, required: true },
+  user_name: { type: String, required: true },
+  bmr: { type: Number, required: true },
+  foods: [FoodSchema],
+});
+
+const UFood = mongoose.model("UserFoodRecomend", user);
 
 module.exports = UFood;
