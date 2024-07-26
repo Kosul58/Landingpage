@@ -59756,16 +59756,52 @@ const fs = require("fs");
 // });
 
 // script.js
-const socket = new WebSocket("ws://localhost:6789");
 
-socket.onopen = () => {
-  const dataToSend = {
-    key: "value",
-    number: 123,
-  };
-  socket.send(JSON.stringify(dataToSend));
-};
+// const WebSocket = require("ws");
+// const socket = new WebSocket("ws://localhost:6789");
 
-socket.onmessage = (event) => {
-  console.log("Server says:", event.data);
-};
+// socket.onopen = () => {
+//   const dataToSend = {
+//     user_id: "Kosul",
+//     food_id: "Mutton Biryani",
+//     calories: 923,
+//     carbs: 113,
+//     protein: 83,
+//     salt: 0.8,
+//     sugar: 12,
+//     D: 0,
+//     L: 0,
+//     H: 0,
+//   };
+//   socket.send(JSON.stringify(dataToSend));
+// };
+
+// socket.onmessage = (event) => {
+//   console.log("Server says:", event.data);
+// };
+
+// script.js
+
+// const dataToSend = {
+//   user_id: "Ksul",
+//   food_id: "Mutton Biryani",
+//   calories: 923,
+//   carbs: 123,
+//   protein: 83,
+//   salt: 0.8,
+//   sugar: 12,
+//   D: 0,
+//   L: 0,
+//   H: 0,
+// };
+
+// fetch("http://localhost:5000/data", {
+//   method: "POST",
+//   headers: {
+//     "Content-Type": "application/json",
+//   },
+//   body: JSON.stringify(dataToSend),
+// })
+//   .then((response) => response.json())
+//   .then((data) => console.log("Server response:", data))
+//   .catch((error) => console.error("Error:", error));

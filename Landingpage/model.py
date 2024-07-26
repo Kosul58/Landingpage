@@ -49,8 +49,8 @@ batch_size = 5
 
 #Training Data
 #for all health values in the dataset == 0 [D=0,L=0,H=0,F=0]
-x1 = [[830,85,55,750,8,,0,0,0,0],[0,0,0,0,0,0,0,0,0,0]]
-y1 = [[0],[0]]
+x1 = [600, ]
+y1 = []
 
 # Training loop
 for epoch in range(num_epochs):
@@ -60,7 +60,7 @@ for epoch in range(num_epochs):
     total = 0
     
     # Generate a batch of data
-    inputs, targets = generate_dummy_data(batch_size)
+    inputs, targets =x1 , y1
     
     # Move data to the GPU
     inputs, targets = inputs.to(device), targets.to(device)
