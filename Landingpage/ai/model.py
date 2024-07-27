@@ -22,17 +22,17 @@ from Traindata.Modeldata.diab_lbp1 import diab_lbp1
 from Traindata.Modeldata.diab_hbp0 import diab_hbp0
 from Traindata.Modeldata.diab_hbp1 import diab_hbp1
 
-# Print the data
-print(len(diabities0))
-print(len(diabities1))
-print(len(highbp0))
-print(len(highbp1))
-print(len(lowbp0))
-print(len(lowbp1))
-print(len(diab_lbp0))
-print(len(diab_lbp1))
-print(len(diab_hbp0))
-print(len(diab_hbp1))
+# # Print the data
+# print(len(diabities0))
+# print(len(diabities1))
+# print(len(highbp0))
+# print(len(highbp1))
+# print(len(lowbp0))
+# print(len(lowbp1))
+# print(len(diab_lbp0))
+# print(len(diab_lbp1))
+# print(len(diab_hbp0))
+# print(len(diab_hbp1))
 
 
 random.shuffle(diabities1)
@@ -100,10 +100,6 @@ x = (x10 + x11 + x20 + x21 + x30 + x31 + x40 + x41 + x50 + x51 + x60 + x61 + x70
 y = ([0]*len(x10)+[1]*len(x11)+[0]*len(x20)+[1]*len(x21)+[0]*len(x30)+[1]*len(x31)+[0]*len(x40)+[1]*len(x41)+[0]*len(x50)+[1]*len(x51)+[0]*len(x60)+[1]*len(x61)+[0]*len(x70)+[1]*len(x71)+[0]*len(x80)+[1]*len(x81)+[0]*len(x90)+[1]*len(x91)+[0]*len(x100)+[1]*len(x101)+[0]*len(x110)+[1]*len(x111)+[0]*len(x120)+[1]*len(x121)+[0]*len(x130)+[1]*len(x131))
 
 
-print (len(x))
-
-print (len(y))
-
 
 # Check if GPU is available and set device accordingly
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
@@ -149,8 +145,8 @@ batch_size = 64
 x_tensor = torch.tensor(x).float()
 y_tensor = torch.tensor(y).float().view(-1, 1)
 
-print(x_tensor.shape)
-print(y_tensor.shape)
+# print(x_tensor.shape)
+# print(y_tensor.shape)
 
 # Training loop
 # for epoch in range(num_epochs):
@@ -192,28 +188,31 @@ print(y_tensor.shape)
 
 
 
-# # Predict Data
-# example_input = [700,15,120,1000,8,1,1,0]
+# # Example input data as a 2D list (batch of samples)
+# example_inputs = [
+#     [700, 15, 120, 1000, 8, 1, 1, 0],
+#     [740, 15, 120, 1000, 8, 1, 1, 0]
+# ]
 
 # # Convert the example input data to a tensor and ensure it is on the correct device
-# example_tensor = torch.tensor(example_input).float().to(device)
-
-# # Add an extra dimension to the tensor to match the expected input shape (batch_size, num_features)
-# example_tensor = example_tensor.unsqueeze(0)
+# example_tensor = torch.tensor(example_inputs).float().to(device)
 
 # # Put the model in evaluation mode
 # model.eval()
 
-# # Make a prediction
+# # Make predictions
 # with torch.no_grad():  # No need to track gradients for inference
-#     output = model(example_tensor)
-#     prediction = output.item()  # Get the scalar output from the tensor
+#     outputs = model(example_tensor)  # Get predictions for all samples
+#     predictions = outputs.squeeze().tolist()  # Convert tensor to list of predictions
 
-# # Interpret the prediction
+# # Interpret the predictions
 # threshold = 0.5
-# predicted_label = 1 if prediction >= threshold else 0
+# predicted_labels = [1 if prediction >= threshold else 0 for prediction in predictions]
 
-# print(f"Prediction: {prediction:.4f}, Predicted Label: {predicted_label}")
+# # Print the results
+# for i, (prediction, label) in enumerate(zip(predictions, predicted_labels)):
+#     print(f"Sample {i}: Prediction: {prediction:.4f}, Predicted Label: {label}")
+
 
 
 
@@ -221,21 +220,26 @@ app = Flask(__name__)
 
 model.eval()
 
+
 @app.route('/predict', methods=['POST'])
 def predict():
     # Get input data from the request
     data = request.json
-    example_input = data['input']
+    example_inputs = data['input']
 
     # Convert input to tensor
-    example_tensor = torch.tensor(example_input).float().to(device)
-    example_tensor = example_tensor.unsqueeze(0)
+    example_tensor = torch.tensor(example_inputs).float().to(device)
 
     # Make prediction
     with torch.no_grad():
-        output = model(example_tensor)
-        prediction = output.item()
-    return jsonify({'prediction': prediction})
+        outputs = model(example_tensor)  # Get predictions for all samples
+        predictions = outputs.squeeze().tolist()  # Convert tensor to list of predictions
+
+    # If the model outputs raw scores, apply a threshold to get binary labels
+    threshold = 0.5
+    predicted_labels = [1 if prediction >= threshold else 0 for prediction in predictions]
+
+    return jsonify({'predictions': predicted_labels})
 
 
 @app.route('/shutdown', methods=['POST'])

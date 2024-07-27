@@ -1,12 +1,11 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const cors = require("cors");
+import mongoose from "mongoose";
+import Classify from "./datafilter.js";
+import UFood from "./userfood.cjs";
+import DFood from "./food.cjs";
+import express from "express";
+import cors from "cors";
 
 const bmr = 2330;
-const Classify = require("./datafilter.js");
-
-const UFood = require("./userfood.cjs");
-const DFood = require("./food.cjs");
 
 const app = express();
 app.use(express.json());
@@ -50,7 +49,6 @@ const classifyresult = async (bmr, userid, ftype) => {
     for (const food of foods) {
       const foodcategory = Classify(bmr, food.nf_calories);
 
-      console.log(foodcategory);
       const newdata = {
         user_id: userid,
         food_name: food.food_name,
@@ -103,3 +101,5 @@ const closeconnection = async () => {
 };
 
 closeconnection();
+
+export default connectDB;

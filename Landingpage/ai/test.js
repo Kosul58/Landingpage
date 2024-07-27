@@ -1,8 +1,29 @@
 import { exec } from "child_process";
 import fetch from "node-fetch";
-
+import mongoose from "mongoose";
+import UFood from "./userfood.cjs";
+import RFood from "./recomendedfood.cjs";
 // Global variable to store the Python server process handle
 let pythonServerProcess = null;
+
+const mongoURI =
+  "mongodb+srv://kosul:kosul@cluster0.jn30nsv.mongodb.net/?retryWrites=true&w=majority&appName=nutriTrack";
+
+// Connect to MongoDB
+const connectDB = async () => {
+  try {
+    console.log("MongoDB URI:", mongoURI);
+
+    await mongoose.connect(mongoURI, {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    });
+    console.log("MongoDB connected successfully");
+  } catch (error) {
+    console.error("MongoDB connection error:", error.message);
+    process.exit(1);
+  }
+};
 
 // Function to start the Python server
 function startPythonServer() {
@@ -41,8 +62,8 @@ async function getPrediction(inputData) {
     });
 
     const result = await response.json();
-    console.log("Prediction:", result.prediction);
-    return result.prediction;
+    console.log("Prediction:", result.predictions);
+    return result.predictions;
   } catch (error) {
     console.error("Error:", error);
   }
@@ -59,22 +80,72 @@ function stopPythonServer() {
 }
 
 // Main function
-async function main() {
+async function checkdata(input) {
   try {
     await startPythonServer();
-    const exampleInput = [700, 80, 120, 1000, 8, 1, 0, 1];
+    // console.log(input);
+    const exampleInput = input;
     const prediction = await getPrediction(exampleInput);
-    console.log("Received prediction:", prediction);
-
-    // Stop the server process after a short delay to ensure the request completes
-    setTimeout(() => {
-      stopPythonServer();
-      process.exit(0); // Exit the Node.js process successfully
-    }, 0); // Adjust this timeout if necessary
+    // console.log("Prediction:", prediction);
+    return prediction;
+    // Adjust this timeout if necessary
   } catch (error) {
     console.error("Error in main function:", error);
     process.exit(1); // Exit with error status code
+  } finally {
+    stopPythonServer();
   }
 }
 
-main();
+const foodsort = async () => {
+  try {
+    await connectDB();
+    let datacheck = [];
+
+    const userId = "kosul";
+
+    const user = await UFood.findOne({ user_id: userId });
+    if (user) {
+      const foodss = [];
+      const foods2 = [user.foods];
+      for (const food of foods2.flat(1)) {
+        // console.log(food.user_id);
+        datacheck.push([
+          food.nf_calories,
+          food.nf_protein,
+          food.nf_total_carbohydrate,
+          food.nf_sodium,
+          food.nf_sugars,
+          1,
+          0,
+          1,
+        ]);
+        foodss.push(food);
+      }
+      // console.log(datacheck);
+      const result = await checkdata(datacheck);
+      console.log(result.length);
+
+      for (let i = result.length - 1; i >= 0; i--) {
+        if (result[i] == 0) {
+          foodss.splice(i, 1);
+        }
+      }
+      console.log(foodss.length);
+
+      console.log(singleobject);
+      // await UFood.updateOne({ user_id: userId }, { $set: { foods: foodss } });
+    } else {
+      console.log("User not found");
+    }
+  } catch (error) {
+    console.error("Error fetching data:", error.message);
+  } finally {
+    process.exit(0);
+  }
+};
+
+// foodsort();
+
+// checkdata();
+foodsort();

@@ -1,9 +1,8 @@
-const express = require("express");
 function Classify(a, b) {
   // Define the percentage targets
   const percentages = [0.35, 0.25, 0.4];
 
-  const tolerance = 0.04; // 4%
+  const tolerance = 0.02; // 4%
 
   const ratio = b / a;
 
@@ -27,4 +26,4 @@ const a = 100;
 const b = 44;
 console.log(Classify(a, b));
 
-module.exports = Classify;
+export default Classify;
