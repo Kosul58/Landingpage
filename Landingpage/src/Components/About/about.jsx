@@ -12,8 +12,13 @@ function About() {
     <>
       <Navbar />
       <div>
-        <h1>Hello Bro!</h1>
-        <h3>How you doing</h3>
+        <form>
+          <h1>Hello Bro!</h1>
+          <h3>How you doing</h3>
+          <p>want some recomendations</p>
+          <p>Click the button below</p>
+          <button type="submit">Recomendations</button>
+        </form>
       </div>
     </>
   );

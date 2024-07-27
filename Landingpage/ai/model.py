@@ -4,6 +4,12 @@ import torch.optim as optim
 import numpy as np 
 import matplotlib.pyplot as plt
 import random
+from flask import Flask, request, jsonify
+import threading
+import time
+import requests
+
+
 
 from Traindata.Modeldata.diabities0 import diabities0
 from Traindata.Modeldata.diabities1 import diabities1
@@ -208,3 +214,57 @@ print(y_tensor.shape)
 # predicted_label = 1 if prediction >= threshold else 0
 
 # print(f"Prediction: {prediction:.4f}, Predicted Label: {predicted_label}")
+
+
+
+app = Flask(__name__)
+
+model.eval()
+
+@app.route('/predict', methods=['POST'])
+def predict():
+    # Get input data from the request
+    data = request.json
+    example_input = data['input']
+
+    # Convert input to tensor
+    example_tensor = torch.tensor(example_input).float().to(device)
+    example_tensor = example_tensor.unsqueeze(0)
+
+    # Make prediction
+    with torch.no_grad():
+        output = model(example_tensor)
+        prediction = output.item()
+    return jsonify({'prediction': prediction})
+
+
+@app.route('/shutdown', methods=['POST'])
+def shutdown():
+    shutdown_server()
+    return 'Server shutting down...'
+
+def shutdown_server():
+    # Get the Werkzeug shutdown function
+    func = request.environ.get('werkzeug.server.shutdown')
+    if func is None:
+        raise RuntimeError('Not running with the Werkzeug Server')
+    func()
+
+def start_server():
+    app.run(debug=True, use_reloader=False)  # `use_reloader=False` prevents the server from restarting automatically
+
+if __name__ == '__main__':
+    # Start the Flask server in a separate thread
+    server_thread = threading.Thread(target=start_server)
+    server_thread.start()
+
+    # Wait for the server to start
+    time.sleep(10)
+
+    # Trigger shutdown
+    shutdown_thread = threading.Thread(target=lambda: requests.post("http://localhost:5000/shutdown"))
+    shutdown_thread.start()
+    
+    # Join threads
+    server_thread.join()
+    shutdown_thread.join()
