@@ -1,6 +1,6 @@
 import { exec } from "child_process";
 import fetch from "node-fetch";
-import mongoose from "mongoose";
+import mongoose, { set } from "mongoose";
 import UFood from "./userfood.cjs";
 import RFood from "./recomendedfood.cjs";
 // Global variable to store the Python server process handle
@@ -25,30 +25,30 @@ const connectDB = async () => {
   }
 };
 
-// Function to start the Python server
-function startPythonServer() {
-  return new Promise((resolve, reject) => {
-    pythonServerProcess = exec(
-      "python c:\\Users\\kosul\\Desktop\\Landingpage\\Landingpage\\ai\\model.py",
-      (error, stdout, stderr) => {
-        if (error) {
-          console.error(`Error starting Python server: ${error.message}`);
-          reject(error);
-          return;
-        }
-        if (stderr) {
-          console.error(`Python server stderr: ${stderr}`);
-        }
-        console.log(`Python server stdout: ${stdout}`);
-      }
-    );
-
-    // Give the server a moment to start
-    setTimeout(() => {
-      resolve();
-    }, 0); // Adjust this timeout if necessary
-  });
-}
+// // Function to start the Python server
+// function startPythonServer() {
+//   return new Promise((resolve, reject) => {
+//     pythonServerProcess = exec(
+//       "python c:\\Users\\kosul\\Desktop\\Landingpage\\Landingpage\\ai\\model.py",
+//       (error, stdout, stderr) => {
+//         if (error) {
+//           console.error(`Error starting Python server: ${error.message}`);
+//           reject(error);
+//           return;
+//         }
+//         if (stderr) {
+//           console.error(`Python server stderr: ${stderr}`);
+//         }
+//         console.log(`Python server stdout: ${stdout}`);
+//       }
+//     );
+//     console.log("Python server process started");
+//     // Give the server a moment to start
+//     setTimeout(() => {
+//       resolve();
+//     }, 10000); // Adjust this timeout if necessary
+//   });
+// }
 
 // Function to get the prediction from the server
 async function getPrediction(inputData) {
@@ -60,49 +60,58 @@ async function getPrediction(inputData) {
       },
       body: JSON.stringify({ input: inputData }),
     });
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
 
-    const result = await response.json();
-    console.log("Prediction:", result.predictions);
+    let result = await response.json();
+    console.log("Predictions:", result.predictions);
+    // console.log(inputData);
     return result.predictions;
   } catch (error) {
     console.error("Error:", error);
   }
 }
 
-// Function to stop the Python server process
-function stopPythonServer() {
-  if (pythonServerProcess) {
-    pythonServerProcess.kill(); // Kill the process
-    console.log("Python server process stopped");
-  } else {
-    console.log("Python server process not found");
-  }
-}
+// // Function to stop the Python server process
+// async function stopPythonServer() {
+//   try {
+//     if (pythonServerProcess) {
+//       pythonServerProcess.kill("SIGINT"); // Send SIGINT signal to the process
+//       // Give some time for the server to shut down
+//       setTimeout(() => {
+//         pythonServerProcess.kill(); // Kill the process
+//         console.log("Python server process stopped");
+//       }, 2000); // Adjust this timeout if necessary
+//     }
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
 
 // Main function
 async function checkdata(input) {
   try {
-    await startPythonServer();
-    // console.log(input);
-    const exampleInput = input;
-    const prediction = await getPrediction(exampleInput);
+    // await startPythonServer();
+    let prediction = await getPrediction(input);
     // console.log("Prediction:", prediction);
     return prediction;
     // Adjust this timeout if necessary
   } catch (error) {
     console.error("Error in main function:", error);
     process.exit(1); // Exit with error status code
-  } finally {
-    stopPythonServer();
   }
+  // finally {
+  //   await stopPythonServer();
+  // }
 }
 
-const foodsort = async () => {
+async function foodsort() {
   try {
     await connectDB();
     let datacheck = [];
 
-    const userId = "kosul";
+    const userId = "ganesh";
 
     const user = await UFood.findOne({ user_id: userId });
     if (user) {
@@ -114,16 +123,12 @@ const foodsort = async () => {
           food.nf_calories,
           food.nf_protein,
           food.nf_total_carbohydrate,
-          food.nf_sodium,
           food.nf_sugars,
-          1,
-          0,
-          1,
         ]);
         foodss.push(food);
       }
       // console.log(datacheck);
-      const result = await checkdata(datacheck);
+      let result = await checkdata(datacheck);
       console.log(result.length);
 
       for (let i = result.length - 1; i >= 0; i--) {
@@ -131,21 +136,54 @@ const foodsort = async () => {
           foodss.splice(i, 1);
         }
       }
+      // if (foodss.length < result.length) {
+      //   if (foodss.length !== 0) {
+      //     await RFood.findOneAndUpdate(
+      //       { user_id: user.user_id },
+      //       { $push: { foods: foodss } },
+      //       { upsert: true, new: true }
+      //     );
+      //   }
+      // }
       console.log(foodss.length);
-
-      console.log(singleobject);
-      // await UFood.updateOne({ user_id: userId }, { $set: { foods: foodss } });
     } else {
       console.log("User not found");
     }
   } catch (error) {
     console.error("Error fetching data:", error.message);
   } finally {
-    process.exit(0);
+    setTimeout(() => {
+      process.exit(0);
+    }, 4000);
   }
-};
+}
 
 // foodsort();
 
 // checkdata();
-foodsort();
+const closeconnection = async () => {
+  try {
+    await foodsort();
+  } catch (error) {
+    console.error("MongoDB connection close error:", error.message);
+  } finally {
+    try {
+      await mongoose.connection.close();
+      console.log("MongoDB connection closed");
+    } catch (error) {
+      console.error("MongoDB connection close error:", error.message);
+    }
+  }
+};
+
+const Main = async () => {
+  try {
+    await closeconnection();
+  } catch (error) {
+    console.error("Error in main function:", error);
+  } finally {
+    process.exit(0);
+  }
+};
+
+Main();

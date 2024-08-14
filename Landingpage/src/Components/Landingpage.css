@@ -1463,3 +1463,53 @@ nav {
 /* calculate ends */
 
 /* 88js ends here */
+
+/* recomendation starts here */
+
+.recomender {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.recbutton {
+  width: 200px;
+  height: 40px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(249, 17, 17, 0.4);
+  cursor: pointer;
+}
+.recomendedmeal {
+  width: 60%;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+  background-color: rgba(20, 102, 190, 0.4);
+  box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(16px);
+  border-radius: 20px;
+}
+.blockrec {
+  display: none;
+}
+
+.RECC {
+  width: 250px;
+  height: 300px;
+  border-radius: 10px;
+  background-color: rgba(20, 102, 190, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 15px 15px 15px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+/* recomendation ends here */
