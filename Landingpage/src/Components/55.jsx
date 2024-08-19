@@ -139,9 +139,13 @@ const Work = () => {
       <div className="infobox501">
         <div className="textbox501">
           <div className="textbox5011">
-            <h2 className="textslider1">so</h2>
-            <h3 className="textslider1">Know</h3>
-            <h4 className="textslider1">What You Eat</h4>
+            <h2 className="textslider1">So</h2>
+            <h3 className="textslider1" style={{ color: "red" }}>
+              Know
+            </h3>
+            <h4 className="textslider1" style={{ color: "yellow" }}>
+              What You Eat
+            </h4>
           </div>
         </div>
         <div className="imzoombox501">

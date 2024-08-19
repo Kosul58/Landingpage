@@ -40,8 +40,6 @@ const Work = () => {
 
     if (window.scrollY > 750) {
       setHasScrolled(true);
-    } else {
-      setHasScrolled(false);
     }
     if (divToWatchRef.current) {
       observer.observe(divToWatchRef.current); // Observe the target div
@@ -180,9 +178,7 @@ const Work = () => {
             </div>
           </div>
           <h1 className="b113" ref={textwatch2}>
-            <p className="p101">
-              What you <span className="texthighlight">Eat</span>
-            </p>{" "}
+            <p className="p101">What you Eat</p>{" "}
           </h1>
         </div>
       </div>

@@ -1,8 +1,8 @@
 import { exec } from "child_process";
 import fetch from "node-fetch";
 import mongoose, { set } from "mongoose";
-import UFood from "./userfood.cjs";
-import RFood from "./recomendedfood.cjs";
+import UFood from "../src/Components/Database/userfood.cjs";
+import RFood from "../src/Components/Database/recomendedfood.cjs";
 // Global variable to store the Python server process handle
 let pythonServerProcess = null;
 
@@ -25,32 +25,6 @@ const connectDB = async () => {
   }
 };
 
-// // Function to start the Python server
-// function startPythonServer() {
-//   return new Promise((resolve, reject) => {
-//     pythonServerProcess = exec(
-//       "python c:\\Users\\kosul\\Desktop\\Landingpage\\Landingpage\\ai\\model.py",
-//       (error, stdout, stderr) => {
-//         if (error) {
-//           console.error(`Error starting Python server: ${error.message}`);
-//           reject(error);
-//           return;
-//         }
-//         if (stderr) {
-//           console.error(`Python server stderr: ${stderr}`);
-//         }
-//         console.log(`Python server stdout: ${stdout}`);
-//       }
-//     );
-//     console.log("Python server process started");
-//     // Give the server a moment to start
-//     setTimeout(() => {
-//       resolve();
-//     }, 10000); // Adjust this timeout if necessary
-//   });
-// }
-
-// Function to get the prediction from the server
 async function getPrediction(inputData) {
   try {
     const response = await fetch("http://localhost:5000/predict", {
@@ -73,37 +47,14 @@ async function getPrediction(inputData) {
   }
 }
 
-// // Function to stop the Python server process
-// async function stopPythonServer() {
-//   try {
-//     if (pythonServerProcess) {
-//       pythonServerProcess.kill("SIGINT"); // Send SIGINT signal to the process
-//       // Give some time for the server to shut down
-//       setTimeout(() => {
-//         pythonServerProcess.kill(); // Kill the process
-//         console.log("Python server process stopped");
-//       }, 2000); // Adjust this timeout if necessary
-//     }
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
-
-// Main function
 async function checkdata(input) {
   try {
-    // await startPythonServer();
     let prediction = await getPrediction(input);
-    // console.log("Prediction:", prediction);
     return prediction;
-    // Adjust this timeout if necessary
   } catch (error) {
     console.error("Error in main function:", error);
     process.exit(1); // Exit with error status code
   }
-  // finally {
-  //   await stopPythonServer();
-  // }
 }
 
 async function foodsort() {
@@ -111,7 +62,7 @@ async function foodsort() {
     await connectDB();
     let datacheck = [];
 
-    const userId = "ganesh";
+    const userId = "kosul";
 
     const user = await UFood.findOne({ user_id: userId });
     if (user) {
@@ -151,10 +102,6 @@ async function foodsort() {
     }
   } catch (error) {
     console.error("Error fetching data:", error.message);
-  } finally {
-    setTimeout(() => {
-      process.exit(0);
-    }, 4000);
   }
 }
 

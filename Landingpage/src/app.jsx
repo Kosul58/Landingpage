@@ -1,4 +1,4 @@
-import "./Landingpage.css";
+import "./Components/Landingpage.css";
 import Landingpage from "./Components/landingpage";
 import {
   BrowserRouter as Router,
@@ -11,6 +11,7 @@ import Signup from "./Components/Registerpage/register";
 import Calculate from "./Components/Calculate/calculate";
 import Dashboard from "./Components/Dashboard/dashboard";
 import About from "./Components/About/about";
+import Admin from "./Components/admin";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/calculate" element={<Calculate />} />
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/about" element={<About />} />
+        <Route path="/admin" element={<Admin />} />
       </Routes>
     </Router>
   );

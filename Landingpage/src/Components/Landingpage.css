@@ -254,7 +254,7 @@ nav {
 }
 
 .secondary-button {
-  opacity: 0;
+  /* opacity: 0; */
   padding: 1rem 2.5rem;
   background-color: #fe9e0d;
   outline: none;
@@ -565,6 +565,7 @@ nav {
   color: #fff;
   width: 500px;
   height: 500px;
+  opacity: 0;
 }
 
 .texthighlight {
@@ -632,6 +633,7 @@ nav {
 
 .b113.translate {
   animation: translater 0.6s ease-in-out;
+  opacity: 1;
 }
 
 @keyframes translater2 {
@@ -649,6 +651,7 @@ nav {
 
 .b113.translate2 {
   animation: translater2 0.6s ease-in-out;
+  opacity: 1;
 }
 
 @keyframes abtext {
@@ -702,11 +705,14 @@ nav {
 .textbox501 {
   width: 100%;
   display: flex;
-  align-items: end;
-  height: 80svh;
+  align-items: center;
+  height: 100svh;
 }
 
 .textslider1 {
+  margin-top: 10rem;
+  width: 100%;
+  height: 150px;
   animation: appear linear;
   animation-timeline: view();
   animation-range: entry 0 cover 40%;
@@ -1196,8 +1202,6 @@ nav {
   background-color: rgb(15, 65, 158);
 }
 
-/* 88js starts here  */
-
 /* register page starts */
 .Loginsignup {
   width: 100svw;
@@ -1462,8 +1466,6 @@ nav {
 }
 /* calculate ends */
 
-/* 88js ends here */
-
 /* recomendation starts here */
 
 .recomender {
@@ -1513,3 +1515,187 @@ nav {
 }
 
 /* recomendation ends here */
+
+/* 77.js starts */
+
+.aitemp {
+  width: 100svw;
+  height: 200svh;
+  border: 2px solid black;
+}
+.aitemp1 {
+  width: 100svw;
+  height: 100svh;
+  border: 2px solid black;
+  display: flex;
+}
+.ai11 {
+  opacity: 0;
+  position: relative;
+  top: 200px;
+  left: 50px;
+  width: 300px;
+  height: 80px;
+  font-size: 50px;
+}
+.ai12 {
+  position: relative;
+  top: 300px;
+  right: -700px;
+  width: 400px;
+  height: 250px;
+  background-color: #101d29;
+  border-radius: 15px;
+}
+
+.ai21 {
+  position: relative;
+  top: 300px;
+  left: 100px;
+  width: 400px;
+  height: 250px;
+  background-color: #96c7f5;
+  border-radius: 15px;
+}
+
+.ai22 {
+  position: relative;
+  top: 250px;
+  opacity: 0;
+  right: -700px;
+  width: 400px;
+  height: 80px;
+  font-size: 50px;
+  font-family: "Roboto", sans-serif;
+}
+
+.aitemp2 {
+  width: 100svw;
+  height: 400svh;
+  border: 2px solid black;
+  background-color: #101d29;
+}
+
+.aitemp3 {
+  width: 400px;
+  height: 400px;
+  background-color: #96c7f5;
+  border-radius: 20px;
+  position: sticky;
+  top: 150px;
+  left: 550px;
+}
+
+.aitemptarg1 {
+  position: relative;
+  top: 600px;
+  left: 100px;
+  width: 100px;
+  height: 100px;
+  background-color: #96c7f5;
+  border-radius: 15px;
+}
+
+.aitemptarg2 {
+  position: relative;
+  top: 1200px;
+  right: -100px;
+  width: 100px;
+  height: 100px;
+  background-color: #96c7f5;
+  border-radius: 15px;
+}
+
+.aitemptarg3 {
+  position: relative;
+  top: 1800px;
+  left: 100px;
+  width: 100px;
+  height: 100px;
+  background-color: #96c7f5;
+  border-radius: 15px;
+}
+
+/* 77.js ends */
+
+/* 
+admin starts */
+
+.admin {
+  width: 100svw;
+  height: 100svh;
+  background-color: #101d29;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.admin1 {
+  width: 90%;
+  height: 80%;
+  background-color: rgba(210, 12, 12, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 20px;
+  backdrop-filter: blur(16px);
+  box-shadow: 4px 4px 8px 8px rgba(14, 13, 13, 0.4);
+  flex-direction: row;
+}
+
+.admin101 {
+  width: 20%;
+  height: 90%;
+  border: 2px solid black;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.admin102 {
+  width: 75%;
+  height: 90%;
+  border: 2px solid black;
+}
+
+.admphoto {
+  width: 100px;
+  height: 100px;
+  background-color: #7f6262;
+  border-radius: 50%;
+}
+.adm {
+  width: 100%;
+  height: 15%;
+  display: flex;
+  color: white;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  cursor: pointer;
+  border-radius: 8px;
+}
+.adm:hover {
+  background-color: #a4a7ab;
+}
+
+.admx {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+  font-size: 20px;
+  background-color: rgba(0, 123, 255, 0.2);
+  border-radius: 10px;
+}
+
+.admactive {
+  width: 100%;
+  height: 15%;
+  background-color: #5493ce;
+  border-radius: 8px;
+}
+
+/* 
+admin ends */
