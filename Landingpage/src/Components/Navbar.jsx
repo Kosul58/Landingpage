@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Logo from "../Assets/nutrilogo.png";
 import { IoSearchCircleOutline } from "react-icons/io5";
 import { HiOutlineBars3 } from "react-icons/hi2";
@@ -15,10 +15,13 @@ import { FcCalculator } from "react-icons/fc";
 import { IoIosHome } from "react-icons/io";
 import { FaInfoCircle } from "react-icons/fa";
 import { IoIosCall } from "react-icons/io";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [openMenu, setOpenMenu] = useState(false);
+  const searchInputRef = useRef(null);
+  const navigate = useNavigate();
+
   const menuOptions = [
     {
       text: "Home",
@@ -36,6 +39,14 @@ const Navbar = () => {
       Link: "/",
     },
   ];
+
+  const handleSearch = () => {
+    const query = searchInputRef.current.value;
+    if (query) {
+      navigate(`/search?query=${encodeURIComponent(query)}`);
+    }
+  };
+
   return (
     <nav>
       <div className="navbarr">
@@ -47,10 +58,16 @@ const Navbar = () => {
           <Link to="/about">About</Link>
           <Link to="/calculate">Calculator</Link>
           <div className="searchcontent">
-            <input type="text" placeholder="Search" className="search" />
-            <Link to="/search">
-              <IoSearchCircleOutline className="navbar-cart-icon" />
-            </Link>
+            <input
+              type="text"
+              placeholder="Search"
+              className="search"
+              ref={searchInputRef}
+            />
+            <IoSearchCircleOutline
+              className="navbar-cart-icon"
+              onClick={handleSearch}
+            />
           </div>
         </div>
         <div className="btnsmanager">
