@@ -6,7 +6,12 @@ import RFood from "../src/Components/Database/recomendedfood.cjs";
 import express from "express";
 import cors from "cors";
 
-const bmr = 2330;
+// const bmr = 2330;
+// const uid = "kosul";
+// const ftype = "nonveg";
+// const diab = 1;
+// const lbp = 0;
+// const hbp = 0;
 
 const app = express();
 app.use(express.json());
@@ -95,9 +100,25 @@ async function diabcheck(inputData) {
     }
 
     let result = await response.json();
-    console.log("Predictions:", result.predictions);
-    // console.log(inputData);
     return result.predictions;
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+async function saltcheck(inputData) {
+  try {
+    const response = await fetch("http://localhost:5000/predictbp", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(inputData),
+    });
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    let result = await response.json();
+    return result;
   } catch (error) {
     console.error("Error:", error);
   }
@@ -111,7 +132,7 @@ function diabities(a) {
 }
 function salt(a) {
   let j = a.map((subarray) => {
-    return subarray.slice(0).concat(subarray.slice(4));
+    return [subarray[0], subarray[4]];
   });
   return j;
 }
@@ -127,27 +148,27 @@ const dcheck = async (a, b) => {
   return b;
 };
 
-// const lcheck = async (a, b) => {
-//   let j = salt(a);
-//   let result = await saltcheck(j);
-//   for (let i = result.length - 1; i >= 0; i--) {
-//     if (result[i] == 0) {
-//       b.splice(i, 1);
-//     }
-//   }
-//   return b;
-// };
+const lcheck = async (a, b) => {
+  let j = salt(a);
+  let result = await saltcheck(j);
+  for (let i = result.length - 1; i >= 0; i--) {
+    if (result[i] == 0) {
+      b.splice(i, 1);
+    }
+  }
+  return b;
+};
 
-// const rcheck = async (a, b) => {
-//   let j = salt(a);
-//   let result = await saltcheck(j);
-//   for (let i = result.length - 1; i >= 0; i--) {
-//     if (result[i] == 1) {
-//       b.splice(i, 1);
-//     }
-//   }
-//   return b;
-// };
+const hcheck = async (a, b) => {
+  let j = salt(a);
+  let result = await saltcheck(j);
+  for (let i = result.length - 1; i >= 0; i--) {
+    if (result[i] == 1) {
+      b.splice(i, 1);
+    }
+  }
+  return b;
+};
 
 const sortfood = async (uid, diab, lbp, hbp) => {
   try {
@@ -178,34 +199,74 @@ const sortfood = async (uid, diab, lbp, hbp) => {
       } else if (diab == 1 && lbp == 0 && hbp == 0) {
         let result = await dcheck(datacheck, foodss);
         console.log(result.length);
-        // console.log(result);
-        // if (foodss.length !== 0) {
-        //   await RFood.findOneAndUpdate(
-        //     { user_id: user.user_id },
-        //     { $set: { foods: result } },
-        //     { upsert: true, new: true }
-        //   );
-        // }
+        if (foodss.length !== 0) {
+          await RFood.findOneAndUpdate(
+            { user_id: user.user_id },
+            { $set: { foods: result } },
+            { upsert: true, new: true }
+          );
+        }
+      } else if (diab == 0 && lbp == 1 && hbp == 0) {
+        let result = await lcheck(datacheck, foodss);
+        console.log("lcheck", result.length);
+        if (result.length !== 0) {
+          await RFood.findOneAndUpdate(
+            { user_id: user.user_id },
+            { $set: { foods: result } },
+            { upsert: true, new: true }
+          );
+        }
+      } else if (diab == 0 && lbp == 0 && hbp == 1) {
+        let result = await hcheck(datacheck, foodss);
+        console.log("hcheck", result.length);
+        if (result.length !== 0) {
+          await RFood.findOneAndUpdate(
+            { user_id: user.user_id },
+            { $set: { foods: result } },
+            { upsert: true, new: true }
+          );
+        }
+      } else if (diab == 1 && lbp == 1 && hbp == 0) {
+        let result1 = await lcheck(datacheck, foodss);
+
+        let datacheck2 = [];
+        for (const food of result1.flat(1)) {
+          datacheck2.push([
+            food.nf_calories,
+            food.nf_protein,
+            food.nf_total_carbohydrate,
+            food.nf_sugars,
+          ]);
+        }
+        let result2 = await dcheck(datacheck2, result1);
+        if (result2.length !== 0) {
+          await RFood.findOneAndUpdate(
+            { user_id: user.user_id },
+            { $set: { foods: result } },
+            { upsert: true, new: true }
+          );
+        }
+      } else if (diab == 1 && lbp == 0 && hbp == 1) {
+        let result1 = await hcheck(datacheck, foodss);
+
+        let datacheck2 = [];
+        for (const food of result1.flat(1)) {
+          datacheck2.push([
+            food.nf_calories,
+            food.nf_protein,
+            food.nf_total_carbohydrate,
+            food.nf_sugars,
+          ]);
+        }
+        let result2 = await dcheck(datacheck2, result1);
+        if (result2.length !== 0) {
+          await RFood.findOneAndUpdate(
+            { user_id: user.user_id },
+            { $set: { foods: result2 } },
+            { upsert: true, new: true }
+          );
+        }
       }
-      //  else if (diab == 0 && lbp == 1 && hbp == 0) {
-      //   let result = await lcheck(datacheck, foodss);
-      //   if (result.length !== 0) {
-      //     await RFood.findOneAndUpdate(
-      //       { user_id: user.user_id },
-      //       { $set: { foods: result } },
-      //       { upsert: true, new: true }
-      //     );
-      //   }
-      // } else if (diab == 0 && lbp == 0 && hbp == 1) {
-      //   let result = await hcheck(datacheck, foodss);
-      //   if (result.length !== 0) {
-      //     await RFood.findOneAndUpdate(
-      //       { user_id: user.user_id },
-      //       { $set: { foods: result } },
-      //       { upsert: true, new: true }
-      //     );
-      //   }
-      // }
     } else {
       console.log("User not found");
     }
@@ -214,15 +275,15 @@ const sortfood = async (uid, diab, lbp, hbp) => {
   }
 };
 
-const closeconnection = async () => {
+const closeconnection = async (bmr, uid, ftype, diab, lbp, hbp) => {
   await connectDB();
   try {
-    await classifyresult(bmr, "kosul", "nonveg");
+    await classifyresult(bmr, uid, ftype);
   } catch (error) {
     console.error("MongoDB connection close error:", error.message);
   } finally {
     try {
-      await sortfood("kosul", 1, 0, 0);
+      await sortfood(uid, diab, lbp, hbp);
     } catch (error) {
       console.error("MongoDB connection close error:", error.message);
     } finally {
@@ -232,4 +293,6 @@ const closeconnection = async () => {
   }
 };
 
-closeconnection();
+// closeconnection(bmr, uid, ftype, diab, lbp, hbp);
+
+export default closeconnection;

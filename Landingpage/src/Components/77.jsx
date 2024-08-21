@@ -84,44 +84,6 @@ const AITEMP = () => {
 
     return () => ctx.revert();
   }, []);
-  useLayoutEffect(() => {
-    let ctx = gsap.context(() => {
-      gsap.to(".aitemp3", {
-        scrollTrigger: {
-          trigger: ".aitemptarg1",
-
-          start: "top 300px",
-          end: "top 300px",
-          scrub: 0.01,
-          markers: true,
-        },
-        backgroundColor: "red",
-        transitionDuration: 0.2,
-        ease: "power2.in",
-      });
-    });
-
-    return () => ctx.revert();
-  }, []);
-  useLayoutEffect(() => {
-    let ctx = gsap.context(() => {
-      gsap.to(".aitemp3", {
-        scrollTrigger: {
-          trigger: ".aitemptarg2",
-          start: "top 300px",
-          end: "top 300px",
-          scrub: 0.01,
-          markers: true,
-        },
-        scale: 1.5,
-        backgroundColor: "blue",
-        transitionDuration: 0.2,
-        ease: "power2.in",
-      });
-    });
-
-    return () => ctx.revert();
-  }, []);
 
   return (
     <>
@@ -152,12 +114,6 @@ const AITEMP = () => {
             </h2>
           </div>
         </div>
-      </div>
-      <div className="aitemp2">
-        <div className="aitemp3"></div>
-        <div className="aitemptarg1"></div>
-        <div className="aitemptarg2"></div>
-        <div className="aitemptarg3"></div>
       </div>
     </>
   );

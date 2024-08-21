@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../Navbar";
 import { useRef, useState, useEffect } from "react";
 import { IoIosCloseCircle } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 let bmr;
 const Calculate = () => {
@@ -112,17 +113,19 @@ const Calculate = () => {
       <div className="Loginsignup">
         <div className="loginform ">
           <div className="regbackbtn">
-            <button className="signupbtn">Go Back</button>
+            <Link to="/">
+              <button className="signupbtn">Go Back</button>
+            </Link>
           </div>
 
           <div className="signup1" style={{ justifyContent: "center" }}>
             <div className="calc1" onClick={() => modalopen(0)}>
-              BMI
+              <h2>BMI</h2>
             </div>
           </div>
           <div className="signup1" style={{ justifyContent: "center" }}>
             <div className="calc1" onClick={() => modalopen(1)}>
-              BMR
+              <h2>BMR</h2>
             </div>
           </div>
         </div>
@@ -153,7 +156,7 @@ const Calculate = () => {
           <button type="submit" className="signupbtn">
             Calculate
           </button>
-          <div style={{ marginTop: "20px", fontSize: "24px" }}>
+          <div className="calcresult">
             {submittedValue && <span>BMI: {submittedValue}</span>}
           </div>
         </form>
@@ -261,7 +264,7 @@ const Calculate = () => {
           <button type="submit" className="signupbtn">
             Calculate
           </button>
-          <div style={{ marginTop: "20px", fontSize: "24px" }}>
+          <div className="calcresult">
             {submittedValue2 && <span>BMR: {submittedValue2}</span>}
           </div>
         </form>

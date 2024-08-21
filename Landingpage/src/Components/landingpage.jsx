@@ -25,7 +25,6 @@ function Landingpage() {
       <Testimonial />
       <Contact />
       <Footer />
-      <Admin />
     </div>
   );
 }

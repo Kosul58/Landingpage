@@ -1,9 +1,9 @@
 import React from "react";
 import { useLayoutEffect, useRef } from "react";
 import AboutBackground from "../Assets/about-background.png";
-import img1 from "../Assets/fruit.png";
-import img2 from "../Assets/vegg.png";
-import img3 from "../Assets/vegmix.png";
+import img1 from "../Assets/vegmeal.png";
+import img2 from "../Assets/nonveg.png";
+import img3 from "../Assets/keto.png";
 import img4 from "../Assets/vegg.png";
 import img5 from "../Assets/vegmix.png";
 
@@ -151,21 +151,21 @@ const Work = () => {
         <div className="imzoombox501">
           <div className="imzoombox502 ">
             <div className="imzoombox5011 leftslide">
-              <img src={img1}></img>
+              <img src={img2}></img>
             </div>
             <div className="imzoombox5012 rightslide">
-              <img src={img1}></img>
+              <img src={img3}></img>
             </div>
             <div className="imzoombox5013 middleslide">
               <img src={img1} className="imzoombox50131"></img>
-              <h2 className="imzoombox50132">Keto</h2>
+              <h2 className="imzoombox50132">Veg</h2>
               <div className="barchart"></div>
             </div>
             <div className="imzoombox5014 leftslide">
-              <img src={img1}></img>
+              <img src={img4}></img>
             </div>
             <div className="imzoombox5015 rightslide">
-              <img src={img1}></img>
+              <img src={img5}></img>
             </div>
           </div>
           <div className="imzoombox503"></div>
@@ -174,7 +174,7 @@ const Work = () => {
       <div className="infobox502">
         <div className="infobox5021 blocker">
           <div className="infobox502textleft ">
-            <h2>Veg</h2>
+            <h2>Non Veg</h2>
             <div className="barchart2"></div>
           </div>
           <div className="infobox502img ">
@@ -186,7 +186,7 @@ const Work = () => {
             <img src={img3}></img>
           </div>
           <div className="infobox502textright">
-            <h2>Veg</h2>
+            <h2>Keto</h2>
             <div className="barchart2"></div>
           </div>
         </div>
@@ -201,7 +201,7 @@ const Work = () => {
         </div>
         <div className="infobox5021 blocker">
           <div className="infobox502img ">
-            <img src={img5}></img>
+            <img src={img1}></img>
           </div>
           <div className="infobox502textright">
             <h2>Veg</h2>

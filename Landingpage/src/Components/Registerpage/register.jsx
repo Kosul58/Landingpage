@@ -96,15 +96,24 @@ const Signup = () => {
   };
 
   const changegcolor3 = (a) => {
-    icheck.forEach((ref, index) => {
-      if (index == a) {
-        if (ref.current.classList.contains("gchecked")) {
-          ref.current.classList.remove("gchecked");
-        } else {
-          ref.current.classList.add("gchecked");
-        }
-      }
-    });
+    if (a == 0) {
+      icheck1.current.classList.add("gchecked");
+      icheck4.current.classList.remove("gchecked");
+    } else if (a == 1) {
+      icheck2.current.classList.add("gchecked");
+      icheck3.current.classList.remove("gchecked");
+      icheck4.current.classList.remove("gchecked");
+    } else if (a == 2) {
+      icheck3.current.classList.add("gchecked");
+      icheck2.current.classList.remove("gchecked");
+      icheck4.current.classList.remove("gchecked");
+    }
+    if (a == 3) {
+      icheck4.current.classList.add("gchecked");
+      icheck1.current.classList.remove("gchecked");
+      icheck2.current.classList.remove("gchecked");
+      icheck3.current.classList.remove("gchecked");
+    }
   };
 
   const changegcolor4 = (a) => {
@@ -299,7 +308,7 @@ const Signup = () => {
                 className="hissues"
                 onClick={() => changegcolor3(3)}
               >
-                Iron Deficiency
+                None
               </div>
             </div>
           </div>
