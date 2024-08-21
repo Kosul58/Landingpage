@@ -2096,6 +2096,14 @@ admin starts */
   font-size: 20px;
   background-color: #acc7ea;
 }
+.usereditorinput3 {
+  width: 500px;
+  height: 300px;
+  border-radius: 10px;
+  border: none;
+  font-size: 20px;
+  background-color: #acc7ea;
+}
 .usereditorbtn {
   width: 100px;
   height: 40px;
@@ -2110,6 +2118,54 @@ admin starts */
   background-color: white;
   color: black;
 }
+
+.adminusershow {
+  position: fixed;
+  top: 30px;
+  left: 15%;
+  margin-top: 50px;
+  width: 760px;
+  height: 600px;
+  background-color: rgba(244, 232, 232, 1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  z-index: 6;
+}
+
+.adminusershowcancel {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.adminusershow1 {
+  width: 600px;
+  height: 500px;
+  background-color: #aeb3b6;
+  border-radius: 10px;
+  display: grid;
+  align-items: center;
+  justify-content: space-evenly;
+  overflow: auto;
+}
+.checkmuj {
+  width: 500px;
+  height: 100px;
+  background-color: #3489c1;
+  border-radius: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
 .foodcharts {
   height: 52svw;
 }

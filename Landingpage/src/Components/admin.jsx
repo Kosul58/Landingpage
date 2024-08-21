@@ -1,5 +1,6 @@
 import React from "react";
 import { useState, useEffect, useRef } from "react";
+import { MdCancel } from "react-icons/md";
 import {
   LineChart,
   Line,
@@ -199,6 +200,59 @@ const Admin = () => {
   const adm3 = useRef(null);
   const adm4 = useRef(null);
   const page = useRef(null);
+  const show = useRef(null);
+  const show2 = useRef(null);
+  const showcancel = useRef(null);
+  const showuserforedit = useRef(null);
+  const [search1, setsearch1] = useState("");
+  const [search2, setsearch2] = useState("");
+  const [subject, setsubject] = useState("");
+  const [message, setmessage] = useState("");
+
+  const showuser = (a) => {
+    if (search1) {
+      if (a == 0) {
+        show.current.classList.remove("signblock");
+        // showuserforedit.current.textContent = search1;
+      }
+      if (a == 1) {
+        show.current.classList.add("signblock");
+      }
+    } else {
+      alert("Enter search content");
+    }
+  };
+
+  const showfood = (a) => {
+    if (search2) {
+      if (a == 0) {
+        show2.current.classList.remove("signblock");
+        // showuserforedit.current.textContent = search1;
+      }
+      if (a == 1) {
+        show2.current.classList.add("signblock");
+      }
+    } else {
+      alert("Enter search content");
+    }
+  };
+  const handleemail = async (e) => {
+    e.preventDefault();
+
+    const response = await fetch("http://localhost:3000/sendmail", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ subject, message }),
+    });
+
+    if (response.ok) {
+      alert("Email sent successfully");
+    } else {
+      alert("Error sending email");
+    }
+  };
 
   const modalopen = (a) => {
     if (a == 0) {
@@ -365,14 +419,60 @@ const Admin = () => {
               </BarChart>
             </div>
             <div className="usereditor">
-              <input type="search" className="usereditorinput"></input>
-              <button className="usereditorbtn">Search User</button>
+              <input
+                type="search"
+                value={search1}
+                className="usereditorinput"
+                onChange={(e) => setsearch1(e.target.value)}
+              ></input>
+              <button className="usereditorbtn" onClick={() => showuser(0)}>
+                Search User
+              </button>
+            </div>
+            <div className="adminusershow signblock" ref={show}>
+              <div className="adminusershowcancel" onClick={() => showuser(1)}>
+                <MdCancel />
+              </div>
+              <div className="adminusershow1" ref={showuserforedit}>
+                <div className="checkmuj"></div>
+                <div className="checkmuj"></div>
+                <div className="checkmuj"></div>
+                <div className="checkmuj"></div>
+                <div className="checkmuj"></div>
+                <div className="checkmuj"></div>
+                <div className="checkmuj"></div>
+                <div className="checkmuj"></div>
+                <div className="checkmuj"></div>
+              </div>
             </div>
           </div>
           <div className="admx foodcharts signblock" ref={foodcontrol}>
             <div className="usereditor">
-              <input type="search" className="usereditorinput"></input>
-              <button className="usereditorbtn">Search Food</button>
+              <input
+                type="search"
+                value={search2}
+                className="usereditorinput"
+                onChange={(e) => setsearch2(e.target.value)}
+              ></input>
+              <button className="usereditorbtn" onClick={() => showfood(0)}>
+                Search Food
+              </button>
+            </div>
+            <div className="adminusershow signblock" ref={show2}>
+              <div className="adminusershowcancel" onClick={() => showfood(1)}>
+                <MdCancel />
+              </div>
+              <div className="adminusershow1" ref={showuserforedit}>
+                <div className="checkmuj"></div>
+                <div className="checkmuj"></div>
+                <div className="checkmuj"></div>
+                <div className="checkmuj"></div>
+                <div className="checkmuj"></div>
+                <div className="checkmuj"></div>
+                <div className="checkmuj"></div>
+                <div className="checkmuj"></div>
+                <div className="checkmuj"></div>
+              </div>
             </div>
             <div className="afchart1">
               <h3 style={{ textAlign: "center", color: "white" }}>Food Type</h3>
@@ -486,14 +586,18 @@ const Admin = () => {
               type="text"
               className="usereditorinput"
               placeholder="Subject"
+              value={subject}
+              onChange={(e) => setsubject(e.target.value)}
             ></input>
-            <input
-              type="email"
-              className="usereditorinput"
-              placeholder="example@gmail.com"
-            ></input>
-            <input type="file" className="usereditorinput3"></input>
-            <button className="usereditorbtn">Send</button>
+            <textarea
+              className="usereditorinput3"
+              placeholder="Message"
+              value={message}
+              onChange={(e) => setmessage(e.target.value)}
+            ></textarea>
+            <button className="usereditorbtn" onClick={handleemail}>
+              Send
+            </button>
           </div>
           <div className="admx foodcharts signblock" ref={page}>
             Page Control

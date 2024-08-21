@@ -3,6 +3,7 @@ import cors from "cors";
 import foodsort from "./foodsort.js"; // Adjust the import if necessary
 import closeconnection from "../../../ai/dataprc copy.js";
 import emailadderr from "../Database/emailadder.js";
+import emailsend from "../admin/emailsender.js";
 
 const app = express();
 app.use(express.json());
@@ -40,10 +41,19 @@ app.post("/email", async (req, res) => {
   }
 });
 
-app.post("/register", async (req, res) => {
-  const data = req.body;
-  if (!data) {
-    return res.status(400).json({ message: "Email is required" });
+app.post("/sendmail", async (req, res) => {
+  const { subject, message } = req.body;
+  if (!subject || !message) {
+    return res
+      .status(400)
+      .json({ message: "Subject and message are required" });
+  }
+
+  try {
+    await emailsend(subject, message);
+    res.status(200).json({ message: "Email sent successfully" });
+  } catch (error) {
+    res.status(500).json({ message: "Error sending email", error });
   }
 });
 

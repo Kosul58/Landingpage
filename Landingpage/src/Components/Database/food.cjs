@@ -18,6 +18,7 @@ const FoodSchema = new mongoose.Schema({
   nf_protein: { type: Number, required: true },
   nf_potassium: { type: Number, required: true },
   nf_iron: { type: Number, required: false },
+  date: { type: String, required: false },
 });
 
 const DFood = mongoose.model("Food", FoodSchema);

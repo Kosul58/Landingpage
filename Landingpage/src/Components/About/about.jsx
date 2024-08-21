@@ -3,7 +3,7 @@ import Navbar from "../Navbar";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import imgf3 from "../../Assets/fatman.png";
+import imgf3 from "../../Assets/kosul.png";
 function About() {
   const [loading, setLoading] = useState(null);
   const rec = useRef(null);
