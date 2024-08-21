@@ -48,9 +48,9 @@ const Navbar = () => {
           <Link to="/calculate">Calculator</Link>
           <div className="searchcontent">
             <input type="text" placeholder="Search" className="search" />
-            <a href="">
+            <Link to="/search">
               <IoSearchCircleOutline className="navbar-cart-icon" />
-            </a>
+            </Link>
           </div>
         </div>
         <div className="btnsmanager">

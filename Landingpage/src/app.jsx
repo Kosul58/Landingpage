@@ -12,6 +12,7 @@ import Calculate from "./Components/Calculate/calculate";
 import Dashboard from "./Components/Dashboard/dashboard";
 import About from "./Components/About/about";
 import Admin from "./Components/admin";
+import Search from "./Components/Search/search";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/about" element={<About />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/search" element={<Search />} />
       </Routes>
     </Router>
   );
