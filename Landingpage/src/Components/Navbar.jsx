@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState, useRef } from "react";
-import Logo from "../Assets/nutrilogo.png";
+import Logo from "../Assets/nutrilogo2.png";
 import { IoSearchCircleOutline } from "react-icons/io5";
 import { HiOutlineBars3 } from "react-icons/hi2";
 import Box from "@mui/material/Box";

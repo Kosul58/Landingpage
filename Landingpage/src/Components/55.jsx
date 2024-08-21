@@ -4,9 +4,8 @@ import AboutBackground from "../Assets/about-background.png";
 import img1 from "../Assets/vegmeal.png";
 import img2 from "../Assets/nonveg.png";
 import img3 from "../Assets/keto.png";
-import img4 from "../Assets/vegg.png";
-import img5 from "../Assets/vegmix.png";
-
+import img4 from "../Assets/carnivore.png";
+import img5 from "../Assets/paleo.png";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -159,7 +158,19 @@ const Work = () => {
             <div className="imzoombox5013 middleslide">
               <img src={img1} className="imzoombox50131"></img>
               <h2 className="imzoombox50132">Veg</h2>
-              <div className="barchart"></div>
+              <div className="barchart">
+                <div className="vegchart">
+                  <div className="chartsvg">
+                    <h2>Carb:</h2> <div className="carb101"></div>
+                  </div>
+                  <div className="chartsvg2">
+                    <h2>Prot:</h2> <div className="prot101"></div>
+                  </div>
+                  <div className="chartsvg3">
+                    <h2>Fat:</h2> <div className="fat101"></div>
+                  </div>
+                </div>
+              </div>
             </div>
             <div className="imzoombox5014 leftslide">
               <img src={img4}></img>
@@ -175,7 +186,20 @@ const Work = () => {
         <div className="infobox5021 blocker">
           <div className="infobox502textleft ">
             <h2>Non Veg</h2>
-            <div className="barchart2"></div>
+            <div className="barchart2">
+              <div className="chartfoodd">
+                <h2>Carb:</h2>
+                <div className="carb102"></div>
+              </div>
+              <div className="chartfoodd">
+                <h2>Prot:</h2>
+                <div className="prot102"></div>
+              </div>
+              <div className="chartfoodd">
+                <h2>Fat:</h2>
+                <div className="fat102"></div>
+              </div>
+            </div>
           </div>
           <div className="infobox502img ">
             <img src={img2}></img>
@@ -187,13 +211,39 @@ const Work = () => {
           </div>
           <div className="infobox502textright">
             <h2>Keto</h2>
-            <div className="barchart2"></div>
+            <div className="barchart2">
+              <div className="chartfoodd2">
+                <h2>Carb:</h2>
+                <div className="carb103"></div>
+              </div>
+              <div className="chartfoodd2">
+                <h2>Prot:</h2>
+                <div className="prot103"></div>
+              </div>
+              <div className="chartfoodd2">
+                <h2>Fat:</h2>
+                <div className="fat103"></div>
+              </div>
+            </div>
           </div>
         </div>
         <div className="infobox5021 blocker">
           <div className="infobox502textleft">
-            <h2>Veg</h2>
-            <div className="barchart2"></div>
+            <h2>Carnivore</h2>
+            <div className="barchart2">
+              <div className="chartfoodd">
+                <h2>Carb:</h2>
+                <div className="carb104"></div>
+              </div>
+              <div className="chartfoodd">
+                <h2>Prot:</h2>
+                <div className="prot104"></div>
+              </div>
+              <div className="chartfoodd">
+                <h2>Fat:</h2>
+                <div className="fat104"></div>
+              </div>
+            </div>
           </div>
           <div className="infobox502img ">
             <img src={img4}></img>
@@ -201,11 +251,24 @@ const Work = () => {
         </div>
         <div className="infobox5021 blocker">
           <div className="infobox502img ">
-            <img src={img1}></img>
+            <img src={img5}></img>
           </div>
           <div className="infobox502textright">
-            <h2>Veg</h2>
-            <div className="barchart2"></div>
+            <h2>Paleo</h2>
+            <div className="barchart2">
+              <div className="chartfoodd">
+                <h2>Carb:</h2>
+                <div className="carb102"></div>
+              </div>
+              <div className="chartfoodd">
+                <h2>Prot:</h2>
+                <div className="prot102"></div>
+              </div>
+              <div className="chartfoodd">
+                <h2>Carb:</h2>
+                <div className="fat102"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

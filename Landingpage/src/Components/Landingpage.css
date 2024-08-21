@@ -837,6 +837,72 @@ nav {
   z-index: 2;
 }
 
+.vegchart {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.chartsvg {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+
+.carb101 {
+  position: absolute;
+  top: 11px;
+  margin-left: 32px;
+  left: -0.5rem;
+  width: 40px;
+  height: 5px;
+  background-color: rgb(192, 46, 46);
+}
+
+.prot101 {
+  position: absolute;
+  top: 27px;
+  margin-left: 31px;
+  left: -0.5rem;
+  width: 20px;
+  height: 5px;
+  background-color: rgb(157, 159, 62);
+}
+
+.fat101 {
+  position: absolute;
+  top: 43px;
+  margin-left: 31px;
+  left: -0.5rem;
+  width: 8px;
+  height: 5px;
+  background-color: rgb(59, 59, 59);
+}
+
+.chartsvg h2 {
+  margin-top: -7.5rem;
+  font-size: 6px;
+  color: white;
+}
+.chartsvg2 h2 {
+  margin-top: -6.5rem;
+  left: -10px;
+  font-size: 6px;
+  color: white;
+}
+.chartsvg3 h2 {
+  margin-top: -5.5rem;
+  left: -9px;
+  font-size: 6px;
+  color: white;
+}
+
 .imzoombox5014 {
   position: absolute;
   top: 32%;
@@ -911,8 +977,120 @@ nav {
 .barchart2 {
   width: 350px;
   height: 220px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  flex-direction: column;
   background-color: rgba(245, 239, 239, 0.4);
   border-radius: 24px;
+  gap: 20px;
+}
+.chartfoodd {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+}
+.chartfoodd2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+}
+.barchart2 h2 {
+  font-size: 25px;
+  margin-left: 25px;
+}
+
+.carb102 {
+  width: 110px;
+  height: 15px;
+  background-color: rgb(192, 46, 46);
+  margin-left: -18px;
+}
+.prot102 {
+  width: 150px;
+  height: 15px;
+  background-color: rgb(157, 159, 62);
+  margin-left: -45px;
+}
+.fat102 {
+  width: 70px;
+  height: 15px;
+  background-color: rgb(59, 59, 59);
+  margin-left: -12px;
+}
+.chartfoodd2 h2 {
+  font-size: 25px !important;
+}
+.carb103 {
+  width: 30px;
+  height: 15px;
+  background-color: rgb(192, 46, 46);
+  margin-top: 3px;
+  margin-left: -2px;
+}
+.prot103 {
+  width: 80px;
+  height: 15px;
+  background-color: rgb(157, 159, 62);
+  margin-top: 3px;
+
+  margin-left: -15px;
+}
+.fat103 {
+  width: 220px;
+  height: 15px;
+  background-color: rgb(59, 59, 59);
+  margin-top: 3px;
+
+  margin-left: -60px;
+}
+
+.carb104 {
+  width: 10px;
+  height: 15px;
+  background-color: rgb(192, 46, 46);
+  margin-top: 3px;
+  margin-left: 2px;
+}
+.prot104 {
+  width: 250px;
+  height: 15px;
+  background-color: rgb(157, 159, 62);
+  margin-top: 3px;
+  margin-left: -70px;
+}
+.fat104 {
+  width: 80px;
+  height: 15px;
+  background-color: rgb(59, 59, 59);
+  margin-top: 3px;
+  margin-left: -20px;
+}
+
+.carb102 {
+  width: 80px;
+  height: 15px;
+  background-color: rgb(192, 46, 46);
+  margin-top: 3px;
+  margin-left: -12px;
+}
+.prot102 {
+  width: 180px;
+  height: 15px;
+  background-color: rgb(157, 159, 62);
+  margin-top: 3px;
+
+  margin-left: -45px;
+}
+.fat102 {
+  width: 80px;
+  height: 15px;
+  background-color: rgb(59, 59, 59);
+  margin-top: 3px;
+
+  margin-left: -12px;
 }
 
 .infobox502textright {
@@ -1062,27 +1240,58 @@ nav {
   box-shadow: 0 0 8px 8px rgba(129, 120, 138, 0.2);
 }
 .z1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: black;
   background-color: rgb(236, 236, 236);
   opacity: 0;
   transition: opacity 1s, transform 1s;
 }
 .z2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: rgb(16, 95, 206);
   background-color: rgb(190, 226, 59);
   opacity: 0;
   transition: opacity 1s, transform 1s;
 }
 .z3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: rgb(255, 247, 0);
   background-color: rgb(14, 211, 145);
   opacity: 0;
   transition: opacity 1s, transform 1s;
 }
 
 .z4 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   background-color: rgb(41, 44, 42);
   opacity: 1;
   transition: opacity 1s, transform 1s;
+  color: white;
+}
+.foodinfoo {
+  margin-top: 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  gap: 10px;
 }
 
+.z4 h2 {
+  color: white;
+}
 /* 66js ends here */
 
 .contact-page-wrapper h1 {
@@ -1564,12 +1773,10 @@ nav {
 .aitemp {
   width: 100svw;
   height: 200svh;
-  border: 2px solid black;
 }
 .aitemp1 {
   width: 100svw;
   height: 100svh;
-  border: 2px solid black;
   display: flex;
 }
 .ai11 {

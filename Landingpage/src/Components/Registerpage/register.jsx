@@ -25,6 +25,7 @@ const Signup = () => {
   const icheck = [icheck1, icheck2, icheck3, icheck4];
   const jcheck = [jcheck1, jcheck2, jcheck3, jcheck4, jcheck5];
   const kcheck = [kcheck1, kcheck2];
+  const [healthissues, sethealthissue] = useState(null);
 
   const [uname, setuname] = useState(null);
   const handleuname = (event) => {
@@ -70,10 +71,12 @@ const Signup = () => {
     if (a == 0) {
       gcheck1.current.classList.add("gchecked");
       gcheck2.current.classList.remove("gchecked");
+      setgender("male");
     }
     if (a == 1) {
       gcheck2.current.classList.add("gchecked");
       gcheck1.current.classList.remove("gchecked");
+      setgender("female");
     }
   };
 
@@ -82,16 +85,19 @@ const Signup = () => {
       hcheck1.current.classList.add("gchecked");
       hcheck2.current.classList.remove("gchecked");
       hcheck3.current.classList.remove("gchecked");
+      setugoal("lose weight");
     }
     if (a == 1) {
       hcheck2.current.classList.add("gchecked");
       hcheck1.current.classList.remove("gchecked");
       hcheck3.current.classList.remove("gchecked");
+      setugoal("gain weight");
     }
     if (a == 2) {
       hcheck3.current.classList.add("gchecked");
       hcheck1.current.classList.remove("gchecked");
       hcheck2.current.classList.remove("gchecked");
+      setugoal("maintain weight");
     }
   };
 
@@ -99,20 +105,36 @@ const Signup = () => {
     if (a == 0) {
       icheck1.current.classList.add("gchecked");
       icheck4.current.classList.remove("gchecked");
+      sethealthissue("diabities");
     } else if (a == 1) {
       icheck2.current.classList.add("gchecked");
       icheck3.current.classList.remove("gchecked");
       icheck4.current.classList.remove("gchecked");
+      sethealthissue("lowbp");
     } else if (a == 2) {
       icheck3.current.classList.add("gchecked");
       icheck2.current.classList.remove("gchecked");
       icheck4.current.classList.remove("gchecked");
+      sethealthissue("highbp");
     }
     if (a == 3) {
       icheck4.current.classList.add("gchecked");
       icheck1.current.classList.remove("gchecked");
       icheck2.current.classList.remove("gchecked");
       icheck3.current.classList.remove("gchecked");
+      sethealthissue("none");
+    }
+    if (
+      icheck1.current.classList.contains("gchecked") &&
+      icheck2.current.classList.contains("gchecked")
+    ) {
+      sethealthissue("diabities lowbp");
+    }
+    if (
+      icheck1.current.classList.contains("gchecked") &&
+      icheck3.current.classList.contains("gchecked")
+    ) {
+      sethealthissue("diabities highbp");
     }
   };
 
@@ -124,6 +146,21 @@ const Signup = () => {
         ref.current.classList.remove("gchecked");
       }
     });
+    if (a == 0) {
+      setactivitylvl("sedentary");
+    }
+    if (a == 1) {
+      setactivitylvl("lightly active");
+    }
+    if (a == 2) {
+      setactivitylvl("moderately active");
+    }
+    if (a == 3) {
+      setactivitylvl("very active");
+    }
+    if (a == 4) {
+      setactivitylvl("extremely active");
+    }
   };
 
   const changegcolor5 = (a) => {
@@ -134,6 +171,27 @@ const Signup = () => {
         ref.current.classList.remove("gchecked");
       }
     });
+    if (a == 0) {
+      setupref("veg");
+    }
+    if (a == 1) {
+      setupref("nonveg");
+    }
+  };
+
+  const data = {
+    uname: uname,
+    email: email,
+    password: password,
+    cpassword: cpassword,
+    gender: gender,
+    height: height,
+    weight: weight,
+    age: age,
+    healthissues: healthissues,
+    activitylvl: activitylvl,
+    ugoal: ugoal,
+    upreference: upreference,
   };
 
   const changepage = (a) => {
@@ -144,9 +202,10 @@ const Signup = () => {
       regform2.current.classList.add("signblock");
       regform1.current.classList.remove("signblock");
     } else if (a == 2) {
-      console.log(uname, email, password, cpassword, height, weight, age);
+      console.log(data);
     }
   };
+
   return (
     <>
       <Navbar />

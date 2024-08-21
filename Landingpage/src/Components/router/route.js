@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import foodsort from "./foodsort.js"; // Adjust the import if necessary
 import closeconnection from "../../../ai/dataprc copy.js";
+import emailadderr from "../Database/emailadder.js";
 
 const app = express();
 app.use(express.json());
@@ -22,6 +23,27 @@ app.get("/fetchmeal", async (req, res) => {
   } catch (error) {
     console.error("Error fetching meal:", error);
     res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+app.post("/email", async (req, res) => {
+  const { email } = req.body;
+  if (!email) {
+    return res.status(400).json({ message: "Email is required" });
+  }
+
+  try {
+    await emailadderr(email);
+    res.status(200).json({ message: "Email added/updated successfully" });
+  } catch (error) {
+    res.status(500).json({ message: "Error adding/updating email", error });
+  }
+});
+
+app.post("/register", async (req, res) => {
+  const data = req.body;
+  if (!data) {
+    return res.status(400).json({ message: "Email is required" });
   }
 });
 
