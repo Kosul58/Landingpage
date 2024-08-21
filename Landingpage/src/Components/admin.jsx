@@ -22,6 +22,7 @@ import {
 } from "recharts";
 ("recharts");
 import "./Landingpage.css";
+
 const data = [
   {
     name: "Jan",
@@ -209,7 +210,7 @@ const Admin = () => {
   const [subject, setsubject] = useState("");
   const [message, setmessage] = useState("");
 
-  const showuser = (a) => {
+  const showuser = async (a) => {
     if (search1) {
       if (a == 0) {
         show.current.classList.remove("signblock");
@@ -223,11 +224,30 @@ const Admin = () => {
     }
   };
 
-  const showfood = (a) => {
+  const [fooddisplaylist, setfooddisplaylist] = useState([]);
+
+  const showfood = async (a) => {
     if (search2) {
       if (a == 0) {
-        show2.current.classList.remove("signblock");
-        // showuserforedit.current.textContent = search1;
+        try {
+          const response = await fetch("http://localhost:3000/foodsearch", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ search: search2 }),
+          });
+          const data = await response.json();
+          const foodarray = data.food;
+          if (foodarray.length == 0) {
+            alert("No food found");
+          } else {
+            show2.current.classList.remove("signblock");
+            setfooddisplaylist(foodarray);
+          }
+        } catch (error) {
+          console.error("Error adding email:", error);
+        }
       }
       if (a == 1) {
         show2.current.classList.add("signblock");
@@ -236,6 +256,16 @@ const Admin = () => {
       alert("Enter search content");
     }
   };
+  const editfood = (a, b) => {
+    const j = fooddisplaylist[b];
+    console.log(j);
+  };
+
+  const deletefood = (a, b) => {
+    const j = fooddisplaylist[b];
+    console.log(j);
+  };
+
   const handleemail = async (e) => {
     e.preventDefault();
 
@@ -463,15 +493,27 @@ const Admin = () => {
                 <MdCancel />
               </div>
               <div className="adminusershow1" ref={showuserforedit}>
-                <div className="checkmuj"></div>
-                <div className="checkmuj"></div>
-                <div className="checkmuj"></div>
-                <div className="checkmuj"></div>
-                <div className="checkmuj"></div>
-                <div className="checkmuj"></div>
-                <div className="checkmuj"></div>
-                <div className="checkmuj"></div>
-                <div className="checkmuj"></div>
+                <ul>
+                  {fooddisplaylist.map((food, index) => (
+                    <li key={index} className="checkmuj">
+                      <div> {food}</div>
+                      <div className="foodbtnsgap">
+                        <button
+                          className="editfoodbtn"
+                          onClick={() => editfood(food, index)}
+                        >
+                          Edit
+                        </button>
+                        <button
+                          className="deletefoodbtn"
+                          onClick={() => deletefood(food, index)}
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
             <div className="afchart1">

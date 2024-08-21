@@ -4,6 +4,8 @@ import foodsort from "./foodsort.js"; // Adjust the import if necessary
 import closeconnection from "../../../ai/dataprc copy.js";
 import emailadderr from "../Database/emailadder.js";
 import emailsend from "../admin/emailsender.js";
+import searchfood from "../admin/searchfood.js";
+import mongoose from "mongoose";
 
 const app = express();
 app.use(express.json());
@@ -54,6 +56,19 @@ app.post("/sendmail", async (req, res) => {
     res.status(200).json({ message: "Email sent successfully" });
   } catch (error) {
     res.status(500).json({ message: "Error sending email", error });
+  }
+});
+
+app.post("/foodsearch", async (req, res) => {
+  try {
+    const { search } = req.body;
+    const food = await searchfood(search);
+    console.log(food);
+    res.status(200).json({ food });
+  } catch (error) {
+    res.status(500).json({ error: "Internal server error" });
+  } finally {
+    await mongoose.connection.close();
   }
 });
 
