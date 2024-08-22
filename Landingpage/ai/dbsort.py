@@ -158,7 +158,7 @@ model_path = 'mlp_model.pth'
 
 
 
-# # Model test
+# Model test
 
 # # Example input data as a list (batch of samples)
 # example_inputs1 = x200 + x500 
@@ -213,8 +213,8 @@ model_path = 'mlp_model.pth'
 #     predictions2 = outputs2.squeeze().tolist()   # Convert tensor to list of predictions
 
 
-# # for i, (prediction, label) in enumerate(zip(predictions, example_inputs1)):
-# #     print(f"Sample {i}: Prediction: {prediction:.4f}, Predicted Label: {label}")
+# for i, (prediction, label) in enumerate(zip(predictions, example_inputs1)):
+#     print(f"Sample {i}: Prediction: {prediction:.4f}, Predicted Label: {label}")
 
 
 # # Calculate accuracy for the example inputs2
