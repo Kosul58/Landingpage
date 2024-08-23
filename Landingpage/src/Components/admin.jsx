@@ -22,6 +22,7 @@ import {
 } from "recharts";
 ("recharts");
 import "./Landingpage.css";
+import { set } from "mongoose";
 
 const Admin = () => {
   const usercontrol = useRef(null);
@@ -400,8 +401,28 @@ const Admin = () => {
     }
   };
 
-  const deleteuser = (a, b) => {
+  const deleteuser = async (a, b) => {
     console.log(a, b);
+    const j = myuserid[b];
+    console.log(j);
+    try {
+      const response = await fetch("http://localhost:3000/deleteuser", {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ uname: a, user_id: j }),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log("User deleted successfully:", result);
+      } else {
+        console.error("Failed to delete user:", response.statusText);
+      }
+    } catch (error) {
+      console.error("Error:", error);
+    }
   };
 
   return (
@@ -574,7 +595,7 @@ const Admin = () => {
                         </button>
                         <button
                           className="deletefoodbtn"
-                          onClick={() => deleteuser(user, myuserid2)}
+                          onClick={() => deleteuser(user, index)}
                         >
                           Delete
                         </button>

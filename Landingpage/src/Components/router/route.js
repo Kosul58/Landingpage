@@ -7,6 +7,7 @@ import emailsend from "../admin/emailsender.js";
 import searchfood from "../admin/searchfood.js";
 import searchuser from "../admin/searchuser.js";
 import data5 from "../admin/admindata5.js";
+import deleteuser from "../admin/deleteuser.js";
 import mongoose from "mongoose";
 
 const app = express();
@@ -84,6 +85,16 @@ app.post("/usersearch", async (req, res) => {
 app.get("/admindata5", async (req, res) => {
   const data = await data5();
   res.send(data);
+});
+
+app.delete("/deleteuser", async (req, res) => {
+  try {
+    const { uname, user_id } = req.body;
+    await deleteuser(uname, user_id);
+    // console.log(uname, user_id);
+  } catch (error) {
+    res.status(500).json({ error: "Internal server error" });
+  }
 });
 
 app.listen(3000, () => {
