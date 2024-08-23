@@ -45,6 +45,7 @@ yv = ([1] * 50 + [0] * 50 + [1] * 50 + [0] * 50 + [1] * 50 + [0] * 50 + [1] * 50
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 # device = torch.device('cpu')
 # Prepare data
+print(len(xv))
 x_tensor = torch.tensor(xv).float().view(-1, 4)
 y_tensor = torch.tensor(yv).float().view(-1, 1)
 

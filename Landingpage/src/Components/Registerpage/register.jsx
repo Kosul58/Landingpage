@@ -162,6 +162,9 @@ const Signup = () => {
       setactivitylvl("extremely active");
     }
   };
+  // const key = 10;
+  // value = 10;
+  // window.localStorage.setItem(key, value);
 
   const changegcolor5 = (a) => {
     kcheck.forEach((ref, index) => {
@@ -194,7 +197,7 @@ const Signup = () => {
     upreference: upreference,
   };
 
-  const changepage = (a) => {
+  const changepage = async (a) => {
     if (a == 0) {
       regform1.current.classList.add("signblock");
       regform2.current.classList.remove("signblock");
@@ -203,6 +206,21 @@ const Signup = () => {
       regform1.current.classList.remove("signblock");
     } else if (a == 2) {
       console.log(data);
+      try {
+        const response = await fetch("http://localhost:3000/registeruser22", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ data: data }),
+        });
+        const data2 = await response.json();
+        if (data2) {
+          console.log(data2);
+        }
+      } catch (error) {
+        console.error("Error adding email:", error);
+      }
     }
   };
 

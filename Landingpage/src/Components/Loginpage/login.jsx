@@ -12,7 +12,8 @@ const Login = () => {
   const handlepwd = (event) => {
     setpassword(event.target.value);
   };
-
+  // const kk = window.localStorage.getItem(10);
+  // console.log(kk);
   return (
     <>
       <Navbar />
