@@ -3,9 +3,11 @@ import Navbar from "../Navbar";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import imgf3 from "../../Assets/kosul.png";
+import imgf3 from "../../Assets/kosul2.png";
 import imgf1 from "../../Assets/sobit.png";
 import imgf2 from "../../Assets/ganesh.png";
+import imgf4 from "../../Assets/bhupu.png";
+import imgf5 from "../../Assets/ritik.png";
 function About() {
   const [loading, setLoading] = useState(null);
   const rec = useRef(null);
@@ -232,13 +234,13 @@ function About() {
             <img src={imgf1} alt="" />
           </div>
           <div className="aitemp32">
-            <img alt="" />
+            <img src={imgf5} alt="" />
           </div>
           <div className="aitemp33">
             <img src={imgf2} alt="" />
           </div>
           <div className="aitemp34">
-            <img alt="" />
+            <img src={imgf4} alt="" />
           </div>
           <div className="aitemptarg1"></div>
           <div className="aitemptarg2"></div>
@@ -257,7 +259,7 @@ function About() {
           </div>
           <div className="aitemp43 aitemp4x blocker">
             <div className="myimage2">
-              <img alt="" />
+              <img src={imgf5} alt="" />
             </div>
             <div className="myinfo2">
               <h2>
@@ -277,7 +279,7 @@ function About() {
           </div>
           <div className="aitemp45 aitemp4x blocker">
             <div className="myimage2">
-              <img alt="" />
+              <img src={imgf4} alt="" />
             </div>
             <div className="myinfo2">
               <h2>

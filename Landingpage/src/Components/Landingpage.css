@@ -209,8 +209,9 @@ nav {
 }
 
 .home-image-section img {
-  max-width: 800px;
-  height: 500px;
+  max-width: 1000px;
+  height: 700px;
+  margin-left: -50px;
 }
 
 .home-text-section {
@@ -1339,7 +1340,7 @@ nav {
   max-width: 110px;
 }
 .footer-icons {
-  margin-top: 2.5rem;
+  margin-top: 1rem;
 }
 .footer-icons svg {
   font-size: 1.5rem;
@@ -1350,8 +1351,11 @@ nav {
   border: 2px solid blue;
 } */
 .footer-section-two {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
   flex: 1;
   display: flex;
+  gap: 150px;
   justify-content: flex-end;
 }
 .footer-section-columns {
@@ -1868,8 +1872,8 @@ nav {
   margin-top: -380px;
 }
 .aitemp32 {
-  width: 250px;
-  height: 300px;
+  width: 350px;
+  height: 200px;
   border-radius: 20px;
   position: sticky;
   top: 150px;
@@ -1898,7 +1902,7 @@ nav {
   height: 300px;
   border-radius: 20px;
   position: sticky;
-  top: 480px;
+  top: 450px;
   left: 1000px;
   margin-top: -350px;
 }
@@ -1944,6 +1948,18 @@ nav {
   border-radius: 40px;
   margin-top: 15rem;
   gap: 25rem;
+}
+
+.aitemp42 .myimage2 img {
+  width: 500px;
+  height: 600px;
+  margin-top: -7rem;
+  margin-left: -2rem;
+  border-radius: 20px;
+}
+
+.aitemp42 .myinfo2 h2 {
+  margin-left: 00px;
 }
 
 .aitemp44 {

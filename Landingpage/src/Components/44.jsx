@@ -8,7 +8,7 @@ import imgf4 from "../Assets/cake.png";
 import imgf5 from "../Assets/pizza.png";
 import imgf6 from "../Assets/fruit.png";
 import imgf7 from "../Assets/vegmix.png";
-import imgf8 from "../Assets/fitgirl.png";
+import imgf8 from "../Assets/ganesh2.png";
 import imgf9 from "../Assets/salad.png";
 import imgf10 from "../Assets/fruitjuice.png";
 
