@@ -30,7 +30,7 @@ const searchuser = async (a) => {
     for (const item of users) {
       const j = String(item.uname);
       if (j.toLowerCase().includes(a.toLowerCase())) {
-        user.push(j);
+        user.push(item);
       }
     }
     return user;
@@ -42,5 +42,7 @@ const searchuser = async (a) => {
   }
 };
 
-// Use an async function to handle the promise
+// const j = await searchuser("kosul");
+// console.log(j);
+// // Use an async function to handle the promise
 export default searchuser;

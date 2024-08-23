@@ -38,6 +38,10 @@ const Admin = () => {
   const show4 = useRef(null);
   const showcancel = useRef(null);
   const showuserforedit = useRef(null);
+  const [myuser, setmyuser] = useState([]);
+  const [myuser2, setmyuser2] = useState([]);
+  const [myuserid, setmyuserid] = useState([]);
+  const [myuserid2, setmyuserid2] = useState([]);
   const [myobject, setmyobject] = useState({});
   const [foodcontroldata, setfoodcontroldata] = useState([[], [], [], []]);
   const [search1, setsearch1] = useState("");
@@ -228,11 +232,16 @@ const Admin = () => {
           });
           const data = await response.json();
           const userarray = data.user;
+
+          const extractedUsernames = userarray.map((user) => user.uname);
+          const userid = userarray.map((user) => user.user_id);
+          setmyuserid(userid);
+          setmyuser(extractedUsernames);
           if (userarray.length == 0) {
             alert("No food found");
           } else {
             show.current.classList.remove("signblock");
-            setdisplayuser(userarray);
+            setdisplayuser(extractedUsernames);
           }
         } catch (error) {
           console.error("Error adding email:", error);
@@ -379,13 +388,20 @@ const Admin = () => {
   };
 
   const showsuser = (a, b) => {
-    console.log(usercontroldata[b]);
+    console.log(myuser[b]);
+    console.log(myuserid[b]);
+    console.log(a, b);
     if (a == 0) {
       show4.current.classList.add("signblock");
     } else if (a !== 0) {
-      setmyobject(usercontroldata[b]);
+      setmyuser2(myuser[b]);
+      setmyuserid2(myuserid[b]);
       show4.current.classList.remove("signblock");
     }
+  };
+
+  const deleteuser = (a, b) => {
+    console.log(a, b);
   };
 
   return (
@@ -416,7 +432,18 @@ const Admin = () => {
         </div>
         <div className="admin102">
           <div className="admx usercharts" ref={usercontrol}>
-            <div className="adminusershow2 signblock" ref={show4}></div>
+            <div className="adminusershow2 signblock" ref={show4}>
+              <div
+                className="adminusershowcancel"
+                onClick={() => showsuser(0, 0)}
+              >
+                <MdCancel />
+              </div>
+              <div className="adminfoodshoww">
+                <div>Name:{myuser2}</div>
+                <div>User_ID:{myuserid2}</div>
+              </div>
+            </div>
             <div className="auchart1 ">
               <select className="auchart1select">
                 <option value="Year">2024</option>
@@ -547,7 +574,7 @@ const Admin = () => {
                         </button>
                         <button
                           className="deletefoodbtn"
-                          onClick={() => deleteuser(user, index)}
+                          onClick={() => deleteuser(user, myuserid2)}
                         >
                           Delete
                         </button>
