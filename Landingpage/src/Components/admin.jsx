@@ -431,7 +431,7 @@ const Admin = () => {
         <div className="admin101">
           <div className="admphoto"></div>
           <div className="adm" style={{ color: "white" }}>
-            Name
+            ADMIN
           </div>
           <div
             className="adm admactive"
