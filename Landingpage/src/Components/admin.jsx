@@ -495,13 +495,23 @@ const Admin = () => {
               </LineChart>
             </div>
             <div className="auchart2">
-              <PieChart width={450} height={300}>
+              <h2
+                style={{
+                  textAlign: "center",
+                  color: "black",
+                  marginTop: "10px",
+                  fontSize: "20px",
+                }}
+              >
+                Gender Distribution
+              </h2>
+              <PieChart width={400} height={250}>
                 <Pie
                   data={data2}
                   cx={180}
-                  cy={140}
+                  cy={120}
                   innerRadius={40}
-                  outerRadius={100}
+                  outerRadius={80}
                   fill="#8884d8"
                   paddingAngle={0}
                   dataKey="Number"
@@ -519,13 +529,22 @@ const Admin = () => {
               </PieChart>
             </div>
             <div className="auchart3">
-              <PieChart width={400} height={300}>
+              <h2
+                style={{
+                  textAlign: "center",
+                  color: "white",
+                  fontSize: "20px",
+                }}
+              >
+                Healt Status
+              </h2>
+              <PieChart width={400} height={280}>
                 <Pie
                   data={data3}
                   cx={200}
                   cy={110}
-                  innerRadius={40}
-                  outerRadius={80}
+                  innerRadius={30}
+                  outerRadius={60}
                   fill="#8884d8"
                   paddingAngle={0}
                   dataKey="Number"
@@ -543,6 +562,15 @@ const Admin = () => {
               </PieChart>
             </div>
             <div className="auchart4">
+              <h2
+                style={{
+                  textAlign: "center",
+                  color: "white",
+                  fontSize: "20px",
+                }}
+              >
+                User Distribution
+              </h2>
               <BarChart
                 width={450}
                 height={250}
