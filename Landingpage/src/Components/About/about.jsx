@@ -4,6 +4,8 @@ import Navbar from "../Navbar";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import imgf3 from "../../Assets/kosul.png";
+import imgf1 from "../../Assets/sobit.png";
+import imgf2 from "../../Assets/ganesh.png";
 function About() {
   const [loading, setLoading] = useState(null);
   const rec = useRef(null);
@@ -52,7 +54,7 @@ function About() {
           end: "top 400px",
           scrub: 0.01,
         },
-        scale: 2,
+        scale: 1.7,
         transitionDuration: 0.8,
         ease: "power2.in",
       });
@@ -176,10 +178,12 @@ function About() {
           end: "top 300px",
           scrub: 0.01,
         },
-        width: 300,
-        height: 350,
-        translateX: -20,
+        width: 280,
+        height: 420,
+        translateX: -10,
+        translateY: -10,
         transitionDuration: 0.6,
+        zIndex: 8,
         ease: "power2.in",
       });
     });
@@ -192,15 +196,15 @@ function About() {
         scrollTrigger: {
           trigger: ".aitemptarg2",
           start: "top 500px",
-          end: "top 300px",
-          scrub: 0.01,
+          end: "top 400px",
+          scrub: 1,
         },
         opacity: 1,
         width: 300,
         height: 350,
-        translateY: -300,
-        translateX: 400,
-        transitionDuration: 0.2,
+        translateY: -250,
+        translateX: 440,
+        transitionDuration: 0.1,
         ease: "power2.in",
       });
     });
@@ -219,20 +223,22 @@ function About() {
               <img className="myimage" src={imgf3} alt="" />
             </div>
             <div className="myinfo">
-              <h2>Kosul Gurung</h2>
+              <h2>
+                Kosul<br></br> Gurung
+              </h2>
             </div>
           </div>
           <div className="aitemp31 ">
-            <img src={imgf3} alt="" />
+            <img src={imgf1} alt="" />
           </div>
           <div className="aitemp32">
-            <img src={imgf3} alt="" />
+            <img alt="" />
           </div>
           <div className="aitemp33">
-            <img src={imgf3} alt="" />
+            <img src={imgf2} alt="" />
           </div>
           <div className="aitemp34">
-            <img src={imgf3} alt="" />
+            <img alt="" />
           </div>
           <div className="aitemptarg1"></div>
           <div className="aitemptarg2"></div>
@@ -241,46 +247,46 @@ function About() {
           <div className="aitemp41"></div>
           <div className="aitemp42 aitemp4x blocker">
             <div className="myimage2">
-              <img src={imgf3} alt="" />
+              <img src={imgf1} alt="" />
             </div>
             <div className="myinfo2">
               <h2>
-                Kosul <br></br>Gurung
+                Sobit <br></br>Thapa
               </h2>
             </div>{" "}
           </div>
           <div className="aitemp43 aitemp4x blocker">
             <div className="myimage2">
-              <img src={imgf3} alt="" />
+              <img alt="" />
             </div>
             <div className="myinfo2">
               <h2>
-                Kosul<br></br> Gurung
+                Ritik<br></br> Gurung
               </h2>
             </div>
           </div>
           <div className="aitemp44 aitemp4x blocker">
             <div className="myimage2">
-              <img src={imgf3} alt="" />
+              <img src={imgf2} alt="" />
             </div>
             <div className="myinfo2">
               <h2>
-                Kosul <br></br>Gurung
+                Ganesh <br></br>Gautam
               </h2>
             </div>
           </div>
           <div className="aitemp45 aitemp4x blocker">
             <div className="myimage2">
-              <img src={imgf3} alt="" />
+              <img alt="" />
             </div>
             <div className="myinfo2">
               <h2>
-                Kosul <br></br>Gurung
+                Bhupesh <br></br> Shrestha
               </h2>
             </div>
           </div>
         </div>
-        <div className="recomender">
+        {/* <div className="recomender">
           <h1>Hello Bro!</h1>
           <h3>How you doing</h3>
           <p>want some recommendations</p>
@@ -308,7 +314,7 @@ function About() {
               </h2>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </>
   );

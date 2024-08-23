@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import DFood from "../Database/food.cjs";
+import User from "../Database/user.cjs";
 
 const mongoURI =
   "mongodb+srv://kosul:kosul@cluster0.jn30nsv.mongodb.net/?retryWrites=true&w=majority&appName=nutriTrack";
@@ -19,21 +19,21 @@ const connectDB = async () => {
   }
 };
 
-const searchfood = async (a) => {
+const searchuser = async (a) => {
   try {
-    const food = [];
+    const user = [];
     await connectDB();
-    const foods = await DFood.find();
+    const users = await User.find();
 
-    food.length = 0;
+    user.length = 0;
 
-    for (const item of foods) {
-      const j = String(item.food_name);
+    for (const item of users) {
+      const j = String(item.uname);
       if (j.toLowerCase().includes(a.toLowerCase())) {
-        food.push(item);
+        user.push(j);
       }
     }
-    return food;
+    return user;
   } catch (error) {
     console.error("Error fetching data:", error);
   } finally {
@@ -43,4 +43,4 @@ const searchfood = async (a) => {
 };
 
 // Use an async function to handle the promise
-export default searchfood;
+export default searchuser;
