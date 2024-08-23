@@ -35,6 +35,7 @@ const Admin = () => {
   const show = useRef(null);
   const show2 = useRef(null);
   const show3 = useRef(null);
+  const show4 = useRef(null);
   const showcancel = useRef(null);
   const showuserforedit = useRef(null);
   const [myobject, setmyobject] = useState({});
@@ -377,6 +378,16 @@ const Admin = () => {
     }
   };
 
+  const showsuser = (a, b) => {
+    console.log(usercontroldata[b]);
+    if (a == 0) {
+      show4.current.classList.add("signblock");
+    } else if (a !== 0) {
+      setmyobject(usercontroldata[b]);
+      show4.current.classList.remove("signblock");
+    }
+  };
+
   return (
     <>
       <div className="admin">
@@ -405,6 +416,7 @@ const Admin = () => {
         </div>
         <div className="admin102">
           <div className="admx usercharts" ref={usercontrol}>
+            <div className="adminusershow2 signblock" ref={show4}></div>
             <div className="auchart1 ">
               <select className="auchart1select">
                 <option value="Year">2024</option>
