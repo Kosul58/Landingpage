@@ -62,7 +62,6 @@ const takeFood = async (userId) => {
       if (randomL !== null) data.push(lunch[randomL]);
       if (randomD !== null) data.push(dinner[randomD]);
     }
-
     return data;
   } catch (error) {
     console.error("Error fetching data:", error.message);

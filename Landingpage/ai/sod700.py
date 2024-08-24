@@ -24,11 +24,11 @@ class SimpleNeuron:
         return [1 if a == 1 else 0 for a in activations]
 
 # Example usage
-# neuron = SimpleNeuron()
-# input_array = [[1050, 800], [800, 100], [200, 1100], [500, 1300], [800, 1100], [700, 950]]
-# predictions = neuron.predict(input_array)
+neuron = SimpleNeuron()
+input_array = [[100, 800], [800, 100], [200, 1100], [500, 1300], [800, 1100], [700, 950]]
+predictions = neuron.predict(input_array)
 
-# print(predictions)
+print(predictions)
 
 def saltcheck(data):
     neuron = SimpleNeuron()

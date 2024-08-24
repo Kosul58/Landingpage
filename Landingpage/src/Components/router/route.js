@@ -19,11 +19,12 @@ app.get("/fetchmeal", async (req, res) => {
     const bmr = req.query.bmr || 2330;
     const uid = req.query.uid || "kosul";
     const ftype = req.query.ftype || "nonveg";
-    const diab = req.query.diab || 1;
-    const lbp = req.query.lbp || 0;
+    const diab = req.query.diab || 0;
+    const lbp = req.query.lbp || 1;
     const hbp = req.query.hbp || 0;
     await closeconnection(bmr, uid, ftype, diab, lbp, hbp);
     const data = await foodsort(uid);
+    console.log(data);
     res.status(200).json(data);
     console.log(diab, lbp, hbp);
   } catch (error) {

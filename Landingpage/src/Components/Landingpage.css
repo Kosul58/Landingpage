@@ -1742,8 +1742,8 @@ nav {
   cursor: pointer;
 }
 .recomendedmeal {
-  width: 60%;
-  height: 350px;
+  width: 80%;
+  height: 550px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -1756,10 +1756,13 @@ nav {
 .blockrec {
   display: none;
 }
-
+.recbutton:hover {
+  background-color: rgba(220, 66, 66, 0.6);
+  color: white;
+}
 .RECC {
-  width: 250px;
-  height: 300px;
+  width: 350px;
+  height: 500px;
   border-radius: 10px;
   background-color: rgba(20, 102, 190, 0.5);
   display: flex;
@@ -1770,6 +1773,10 @@ nav {
   cursor: pointer;
 }
 
+.RECC h2 {
+  color: white;
+  font-size: 20px;
+}
 /* recomendation ends here */
 
 /* 77.js starts */

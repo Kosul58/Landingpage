@@ -9,8 +9,8 @@ import cors from "cors";
 // const bmr = 2330;
 // const uid = "kosul";
 // const ftype = "nonveg";
-// const diab = 1;
-// const lbp = 0;
+// const diab = 0;
+// const lbp = 1;
 // const hbp = 0;
 
 const app = express();
@@ -215,6 +215,7 @@ const sortfood = async (uid, diab, lbp, hbp) => {
             { $set: { foods: result } },
             { upsert: true, new: true }
           );
+          console.log(result);
         }
       } else if (diab == 0 && lbp == 0 && hbp == 1) {
         let result = await hcheck(datacheck, foodss);
@@ -242,7 +243,7 @@ const sortfood = async (uid, diab, lbp, hbp) => {
         if (result2.length !== 0) {
           await RFood.findOneAndUpdate(
             { user_id: user.user_id },
-            { $set: { foods: result } },
+            { $set: { foods: result2 } },
             { upsert: true, new: true }
           );
         }
