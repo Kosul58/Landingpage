@@ -1785,6 +1785,11 @@ nav {
   width: 100svw;
   height: 200svh;
 }
+.ai21 img {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
 .aitemp1 {
   width: 100svw;
   height: 100svh;
@@ -1815,7 +1820,6 @@ nav {
   left: 100px;
   width: 400px;
   height: 250px;
-  background-color: #96c7f5;
   border-radius: 15px;
 }
 

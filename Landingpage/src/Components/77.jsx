@@ -3,7 +3,8 @@ import { useRef, useEffect, useState, useLayoutEffect } from "react";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
+import img1 from "../Assets/foodrec.png";
+import img2 from "../Assets/nonveg.png";
 gsap.registerPlugin(ScrollTrigger);
 
 const AITEMP = () => {
@@ -100,7 +101,9 @@ const AITEMP = () => {
           <div className="ai12"></div>
         </div>
         <div className="aitemp1 ">
-          <div className="ai21"></div>
+          <div className="ai21">
+            <img src={img1} alt=""></img>
+          </div>
           <div className="ai22">
             <h2>
               Eat Smarter <br></br>
