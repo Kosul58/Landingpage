@@ -182,6 +182,32 @@ const Signup = () => {
     }
   };
 
+  const bmi = () => {
+    return (weight / ((height / 100) * (height / 100))).toFixed(2);
+  };
+
+  const bmr = function () {
+    let j;
+    if (activitylvl == "sedentary") {
+      j = 1.2;
+    } else if (activitylvl == "lightly active") {
+      j = 1.375;
+    } else if (activitylvl == "moderately active") {
+      j = 1.55;
+    } else if (activitylvl == "very active") {
+      j = 1.725;
+    } else if (activitylvl == "extremely active") {
+      j = 1.9;
+    }
+    let k;
+    if (gender == "female") {
+      k = (10 * weight + 6.25 * height - 5 * age - 161) * j;
+    } else {
+      k = (10 * weight + 6.25 * height - 5 * age + 5) * j;
+    }
+    return k.toFixed(2);
+  };
+
   const data = {
     uname: uname,
     email: email,
@@ -191,14 +217,20 @@ const Signup = () => {
     height: height,
     weight: weight,
     age: age,
-    healthissues: healthissues,
-    activitylvl: activitylvl,
-    ugoal: ugoal,
-    upreference: upreference,
+    healthIssues: healthissues,
+    activityLevel: activitylvl,
+    usergoals: ugoal,
+    dietaryPreferences: upreference,
+    bmi: bmi(),
+    bmr: bmr(),
   };
 
   const changepage = async (a) => {
     if (a == 0) {
+      if (password !== cpassword) {
+        alert("Passwords do not match");
+        return;
+      }
       regform1.current.classList.add("signblock");
       regform2.current.classList.remove("signblock");
     } else if (a == 1) {
@@ -207,19 +239,22 @@ const Signup = () => {
     } else if (a == 2) {
       console.log(data);
       try {
-        const response = await fetch("http://localhost:3000/registeruser22", {
+        const response = await fetch("http://localhost:3000/registeruser", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({ data: data }),
         });
-        const data2 = await response.json();
-        if (data2) {
-          console.log(data2);
+        if (response.ok) {
+          // Navigate to the dashboard after successful registration
+          localStorage.setItem("userDetails", JSON.stringify(data));
+          window.location.href = "http://localhost:5173/dashboard";
+        } else {
+          alert("Registration failed. Please try again.");
         }
       } catch (error) {
-        console.error("Error adding email:", error);
+        console.error("Error adding user:", error);
       }
     }
   };

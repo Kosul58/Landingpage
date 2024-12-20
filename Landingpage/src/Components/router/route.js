@@ -8,28 +8,91 @@ import searchfood from "../admin/searchfood.js";
 import searchuser from "../admin/searchuser.js";
 import data5 from "../admin/admindata5.js";
 import deleteuser from "../admin/deleteuser.js";
-import mongoose from "mongoose";
-
+import searchuserregisterandsave from "../Registerpage/registeruser.js";
+import searchuserandlogin from "../Loginpage/logger.js";
 const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.get("/fetchmeal", async (req, res) => {
+app.post("/fetchmeal", async (req, res) => {
+  const data = req.body;
+  let diab, lbp, hbp;
+  if (data.healthIssues == "diabities") {
+    diab = 1;
+    lbp = 0;
+    hbp = 0;
+  } else if (data.healthIssues == "lowbp") {
+    diab = 0;
+    lbp = 1;
+    hbp = 0;
+  } else if (data.healthIssues == "highbp") {
+    diab = 0;
+    lbp = 0;
+    hbp = 1;
+  } else if (data.healthIssues == "none") {
+    diab = 0;
+    lbp = 0;
+    hbp = 0;
+  } else if (data.healthIssues == "diabities lowbp") {
+    diab = 1;
+    lbp = 1;
+    hbp = 0;
+  } else if (data.healthIssues == "diabities highbp") {
+    diab = 1;
+    lbp = 0;
+    hbp = 1;
+  }
   try {
-    const bmr = req.query.bmr || 2330;
-    const uid = req.query.uid || "kosul";
-    const ftype = req.query.ftype || "nonveg";
-    const diab = req.query.diab || 0;
-    const lbp = req.query.lbp || 1;
-    const hbp = req.query.hbp || 0;
+    const bmr = data.bmr;
+    const uid = data._id;
+    const ftype = data.dietaryPreferences;
+    console.log(bmr, uid, ftype, diab, lbp, hbp);
     await closeconnection(bmr, uid, ftype, diab, lbp, hbp);
-    const data = await foodsort(uid);
-    console.log(data);
-    res.status(200).json(data);
-    console.log(diab, lbp, hbp);
+    console.log("Process1 complete");
+    const data2 = await foodsort(uid);
+    // console.log(data);
+    res.status(200).json(data2);
   } catch (error) {
     console.error("Error fetching meal:", error);
     res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+app.post("/registeruser", async (req, res) => {
+  try {
+    const { data } = req.body;
+    console.log(data);
+
+    const registrationResult = await searchuserregisterandsave(data);
+
+    if (registrationResult === 1) {
+      // Registration successful
+      res.status(200).json({
+        message: "Registration successful",
+      });
+    } else if (registrationResult === 0) {
+      // User already exists
+      res.status(400).json({ error: "User already exists" });
+    } else {
+      // Unexpected error during registration
+      res.status(500).json({ error: "Registration failed" });
+    }
+  } catch (error) {
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
+app.post("/login", async (req, res) => {
+  const data = req.body;
+  console.log(data);
+
+  const user = await searchuserandlogin(data);
+
+  if (user) {
+    console.log(user);
+    res.status(200).json(user); // Send user data on success
+  } else {
+    res.status(401).json({ error: "Invalid credentials" });
   }
 });
 

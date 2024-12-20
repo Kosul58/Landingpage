@@ -25,10 +25,10 @@ class SimpleNeuron:
 
 # Example usage
 neuron = SimpleNeuron()
-input_array = [[100, 800], [800, 100], [200, 1100], [500, 1300], [800, 1100], [700, 950]]
-predictions = neuron.predict(input_array)
+# input_array = [[100, 800], [800, 100], [200, 1100], [500, 1300], [800, 1100], [700, 950]]
+# predictions = neuron.predict(input_array)
 
-print(predictions)
+# print(predictions)
 
 def saltcheck(data):
     neuron = SimpleNeuron()

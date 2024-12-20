@@ -52,12 +52,12 @@ y_tensor = torch.tensor(yv).float().view(-1, 1)
 class MLP(nn.Module):
     def __init__(self):
         super(MLP, self).__init__()
-        self.fc1 = nn.Linear(4, 20)
-        self.fc2 = nn.Linear(20, 60)
-        self.fc3 = nn.Linear(60, 120)
-        self.fc4 = nn.Linear(120, 80)
-        self.fc5 = nn.Linear(80, 70)
-        self.fc6 = nn.Linear(70, 60)
+        self.fc1 = nn.Linear(4, 200)
+        self.fc2 = nn.Linear(200, 600)
+        self.fc3 = nn.Linear(600, 1200)
+        self.fc4 = nn.Linear(1200, 800)
+        self.fc5 = nn.Linear(800, 200)
+        self.fc6 = nn.Linear(200, 60)
         self.fc7 = nn.Linear(60, 30)
         self.fc8 = nn.Linear(30, 1)
         self.dropout = nn.Dropout(0.2)
@@ -74,15 +74,15 @@ class MLP(nn.Module):
         return x
 
 # Instantiate the model and move it to the GPU
-# model = MLP().to(device)
+model = MLP().to(device)
 
-# # Define the loss function and optimizer
-# criterion = nn.BCELoss()
-# optimizer = optim.Adam(model.parameters(), lr=0.000006)
+# Define the loss function and optimizer
+criterion = nn.BCELoss()
+optimizer = optim.Adam(model.parameters(), lr=0.000006)
 
-# # Training parameters
-# num_epochs = 4000
-# batch_size = 80
+# Training parameters
+num_epochs = 4000
+batch_size = 80
 
 # # Lists to store loss and accuracy for each epoch
 # losses = []
@@ -125,9 +125,9 @@ class MLP(nn.Module):
 
 
 
-# Save your model @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-model_path = 'mlp_model.pth'
-# torch.save(model.state_dict(), model_path)
+# # Save your model @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+# # model_path = 'mlp_model.pth'
+# # torch.save(model.state_dict(), model_path)
 
 
 
@@ -235,7 +235,7 @@ model_path = 'mlp_model.pth'
 # plt.show()
 
 
-# Neural Network for diabities check ends here ?????????????????????
+# # Neural Network for diabities check ends here ?????????????????????
 
 
 def predict(data):

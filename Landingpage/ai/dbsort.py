@@ -16,8 +16,8 @@ tdv0 = db0
 tdv1 = db1
 # print (tdv0)
 # print (tdv1)
-print (len(tdv0))
-print (len(tdv1))
+# print (len(tdv0))
+# print (len(tdv1))
 
 x101 = tdv1[:50]
 x201 = tdv1[50:100]
@@ -45,7 +45,7 @@ yv = ([1] * 50 + [0] * 50 + [1] * 50 + [0] * 50 + [1] * 50 + [0] * 50 + [1] * 50
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 # device = torch.device('cpu')
 # Prepare data
-print(len(xv))
+# print(len(xv))
 x_tensor = torch.tensor(xv).float().view(-1, 4)
 y_tensor = torch.tensor(yv).float().view(-1, 1)
 
@@ -75,19 +75,19 @@ class MLP(nn.Module):
         return x
 
 # Instantiate the model and move it to the GPU
-# model = MLP().to(device)
+model = MLP().to(device)
 
-# # Define the loss function and optimizer
-# criterion = nn.BCELoss()
-# optimizer = optim.Adam(model.parameters(), lr=0.000006)
+# Define the loss function and optimizer
+criterion = nn.BCELoss()
+optimizer = optim.Adam(model.parameters(), lr=0.000006)
 
-# # Training parameters
-# num_epochs = 4000
-# batch_size = 80
+# Training parameters
+num_epochs = 4000
+batch_size = 80
 
-# # Lists to store loss and accuracy for each epoch
-# losses = []
-# accuracies = []
+# Lists to store loss and accuracy for each epoch
+losses = []
+accuracies = []
 
 # for epoch in range(num_epochs):
 #     model.train()

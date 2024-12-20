@@ -289,16 +289,16 @@ function About() {
             </div>
           </div>
           <div className="aitemp31 ">
-            <img src={imgf1} alt="" />
+            <img src={imgf1} alt="" loading="lazy" />
           </div>
           <div className="aitemp32">
-            <img src={imgf5} alt="" />
+            <img src={imgf5} alt="" loading="lazy" />
           </div>
           <div className="aitemp33">
-            <img src={imgf2} alt="" />
+            <img src={imgf2} alt="" loading="lazy" />
           </div>
           <div className="aitemp34">
-            <img src={imgf4} alt="" />
+            <img src={imgf4} alt="" loading="lazy" />
           </div>
           <div className="aitemptarg1"></div>
           <div className="aitemptarg2"></div>
@@ -307,7 +307,7 @@ function About() {
           <div className="aitemp41"></div>
           <div className="aitemp42 aitemp4x blocker">
             <div className="myimage2">
-              <img src={imgf1} alt="" />
+              <img src={imgf1} alt="" loading="lazy" />
             </div>
             <div className="myinfo2">
               <h2>
@@ -317,7 +317,7 @@ function About() {
           </div>
           <div className="aitemp43 aitemp4x blocker">
             <div className="myimage2">
-              <img src={imgf5} alt="" />
+              <img src={imgf5} alt="" loading="lazy" />
             </div>
             <div className="myinfo2">
               <h2>
@@ -327,7 +327,7 @@ function About() {
           </div>
           <div className="aitemp44 aitemp4x blocker">
             <div className="myimage2">
-              <img src={imgf2} alt="" />
+              <img src={imgf2} alt="" loading="lazy" />
             </div>
             <div className="myinfo2">
               <h2>
@@ -337,7 +337,7 @@ function About() {
           </div>
           <div className="aitemp45 aitemp4x blocker">
             <div className="myimage2">
-              <img src={imgf4} alt="" />
+              <img src={imgf4} alt="" loading="lazy" />
             </div>
             <div className="myinfo2">
               <h2>

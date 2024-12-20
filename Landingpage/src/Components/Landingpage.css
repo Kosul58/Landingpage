@@ -223,7 +223,7 @@ nav {
 }
 
 .animate-pop-in {
-  animation: pop-in 0.6s ease-out forwards;
+  animation: pop-out 0.6s ease-out forwards;
 }
 
 @keyframes pop-in {
@@ -237,6 +237,20 @@ nav {
   }
 }
 
+@keyframes pop-out {
+  0% {
+    opacity: 0;
+    scale: 0;
+  }
+  50% {
+    opacity: 1;
+    scale: 1.2;
+  }
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
+}
 .primary-heading {
   opacity: 0;
   font-size: clamp(2rem, 5vw, 4rem);
@@ -1788,7 +1802,6 @@ nav {
 .ai21 img {
   width: 100%;
   height: 100%;
-  border-radius: 20px;
 }
 .aitemp1 {
   width: 100svw;
@@ -2389,7 +2402,7 @@ admin ends */
 }
 
 .fooddisplay202 {
-  width: 80%;
+  width: fit-content;
   height: 80%;
   display: flex;
   align-items: center;
@@ -2398,14 +2411,11 @@ admin ends */
 }
 
 .showfood202 {
-  position: absolute;
-  top: 100px;
-  left: 25%;
+  position: relative;
   z-index: 9999;
   width: 400px;
   height: 600px;
   background-color: #101d29;
-  cursor: pointer;
   border-radius: 8px;
   color: white;
   display: flex;
@@ -2442,4 +2452,438 @@ admin ends */
 .showfood202:hover {
   background-color: white;
   color: black;
+}
+
+/* Dashboard starts here */
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.dashboard1 {
+  width: 100dvw;
+  height: 100dvh;
+  background-color: rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-direction: row;
+  color: white;
+
+  background: linear-gradient(135deg, #ff7eb3, #ff758c, #ff6355, #ffd452);
+  background-size: 400% 400%;
+  animation: gradientAnimation 10s ease infinite;
+}
+
+.dashboard11 {
+  width: 15%;
+  height: 95%;
+  background-color: rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-direction: column;
+  color: white;
+  border-radius: 24px;
+  backdrop-filter: blur(16px);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.dashboard12 {
+  width: 80%;
+  height: 95%;
+  background-color: rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  border-radius: 24px;
+  backdrop-filter: blur(16px);
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  overflow-y: scroll;
+}
+
+.dashboard12::-webkit-scrollbar {
+  display: none;
+}
+
+.dashboard111 {
+  width: 90%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: white;
+  color: black;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 2px 2px 12px rgba(25, 24, 24, 0.5);
+}
+
+.dashboard111:hover {
+  background-color: rgba(19, 182, 48, 0.6);
+  color: white;
+}
+
+.dashboard111 h1 {
+  font-size: 20px;
+}
+
+.nutritenttracker,
+.foodrecomendation {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+}
+.foodlog {
+  width: 100%;
+  height: 100%;
+  display: block;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+}
+
+.foodlog1 {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.userfoodlogger {
+  width: 100%;
+  height: 500px;
+  /* border: 2px solid black; */
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.foodadder101 {
+  width: 550px;
+  height: 100%;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  /* border: 2px solid black; */
+  gap: 10px;
+}
+
+.foodcalendar {
+  width: 400px;
+  height: 400px;
+  /* border: 2px solid black; */
+  display: flex;
+}
+
+.weighttracker {
+  width: 100%;
+  height: 500px;
+  border: 2px solid black;
+  display: flex;
+  align-items: center;
+}
+
+.foodrecomendation {
+  display: none;
+}
+
+/* .foodlog::-webkit-scrollbar {
+  display: none;
+} */
+
+.userloginfo {
+  width: 150px;
+  height: 40px;
+}
+
+.foodsearcher {
+  width: 550px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.foodsearcher input {
+  width: 400px;
+  height: 50px;
+  border-radius: 10px;
+  text-align: center;
+  border: none;
+  box-shadow: 0px 8px 10px rgba(156, 15, 15, 0.8);
+}
+
+.foodsearcher button {
+  width: 100px;
+  height: 50px;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #6ea4c7;
+  color: white;
+  border: none;
+  box-shadow: 0px 8px 10px rgba(156, 15, 15, 0.8);
+}
+
+.foodsearcher button:hover {
+  background-color: rgb(94, 164, 56);
+  color: rgb(244, 243, 243);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.foodsearchresult {
+  position: absolute;
+  top: 130px;
+  left: 300px;
+  width: 600px;
+  height: 400px;
+  overflow-y: scroll;
+  z-index: 5;
+  overflow-x: hidden;
+  border-radius: 10px;
+  border: none;
+}
+
+.foodsearchresult::-webkit-scrollbar {
+  display: none;
+}
+.fooddisplay2xx {
+  position: absolute;
+  z-index: 5;
+  top: 130px;
+  right: 130px;
+  width: 300px;
+  height: 550px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-direction: row;
+  color: white;
+}
+
+.fooddisplay20 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  z-index: 8;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+.foodcloser101 {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+.foodcloser101:hover {
+  color: red;
+  scale: 1.2;
+}
+
+.ucaloriebar {
+  width: 90%;
+  height: 80px;
+  border-radius: 12px;
+  background-color: rgba(138, 12, 12, 0.3);
+  box-shadow: 2px 2px 10px #590606;
+}
+
+.ufoodadder {
+  width: 90%;
+  height: 350px;
+  background-color: white;
+  border-radius: 10px;
+  gap: 20px;
+  box-shadow: 2px 2px 10px #302929;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.ucaloriebar p {
+  position: relative;
+  top: 10px;
+  left: 10px;
+}
+
+.ucalbar1 {
+  width: 80%;
+  height: 10px;
+  background-color: green;
+  position: relative;
+  top: 20px;
+  left: 10px;
+  z-index: 2;
+}
+
+.ucalbar2 {
+  width: 90%;
+  margin-top: -10px;
+  height: 10px;
+  background-color: white;
+  position: relative;
+  top: 20px;
+  left: 10px;
+  z-index: 1;
+}
+
+.ucalbar3 {
+  position: relative;
+  top: 10px;
+  left: 250px;
+  margin-top: -35px;
+}
+.ucalbar4 {
+  position: relative;
+  top: 30px;
+  left: 250px;
+}
+.ucalbar5 {
+  margin-top: 15px;
+}
+
+.ufoodadder1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  gap: 10px;
+  border-radius: 10px;
+  width: 90%;
+  height: 40px;
+  background-color: rgba(0, 123, 255, 0.2);
+  cursor: pointer;
+}
+
+.ufoodadder2 {
+  position: sticky;
+  margin-top: -60rem;
+  margin-left: 29%;
+  width: 450px;
+  height: 600px;
+  background-color: rgba(103, 4, 4, 0.8);
+  backdrop-filter: blur(26px);
+  z-index: 3;
+  border-radius: 26px;
+}
+
+.searchforuser {
+  position: relative;
+  width: 80%;
+  top: 10px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.searcherforuser101 {
+  border: none;
+  text-align: center;
+  width: 90%;
+  height: 35px;
+  border-radius: 10px;
+  background-color: rgba(254, 254, 254, 0.6);
+}
+.searchicon101:hover {
+  color: greenyellow;
+  scale: 1.5;
+}
+/* Updated CSS for Search Component */
+
+.searchforuser2 {
+  position: relative;
+  width: 80%;
+  max-width: 600px;
+  height: auto;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  padding: 20px;
+  margin: 20px auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.searchforuser202 {
+  width: 100%;
+  max-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow-y: scroll;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px;
+}
+
+.fooddisplayer2002,
+.fooddisplayer2003 {
+  width: 90%;
+  background: rgba(240, 240, 240, 0.9);
+  border-radius: 8px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.checkmuj202 {
+  width: 100%;
+  min-height: 60px;
+  background-color: rgba(0, 123, 255, 0.2);
+  border-radius: 8px;
+  font-size: 16px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  cursor: pointer;
+  margin-top: 10px;
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+
+.checkmuj202:hover {
+  background-color: rgba(0, 123, 255, 0.4);
+  color: #fff;
+}
+
+.checkmuj202:active {
+  transform: scale(0.98);
+}
+
+/* Custom Scrollbar */
+.searchforuser202::-webkit-scrollbar {
+  width: 8px;
+}
+
+.searchforuser202::-webkit-scrollbar-thumb {
+  background: rgba(0, 123, 255, 0.5);
+  border-radius: 4px;
+}
+
+.searchforuser202::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 123, 255, 0.7);
 }

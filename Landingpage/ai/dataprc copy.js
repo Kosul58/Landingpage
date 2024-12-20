@@ -23,7 +23,7 @@ const mongoURI =
 // Connect to MongoDB
 const connectDB = async () => {
   try {
-    console.log("MongoDB URI:", mongoURI);
+    // console.log("MongoDB URI:", mongoURI);
 
     await mongoose.connect(mongoURI, {
       useNewUrlParser: true,
@@ -88,7 +88,7 @@ const classifyresult = async (bmr, userid, ftype) => {
 
 async function diabcheck(inputData) {
   try {
-    const response = await fetch("http://localhost:5000/predictdb", {
+    const response = await fetch("http://127.0.0.1:5000/predictdb", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -107,7 +107,7 @@ async function diabcheck(inputData) {
 }
 async function saltcheck(inputData) {
   try {
-    const response = await fetch("http://localhost:5000/predictbp", {
+    const response = await fetch("http://127.0.0.1:5000/predictbp", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -215,7 +215,7 @@ const sortfood = async (uid, diab, lbp, hbp) => {
             { $set: { foods: result } },
             { upsert: true, new: true }
           );
-          console.log(result);
+          // console.log(result);
         }
       } else if (diab == 0 && lbp == 0 && hbp == 1) {
         let result = await hcheck(datacheck, foodss);
@@ -289,7 +289,7 @@ const closeconnection = async (bmr, uid, ftype, diab, lbp, hbp) => {
       console.error("MongoDB connection close error:", error.message);
     } finally {
       await mongoose.connection.close();
-      console.log("MongoDB connection closed");
+      console.log("MongoDB connection closed1");
     }
   }
 };

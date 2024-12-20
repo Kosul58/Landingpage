@@ -2,8 +2,10 @@ import React from "react";
 import Navbar from "../Navbar";
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const Login = () => {
   const [uname, setuname] = useState(null);
+  const navigate = useNavigate();
   const handleuname = (event) => {
     setuname(event.target.value);
   };
@@ -12,13 +14,42 @@ const Login = () => {
   const handlepwd = (event) => {
     setpassword(event.target.value);
   };
-  // const kk = window.localStorage.getItem(10);
-  // console.log(kk);
+
+  const hanglelogin = async (event) => {
+    event.preventDefault(); // Prevent form refresh
+    console.log(uname, password);
+
+    try {
+      const response = await fetch("http://localhost:3000/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ uname, password }),
+      });
+
+      if (response.ok) {
+        const [result] = await response.json();
+        console.log("Login successful:", result);
+
+        // Store user details in localStorage or context (optional)
+        localStorage.setItem("userDetails", JSON.stringify(result));
+
+        // Redirect to dashboard
+        navigate("/dashboard");
+      } else {
+        console.error("Login failed");
+        alert("Invalid username or password");
+      }
+    } catch (error) {
+      console.error("Error logging in:", error);
+      alert("Server error, please try again later");
+    }
+  };
+
   return (
     <>
       <Navbar />
       <div className="Loginsignup">
-        <form className="loginform ">
+        <form className="loginform " onSubmit={hanglelogin}>
           <div className="regbackbtn">
             <Link to="/">
               <button className="signupbtn">Go Back</button>
@@ -46,9 +77,9 @@ const Login = () => {
             </div>
           </div>
           <div className="signupbtnfront">
-            <Link to={"/dashboard"}>
-              <button className="signupbtn">Login</button>
-            </Link>
+            <button className="signupbtn" type="submit">
+              Login
+            </button>
           </div>
         </form>
       </div>

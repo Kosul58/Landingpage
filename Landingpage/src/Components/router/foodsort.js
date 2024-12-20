@@ -29,7 +29,7 @@ const closeConn = async () => {
 
 const takeFood = async (userId) => {
   await connectDB();
-  console.log("Connected to MongoDB");
+  // console.log("Connected to MongoDB");
 
   try {
     const user = await RFood.findOne({ user_id: userId });
@@ -68,6 +68,7 @@ const takeFood = async (userId) => {
     return [];
   } finally {
     await closeConn();
+    console.log("Disconnected from MongoDB2");
   }
 };
 
