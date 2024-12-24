@@ -10,6 +10,10 @@ import data5 from "../admin/admindata5.js";
 import deleteuser from "../admin/deleteuser.js";
 import searchuserregisterandsave from "../Registerpage/registeruser.js";
 import searchuserandlogin from "../Loginpage/logger.js";
+import addfoodindb from "../Dashboard/foodaddindash.js";
+import addwtindb from "../Dashboard/userwt.js";
+import fetchdata from "../Dashboard/fetchdata.js";
+
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -58,10 +62,22 @@ app.post("/fetchmeal", async (req, res) => {
   }
 });
 
+app.post("/addfoodindb", async (req, res) => {
+  const data = req.body;
+  // console.log(data);
+  await addfoodindb(data);
+  res.status(200).json(data);
+});
+app.post("/addwtindb", async (req, res) => {
+  const data = req.body;
+  // console.log(data);
+  await addwtindb(data);
+  res.status(200).json(data);
+});
+
 app.post("/registeruser", async (req, res) => {
   try {
     const { data } = req.body;
-    console.log(data);
 
     const registrationResult = await searchuserregisterandsave(data);
 
@@ -70,14 +86,18 @@ app.post("/registeruser", async (req, res) => {
       res.status(200).json({
         message: "Registration successful",
       });
+      console.log("Registration successful");
     } else if (registrationResult === 0) {
       // User already exists
       res.status(400).json({ error: "User already exists" });
+      console.log("User already exists");
     } else {
       // Unexpected error during registration
       res.status(500).json({ error: "Registration failed" });
+      console.log("Registration failed");
     }
   } catch (error) {
+    console.error("Error during registration:", error.message);
     res.status(500).json({ error: "Internal server error" });
   }
 });
@@ -94,6 +114,13 @@ app.post("/login", async (req, res) => {
   } else {
     res.status(401).json({ error: "Invalid credentials" });
   }
+});
+
+app.post("/getuserdata", async (req, res) => {
+  const data = req.body.user_id;
+  const date = req.body.date;
+  const user = await fetchdata(data, date);
+  res.status(200).json(user);
 });
 
 app.post("/email", async (req, res) => {

@@ -3,8 +3,10 @@ import { IoIosCloseCircleOutline } from "react-icons/io";
 import Calendar from "../calendar/calendar";
 import { FaCirclePlus } from "react-icons/fa6";
 import { IoSearchCircleOutline } from "react-icons/io5";
+import { Link, useNavigate } from "react-router-dom";
 import { set } from "mongoose";
 const Dashboard = () => {
+  const navigate = useNavigate();
   const nutref = useRef(null);
   const foodref = useRef(null);
   const logref = useRef(null);
@@ -12,6 +14,8 @@ const Dashboard = () => {
   const caloriebar = useRef(null);
   const show2 = useRef(null);
   const su202 = useRef(null);
+  const wtadderindb = useRef(null);
+  const [user, setUser] = useState("");
   const [username, setUsername] = useState("Username");
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]); // To store search results
@@ -20,13 +24,18 @@ const Dashboard = () => {
   const [common, setCommon] = useState([]); // To store common food items from search results
   const [branded, setBranded] = useState([]); // To store branded food items from search results
   const show = useRef(null);
+  const [ub, setUb] = useState(null);
+  const [ul, setUl] = useState(null);
+  const [ud, setUd] = useState(null);
+  const [us, setUs] = useState(null);
+  const [uw, setUw] = useState(null);
 
   const [calstatus, setCalstatus] = useState(null);
   const [calpercentage, setCalpercentage] = useState(0);
   const [requiredcal, setRequiredcal] = useState(null);
   const [totalcal, setTotalcal] = useState(1000);
 
-  const [loading, setLoading] = useState(null);
+  const [loading, setLoading] = useState(false);
   const rec = useRef(null);
   const breakfast = useRef(null);
   const lunch = useRef(null);
@@ -50,6 +59,11 @@ const Dashboard = () => {
   const lunchprot = useRef(null);
   const lunchsug = useRef(null);
   const lunchsalt = useRef(null);
+  const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
+
+  const handleChildData = async (data) => {
+    setDate(data);
+  };
 
   const displayrec = async () => {
     try {
@@ -128,6 +142,42 @@ const Dashboard = () => {
     }
   };
 
+  const showdata = async (mealType) => {
+    const storedUser = localStorage.getItem("userDetails");
+    const j = JSON.parse(storedUser);
+    setLoading(true);
+    if (nutrients) {
+      const foodData = {
+        foodName: nutrients.food_name,
+        calories: nutrients.nf_calories,
+        protein: nutrients.nf_protein,
+        fat: nutrients.nf_total_fat,
+        sugars: nutrients.nf_sugars,
+        salt: nutrients.nf_sodium,
+        carbohydrates: nutrients.nf_total_carbohydrate,
+        mealType: mealType,
+        userid: j._id,
+        date: new Date().toISOString().split("T")[0],
+        weight: uw,
+      };
+
+      console.log("Food added:", foodData);
+
+      const jk = await fetch("http://localhost:3000/addfoodindb", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(foodData),
+      });
+      if (jk.ok) {
+        console.log("Food added successfully!");
+      }
+    } else {
+      console.log("No food data available!");
+    }
+  };
+
   useEffect(() => {
     const percentage = (totalcal / requiredcal) * 100;
     setCalpercentage(percentage);
@@ -162,6 +212,10 @@ const Dashboard = () => {
       nutref.current.style.display = "none";
       foodref.current.style.display = "none";
       logref.current.style.display = "block";
+    } else if (a == 3) {
+      localStorage.setItem("userDetails", 10);
+      // Redirect to home
+      navigate("/");
     }
   };
 
@@ -204,15 +258,6 @@ const Dashboard = () => {
     su202.current.classList.add("signblock");
   };
 
-  useEffect(() => {
-    const storedUser = localStorage.getItem("userDetails");
-    const j = JSON.parse(storedUser);
-    console.log(j.uname);
-    console.log(j);
-    setUsername(j.uname);
-    setRequiredcal(j.bmr);
-  }, []);
-
   // Function to handle displaying nutrient data
   const fetchNutrientData = async (foodName) => {
     try {
@@ -239,6 +284,136 @@ const Dashboard = () => {
       setError(err.toString());
     }
   };
+  const addweightindb = async () => {
+    try {
+      console.log("weight added", uw);
+      // alert("weight added is " + uw);
+      const storedUser = localStorage.getItem("userDetails");
+      const j = JSON.parse(storedUser);
+      const wtData = {
+        userid: j._id,
+        date: new Date().toISOString().split("T")[0],
+        weight: uw,
+      };
+      const jk = await fetch("http://localhost:3000/addwtindb", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(wtData),
+      });
+      if (jk.ok) {
+        console.log("Weight added successfully!");
+      }
+    } catch {
+      console.log("error");
+    } finally {
+      setLoading(true);
+    }
+  };
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("userDetails");
+    const j = JSON.parse(storedUser);
+    // console.log(j.uname);
+    // console.log(j);
+    setUsername(j.uname);
+    const activitylvl = j.activityLevel;
+    const gender = j.gender;
+    const height = j.height;
+    const weight = uw || j.weight;
+    const age = j.age;
+    // console.log(activitylvl, gender, height, weight, age);
+    // console.log(uw, j.weight);
+    const bmr = function () {
+      let j;
+      if (activitylvl == "sedentary") {
+        j = 1.2;
+      } else if (activitylvl == "lightly active") {
+        j = 1.375;
+      } else if (activitylvl == "moderately active") {
+        j = 1.55;
+      } else if (activitylvl == "very active") {
+        j = 1.725;
+      } else if (activitylvl == "extremely active") {
+        j = 1.9;
+      }
+      let k;
+      if (gender == "female") {
+        k = (10 * weight + 6.25 * height - 5 * age - 161) * j;
+      } else {
+        k = (10 * weight + 6.25 * height - 5 * age + 5) * j;
+      }
+      return k.toFixed(2);
+    };
+
+    const merobmr = bmr();
+
+    setRequiredcal(merobmr);
+  }, [uw]);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("userDetails");
+    const j = JSON.parse(storedUser);
+    const jakie = async () => {
+      const response = await fetch("http://localhost:3000/getuserdata", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ user_id: j._id, date: date }),
+      });
+      const datax = await response.json();
+      // console.log(datax);
+      if (datax.length > 0) {
+        const [a1, [a2]] = datax;
+        // console.log(a1);
+        // console.log(a2.weight);
+        const ubreak = [];
+        const ulunch = [];
+        const udinner = [];
+        const usnacks = [];
+        if (a2) {
+          setUw(a2.weight);
+        } else {
+          setUw(j.weight);
+        }
+        for (let i = 0; i < a1.length; i++) {
+          if (a1[i].mealtype == "Breakfast") {
+            ubreak.push(a1[i].cal);
+          } else if (a1[i].mealtype == "Lunch") {
+            ulunch.push(a1[i].cal);
+          } else if (a1[i].mealtype == "Dinner") {
+            udinner.push(a1[i].cal);
+          } else if (a1[i].mealtype == "Snacks") {
+            usnacks.push(a1[i].cal);
+          }
+        }
+
+        const jasper = (a) => {
+          let j = 0;
+          for (let i = 0; i < a.length; i++) {
+            j = j + a[i];
+          }
+          return j;
+        };
+
+        const b1 = jasper(ubreak);
+        const b2 = jasper(ulunch);
+        const b3 = jasper(udinner);
+        const b4 = jasper(usnacks);
+        setUb(b1);
+        setUl(b2);
+        setUd(b3);
+        setUs(b4);
+        const mkultra = ub + ul + ud + us;
+        setTotalcal(mkultra.toFixed(2));
+      }
+    };
+    jakie();
+    setLoading(false);
+  }, [totalcal]);
+
   return (
     <>
       <div className="dashboard1">
@@ -260,7 +435,7 @@ const Dashboard = () => {
             </h1>
           </div>
 
-          <div className="dashboard111">
+          <div className="dashboard111" onClick={() => handleclick(3)}>
             <h1>Log Out</h1>
           </div>
         </div>
@@ -373,6 +548,25 @@ const Dashboard = () => {
                     </p>
                     {/* Display more nutrients as needed */}
                   </div>
+                  <div className="foodadderindb">
+                    <h2>Add to</h2>
+                    <div className="foodadderindb1">
+                      <div>
+                        <button onClick={() => showdata("Breakfast")}>
+                          Breakfast
+                        </button>
+                        <button onClick={() => showdata("Lunch")}>Lunch</button>
+                      </div>
+                      <div>
+                        <button onClick={() => showdata("Dinner")}>
+                          Dinner
+                        </button>
+                        <button onClick={() => showdata("Snacks")}>
+                          Snacks
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               )}
             </div>
@@ -397,33 +591,61 @@ const Dashboard = () => {
                   <div className="ufoodadder1" onClick={() => shower2()}>
                     <h2>Breakfast</h2>
                     <FaCirclePlus />
-                    <span>{0} cal</span>
+                    <span>{ub} cal</span>
                   </div>
                   <div className="ufoodadder1" onClick={() => shower2()}>
                     <h2>Lunch</h2>
                     <FaCirclePlus />
-                    <span>{0} cal</span>
+                    <span>{ul} cal</span>
                   </div>
                   <div className="ufoodadder1" onClick={() => shower2()}>
                     <h2>Dinner</h2>
                     <FaCirclePlus />
-                    <span>{0} cal</span>
+                    <span>{ud} cal</span>
                   </div>
                   <div className="ufoodadder1" onClick={() => shower2()}>
                     <h2>Snacks</h2>
                     <FaCirclePlus />
-                    <span>{0} cal</span>
+                    <span>{us} cal</span>
                   </div>
-                  <div className="ufoodadder1">
+                  <div
+                    className="ufoodadder1"
+                    onClick={() =>
+                      wtadderindb.current.classList.remove("signblock")
+                    }
+                  >
                     <h2>Weigh In</h2>
                     <FaCirclePlus />
-                    <span>{0} kg</span>
+                    <span>{uw} kg</span>
                   </div>
                 </div>
               </div>
               <div className="foodcalendar">
-                <Calendar />
+                <Calendar sendDataToParent={handleChildData} />
               </div>
+            </div>
+            <div className="weightadder signblock" ref={wtadderindb}>
+              <div
+                className="foodcloser101"
+                onClick={() => wtadderindb.current.classList.add("signblock")}
+              >
+                <IoIosCloseCircleOutline size={30} />
+              </div>
+              <input
+                type="number"
+                placeholder="Weight in kg"
+                onChange={(e) => {
+                  const j = e.target.value;
+                  setUw(e.target.value);
+                }}
+              ></input>
+              <button
+                onClick={() => {
+                  addweightindb();
+                }}
+              >
+                Add
+              </button>
             </div>
             <div className="weighttracker"></div>
             <div className="ufoodadder2 signblock" ref={show2}>

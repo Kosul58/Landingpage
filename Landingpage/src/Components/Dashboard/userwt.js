@@ -1,6 +1,5 @@
 import mongoose from "mongoose";
-import User from "../Database/user.cjs";
-
+import Uw from "../Database/userweight.cjs";
 const mongoURI =
   "mongodb+srv://kosul:kosul@cluster0.jn30nsv.mongodb.net/?retryWrites=true&w=majority&appName=nutriTrack";
 
@@ -27,42 +26,22 @@ const closeConn = async () => {
   }
 };
 
-const searchuserregisterandsave = async (data) => {
+const addwtindb = async (data) => {
   await connectDB();
   try {
-    const user = await User.find({
-      uname: data.uname,
-      email: data.email,
-      password: data.password,
-    });
-    if (user.length > 0) {
-      return 0;
-    } else {
-      const j = {
-        uname: data.uname,
-        email: data.email,
-        password: data.password,
-        bmr: data.bmr,
-        age: data.age,
-        gender: data.gender,
-        height: data.height,
-        weight: data.weight,
-        activityLevel: data.activityLevel,
-        dietaryPreferences: data.dietaryPreferences,
-        usergoals: data.usergoals,
-        healthIssues: data.healthIssues,
-        bmi: data.bmi,
-      };
-      const userreg = new User(j);
-      // console.log(userreg);
-      await userreg.save();
-      return 1;
-    }
+    const query = { userid: data.userid, date: data.date };
+    const update = { weight: data.weight };
+    const options = { new: true, upsert: true };
+    const userreg = await Uw.findOneAndUpdate(query, { $set: update }, options);
+
+    console.log("Updated or created user entry:", userreg);
+    return 1;
   } catch (error) {
     console.error("Error fetching data:", error.message);
+    return 0;
   } finally {
     await closeConn();
   }
 };
 
-export default searchuserregisterandsave;
+export default addwtindb;

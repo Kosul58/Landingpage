@@ -251,7 +251,7 @@ const Signup = () => {
           localStorage.setItem("userDetails", JSON.stringify(data));
           window.location.href = "http://localhost:5173/dashboard";
         } else {
-          alert("Registration failed. Please try again.");
+          // alert("Registration failed. Please try again.");
         }
       } catch (error) {
         console.error("Error adding user:", error);

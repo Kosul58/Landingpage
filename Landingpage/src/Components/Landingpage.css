@@ -2412,7 +2412,7 @@ admin ends */
 
 .showfood202 {
   position: relative;
-  z-index: 9999;
+  z-index: 9;
   width: 400px;
   height: 600px;
   background-color: #101d29;
@@ -2420,7 +2420,8 @@ admin ends */
   color: white;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
+  flex-direction: column;
   text-align: center;
 }
 
@@ -2595,6 +2596,8 @@ admin ends */
 }
 
 .weighttracker {
+  position: fixed;
+  bottom: -20rem;
   width: 100%;
   height: 500px;
   border: 2px solid black;
@@ -2780,8 +2783,8 @@ admin ends */
 }
 
 .ufoodadder2 {
-  position: sticky;
-  margin-top: -60rem;
+  position: absolute;
+  top: 150px;
   margin-left: 29%;
   width: 450px;
   height: 600px;
@@ -2812,8 +2815,6 @@ admin ends */
   color: greenyellow;
   scale: 1.5;
 }
-/* Updated CSS for Search Component */
-
 .searchforuser2 {
   position: relative;
   width: 80%;
@@ -2886,4 +2887,85 @@ admin ends */
 
 .searchforuser202::-webkit-scrollbar-thumb:hover {
   background: rgba(0, 123, 255, 0.7);
+}
+
+.foodadderindb {
+  display: flex;
+  width: 100%;
+  height: 200px;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+
+.foodadderindb1 {
+  display: flex;
+  width: 100%;
+  height: 200px;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+}
+.foodadderindb button {
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: rgba(151, 22, 212, 0.5);
+  border: none;
+  cursor: pointer;
+  color: white;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.foodadderindb1 div {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.foodadderindb button:hover {
+  background-color: rgba(63, 212, 22, 0.8);
+}
+
+.weightadder {
+  width: 450px;
+  height: 200px;
+  background-color: black;
+  z-index: 5;
+  position: relative;
+  margin-top: -20rem;
+  border-radius: 10px;
+  margin-left: 20rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.weightadder input {
+  width: 70%;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+.weightadder button {
+  margin-top: 20px;
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgba(23, 233, 236, 0.9);
+  cursor: pointer;
+}
+
+.weightadder button:hover {
+  background-color: green;
+  color: white;
+  scale: 1.2;
 }

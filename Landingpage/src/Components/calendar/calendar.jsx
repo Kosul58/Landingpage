@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./calendar.css";
 import { CiCircleChevLeft, CiCircleChevRight } from "react-icons/ci";
 
-const Calendar = () => {
+const Calendar = ({ sendDataToParent }) => {
   const [date, setDate] = useState(new Date());
   const [currYear, setCurrYear] = useState(date.getFullYear());
   const [currMonth, setCurrMonth] = useState(date.getMonth());
@@ -88,6 +88,7 @@ const Calendar = () => {
   const handleDayClick = (day) => {
     setActiveDay(day);
     console.log(`Selected Date: ${day} ${months[currMonth]} ${currYear}`);
+    sendDataToParent(currYear + "-" + currMonth + "-" + day);
   };
 
   return (
