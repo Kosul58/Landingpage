@@ -31,12 +31,11 @@ const closeConn = async () => {
 const fetchdata = async (data, date) => {
   await connectDB();
   try {
-    const g = date;
     const user = await UDBFood.find({
       userid: data,
-      date: g,
+      date: date,
     });
-    const user2 = await Uw.find({ userid: data, date: g });
+    const user2 = await Uw.find({ userid: data, date: date });
     if (user.length > 0) {
       return [user, user2];
     } else {
@@ -45,14 +44,14 @@ const fetchdata = async (data, date) => {
   } catch (error) {
     console.error("Error fetching data:", error.message);
     return 0;
-  } finally {
-    setTimeout(async () => {
-      try {
-        await closeConn();
-      } catch (err) {
-        console.error("Error during delayed closeConn:", err.message);
-      }
-    }, 6000);
+    // } finally {
+    //   setTimeout(async () => {
+    //     try {
+    //       await closeConn();
+    //     } catch (err) {
+    //       console.error("Error during delayed closeConn:", err.message);
+    //     }
+    //   }, 2000);
   }
 };
 

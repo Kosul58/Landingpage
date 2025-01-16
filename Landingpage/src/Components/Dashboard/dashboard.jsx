@@ -5,6 +5,26 @@ import { FaCirclePlus } from "react-icons/fa6";
 import { IoSearchCircleOutline } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
 import { set } from "mongoose";
+import {
+  Line,
+  LineChart,
+  BarChart,
+  Bar,
+  Rectangle,
+  AreaChart,
+  Area,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  PieChart,
+  Pie,
+  Cell,
+  Sector,
+  ResponsiveContainer,
+} from "recharts";
+
 const Dashboard = () => {
   const navigate = useNavigate();
   const nutref = useRef(null);
@@ -63,6 +83,7 @@ const Dashboard = () => {
 
   const handleChildData = async (data) => {
     setDate(data);
+    setLoading(true);
   };
 
   const displayrec = async () => {
@@ -141,6 +162,56 @@ const Dashboard = () => {
       console.error("Error fetching data:", error);
     }
   };
+  const wtdata = [
+    {
+      name: "Jan",
+      value: 77,
+    },
+    {
+      name: "Feb",
+      value: 80,
+    },
+    {
+      name: "Mar",
+      value: 90,
+    },
+    {
+      name: "Apr",
+      value: 85,
+    },
+    {
+      name: "May",
+      value: 75,
+    },
+    {
+      name: "Jun",
+      value: 80,
+    },
+    {
+      name: "Jul",
+      value: 85,
+    },
+    {
+      name: "Aug",
+      value: 90,
+    },
+    {
+      name: "Sep",
+      value: 85,
+    },
+    {
+      name: "Oct",
+      value: 75,
+    },
+    {
+      name: "Nov",
+      value: 80,
+    },
+    {
+      name: "Dec",
+      value: 85,
+    },
+  ];
 
   const showdata = async (mealType) => {
     const storedUser = localStorage.getItem("userDetails");
@@ -157,7 +228,7 @@ const Dashboard = () => {
         carbohydrates: nutrients.nf_total_carbohydrate,
         mealType: mealType,
         userid: j._id,
-        date: new Date().toISOString().split("T")[0],
+        date: date,
         weight: uw,
       };
 
@@ -292,7 +363,7 @@ const Dashboard = () => {
       const j = JSON.parse(storedUser);
       const wtData = {
         userid: j._id,
-        date: new Date().toISOString().split("T")[0],
+        date: date,
         weight: uw,
       };
       const jk = await fetch("http://localhost:3000/addwtindb", {
@@ -355,6 +426,7 @@ const Dashboard = () => {
   useEffect(() => {
     const storedUser = localStorage.getItem("userDetails");
     const j = JSON.parse(storedUser);
+    console.log(date);
     const jakie = async () => {
       const response = await fetch("http://localhost:3000/getuserdata", {
         method: "POST",
@@ -368,7 +440,7 @@ const Dashboard = () => {
       if (datax.length > 0) {
         const [a1, [a2]] = datax;
         // console.log(a1);
-        // console.log(a2.weight);
+        console.log(a2.weight);
         const ubreak = [];
         const ulunch = [];
         const udinner = [];
@@ -406,13 +478,21 @@ const Dashboard = () => {
         setUl(b2);
         setUd(b3);
         setUs(b4);
-        const mkultra = ub + ul + ud + us;
-        setTotalcal(mkultra.toFixed(2));
+      } else {
+        setUb(0);
+        setUl(0);
+        setUd(0);
+        setUs(0);
+        setUw(j.weight);
+        console.log("No data found");
       }
     };
+    console.log(ub, ul, ud, us);
+    const mkultra = ub + ul + ud + us;
+    setTotalcal(mkultra.toFixed(2));
     jakie();
     setLoading(false);
-  }, [totalcal]);
+  }, [loading, ul, ub, ud, us]);
 
   return (
     <>
@@ -647,7 +727,19 @@ const Dashboard = () => {
                 Add
               </button>
             </div>
-            <div className="weighttracker"></div>
+            <div className="weighttracker">
+              <LineChart width={880} height={300} data={wtdata}>
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip />
+                <Legend />
+                <Line
+                  dataKey="value"
+                  fill="#82ca9d"
+                  activeBar={<Rectangle fill="gold" stroke="purple" />}
+                />
+              </LineChart>
+            </div>
             <div className="ufoodadder2 signblock" ref={show2}>
               <div
                 className="foodcloser101"

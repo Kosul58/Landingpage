@@ -120,6 +120,7 @@ app.post("/getuserdata", async (req, res) => {
   const data = req.body.user_id;
   const date = req.body.date;
   const user = await fetchdata(data, date);
+
   res.status(200).json(user);
 });
 
