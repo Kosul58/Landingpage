@@ -3,7 +3,6 @@ import Navbar from "../Navbar";
 
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import imgf3 from "../../Assets/kosul2.png";
 import imgf1 from "../../Assets/sobit.png";
 import imgf2 from "../../Assets/ganesh.png";
 import imgf4 from "../../Assets/bhupu.png";
@@ -109,12 +108,12 @@ function About() {
       gsap.to(".aitemp3", {
         scrollTrigger: {
           trigger: ".aitemptarg1",
-
+          markers: true,
           start: "top 600px",
           end: "top 400px",
           scrub: 0.01,
         },
-        scale: 1.7,
+        scale: 1.5,
         transitionDuration: 0.8,
         ease: "power2.in",
       });
@@ -215,57 +214,22 @@ function About() {
         scrollTrigger: {
           trigger: ".aitemptarg2",
           start: "top 500px",
-          end: "top 300px",
-          scrub: 0.01,
+          end: "top 200px",
+          scrub: 1,
         },
-        width: 600,
-        height: 300,
-        translateX: -150,
-        borderRadius: 20,
-        transitionDuration: 0.6,
-        ease: "power2.in",
+        translateX: "-400px",
+        ease: "ease",
       });
-    });
 
-    return () => ctx.revert();
-  }, []);
-  useLayoutEffect(() => {
-    let ctx = gsap.context(() => {
-      gsap.to(".myimage", {
-        scrollTrigger: {
-          trigger: ".aitemptarg2",
-          start: "top 500px",
-          end: "top 300px",
-          scrub: 0.01,
-        },
-        width: 280,
-        height: 420,
-        translateX: -10,
-        translateY: -10,
-        transitionDuration: 0.6,
-        zIndex: 8,
-        ease: "power2.in",
-      });
-    });
-
-    return () => ctx.revert();
-  }, []);
-  useLayoutEffect(() => {
-    let ctx = gsap.context(() => {
       gsap.to(".myinfo h2", {
         scrollTrigger: {
           trigger: ".aitemptarg2",
           start: "top 500px",
-          end: "top 400px",
+          end: "top 200px",
           scrub: 1,
         },
+        ease: "ease",
         opacity: 1,
-        width: 300,
-        height: 350,
-        translateY: -250,
-        translateX: 440,
-        transitionDuration: 0.1,
-        ease: "power2.in",
       });
     });
 
@@ -279,13 +243,8 @@ function About() {
         <div className="aitemp2">
           <h1 className="attempth1">Nutronix</h1>
           <div className="aitemp3">
-            <div>
-              <img className="myimage" src={imgf3} alt="" />
-            </div>
             <div className="myinfo">
-              <h2>
-                Kosul<br></br> Gurung
-              </h2>
+              <h2>Kosul Gurung</h2>
             </div>
           </div>
           <div className="aitemp31 ">
@@ -342,89 +301,6 @@ function About() {
             <div className="myinfo2">
               <h2>
                 Bhupesh <br></br> Shrestha
-              </h2>
-            </div>
-          </div>
-        </div>
-        <div className="recomender">
-          <h1>Hello User!</h1>
-          <h3>How you doing?</h3>
-          <p>Want some recommendations?</p>
-          <p>Click the button below</p>
-          <button className="recbutton" onClick={() => displayrec()}>
-            Recommendations
-          </button>
-          <div ref={rec} className="recomendedmeal blockrec">
-            <div className="breakfastrec RECC">
-              <h1>Breakfast</h1>
-              <h2>
-                Mealname:<div ref={breakfast}>a</div>
-              </h2>
-              <h2>
-                Food Type:<div ref={bfw}>a</div>
-              </h2>
-              <h2>
-                Calorie:<div ref={bfcal}>a</div>
-              </h2>
-              <h2>
-                Carbs:<div ref={bfcarb}>a</div>
-              </h2>
-              <h2>
-                Prot:<div ref={bfprot}>a</div>
-              </h2>
-              <h2>
-                Salt:<div ref={bfsalt}>a</div>
-              </h2>
-              <h2>
-                Sugar:<div ref={bfsug}>a</div>
-              </h2>
-            </div>
-            <div className="lunchrec RECC">
-              <h1>Lunch</h1>
-              <h2>
-                Mealname:<div ref={lunch}>a</div>
-              </h2>
-              <h2>
-                Food Type:<div ref={lunchw}>a</div>
-              </h2>
-              <h2>
-                Calorie:<div ref={lunchcal}>a</div>
-              </h2>
-              <h2>
-                Carbs:<div ref={lunchcarb}>a</div>
-              </h2>
-              <h2>
-                Prot:<div ref={lunchprot}>a</div>
-              </h2>
-              <h2>
-                Salt:<div ref={lunchsalt}>a</div>
-              </h2>
-              <h2>
-                Sugar:<div ref={lunchsug}>a</div>
-              </h2>
-            </div>
-            <div className="dinnerrec RECC">
-              <h1>Dinner</h1>
-              <h2>
-                Mealname:<div ref={dinner}>a</div>
-              </h2>
-              <h2>
-                Food Type:<div ref={dinnerw}>a</div>
-              </h2>
-              <h2>
-                Calorie:<div ref={dinnercal}>a</div>
-              </h2>
-              <h2>
-                Carbs:<div ref={dinnercarb}>a</div>
-              </h2>
-              <h2>
-                Prot:<div ref={dinnerprot}>a</div>
-              </h2>
-              <h2>
-                Salt:<div ref={dinnersalt}>a</div>
-              </h2>
-              <h2>
-                Sugar:<div ref={dinnersug}>a</div>
               </h2>
             </div>
           </div>

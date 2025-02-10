@@ -39,7 +39,7 @@ const Aii = () => {
     }, 7000);
   };
 
-  // intervalfn();
+  intervalfn();
 
   const intervalfn2 = (a) => {
     let i = 0,
@@ -78,7 +78,7 @@ const Aii = () => {
     }, 7000);
   };
 
-  // intervalfn2(rectangleref);
+  intervalfn2(rectangleref);
 
   const intervalfn3 = (a) => {
     let i = 1,
@@ -116,7 +116,7 @@ const Aii = () => {
     }, 7000);
   };
 
-  // intervalfn3(controlref);
+  intervalfn3(controlref);
 
   const handleclick = (a) => {
     console.log(a);

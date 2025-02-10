@@ -181,15 +181,15 @@ nav {
 
 /* Home section starts here */
 .home-container {
+  width: 100svw;
   height: 101vh;
-  margin-top: -11vh;
   display: flex;
   justify-content: center;
   align-items: flex-end;
+  overflow: hidden;
 }
 
 .home-banner-container {
-  position: relative;
   display: flex;
 }
 
@@ -201,17 +201,19 @@ nav {
   max-width: 700px;
 }
 .home-image-section {
-  max-width: 600px;
+  max-width: 800px;
   height: 600px;
   flex: 1;
   display: flex;
   align-items: flex-end;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
 .home-image-section img {
-  max-width: 1000px;
-  height: 700px;
-  margin-left: -50px;
+  width: 800px;
+  height: 600px;
 }
 
 .home-text-section {
@@ -220,6 +222,9 @@ nav {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  position: absolute;
+  bottom: calc(20%);
+  left: calc(10%);
 }
 
 .animate-pop-in {
@@ -543,12 +548,21 @@ nav {
   }
 }
 
+@keyframes scarff {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .blackscarf {
   margin-top: -4rem;
-  width: 130%;
+  width: 100%;
   height: 200px;
   border-radius: 50% 50% 0px 0px;
-  animation: appear linear;
+  animation: scarff linear;
   animation-timeline: view();
   animation-range: entry 0 cover 15%;
   background-color: rgba(22, 24, 26, 0.5);
@@ -619,15 +633,15 @@ nav {
 }
 .d104 {
   position: fixed;
-  bottom: 100px;
-  right: 100px;
+  bottom: 150px;
+  right: 50px;
   width: 200px;
   height: 200px;
 }
 .d105 {
   position: fixed;
-  bottom: 100px;
-  left: 100px;
+  bottom: 80px;
+  left: 10px;
   width: 200px;
   height: 200px;
 }
@@ -1874,6 +1888,12 @@ nav {
   top: 250px;
   left: 575px;
   z-index: 5;
+  background-image: url("../Assets//kosul2.png");
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
 }
 
 .aitemp3 img {
@@ -1881,6 +1901,9 @@ nav {
 }
 
 .myinfo h2 {
+  position: absolute;
+  top: calc(50% -25px);
+  right: -500px;
   font-size: 50px;
   color: white;
   opacity: 0;
@@ -1937,6 +1960,7 @@ nav {
   width: 100px;
   height: 100px;
   border-radius: 15px;
+  background-color: red;
 }
 
 .aitemptarg2 {
@@ -1946,6 +1970,7 @@ nav {
   width: 100px;
   height: 100px;
   border-radius: 15px;
+  background-color: white;
 }
 
 .aitemp4 {

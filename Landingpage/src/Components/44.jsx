@@ -9,6 +9,7 @@ import imgf5 from "../Assets/pizza.png";
 import imgf6 from "../Assets/fruit.png";
 import imgf7 from "../Assets/vegmix.png";
 import imgf8 from "../Assets/ganesh2.png";
+import fitgirl from "../Assets/fitgirl.png";
 import imgf9 from "../Assets/salad.png";
 import imgf10 from "../Assets/fruitjuice.png";
 
@@ -168,7 +169,7 @@ const Work = () => {
               <img src={imgf7}></img>
             </div>
             <div className="d103">
-              <img src={imgf8}></img>
+              <img src={fitgirl}></img>
             </div>
             <div className="d104">
               <img src={imgf9}></img>
