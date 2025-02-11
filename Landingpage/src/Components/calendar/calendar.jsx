@@ -88,13 +88,15 @@ const Calendar = ({ sendDataToParent }) => {
   const handleDayClick = (day) => {
     setActiveDay(day);
     console.log(`Selected Date: ${day} ${months[currMonth]} ${currYear}`);
-    let j;
-    if (currMonth <= 11) {
-      j = currMonth + 1;
-    } else {
-      j = 12;
-    }
-    sendDataToParent(currYear + "-" + j + "-" + day);
+
+    // Ensure month is always two digits
+    let month = (currMonth + 1).toString().padStart(2, "0");
+
+    // Ensure day is always two digits
+    let formattedDay = day.toString().padStart(2, "0");
+
+    // Send formatted date in "YYYY-MM-DD" format
+    sendDataToParent(`${currYear}-${month}-${formattedDay}`);
   };
 
   return (

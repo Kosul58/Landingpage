@@ -8,7 +8,7 @@ const FoodSchema2 = new mongoose.Schema({
   carbs: { type: Number, required: true },
   protein: { type: Number, required: true },
   mealtype: { type: String, required: true },
-  date: { type: String, required: false },
+  date: { type: String, required: true },
   userid: { type: String, required: true },
   salt: { type: Number, required: true },
   sugars: { type: Number, required: true },

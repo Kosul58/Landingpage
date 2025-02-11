@@ -1,28 +1,17 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useLayoutEffect } from "react";
 import { IoIosCloseCircleOutline } from "react-icons/io";
 import Calendar from "../calendar/calendar";
 import { FaCirclePlus } from "react-icons/fa6";
 import { IoSearchCircleOutline } from "react-icons/io5";
 import { Link, useNavigate } from "react-router-dom";
-import { set } from "mongoose";
 import {
   Line,
   LineChart,
-  BarChart,
-  Bar,
   Rectangle,
-  AreaChart,
-  Area,
   XAxis,
   YAxis,
-  CartesianGrid,
   Tooltip,
   Legend,
-  PieChart,
-  Pie,
-  Cell,
-  Sector,
-  ResponsiveContainer,
 } from "recharts";
 
 const Dashboard = () => {
@@ -44,17 +33,21 @@ const Dashboard = () => {
   const [common, setCommon] = useState([]); // To store common food items from search results
   const [branded, setBranded] = useState([]); // To store branded food items from search results
   const show = useRef(null);
-  const [ub, setUb] = useState(null);
-  const [ul, setUl] = useState(null);
-  const [ud, setUd] = useState(null);
-  const [us, setUs] = useState(null);
-  const [uw, setUw] = useState(null);
 
-  const [calstatus, setCalstatus] = useState(null);
+  ///dashboard data of user foods
+  const [ub, setUb] = useState("");
+  const [ul, setUl] = useState("");
+  const [ud, setUd] = useState("");
+  const [us, setUs] = useState("");
+  const [uw, setUw] = useState("");
+
+  ///dashboard datas of user calories
+  const [calstatus, setCalstatus] = useState("");
   const [calpercentage, setCalpercentage] = useState(0);
-  const [requiredcal, setRequiredcal] = useState(null);
-  const [totalcal, setTotalcal] = useState(1000);
+  const [requiredcal, setRequiredcal] = useState("");
+  const [totalcal, setTotalcal] = useState("");
 
+  ///recomendataion datas
   const [loading, setLoading] = useState(false);
   const rec = useRef(null);
   const breakfast = useRef(null);
@@ -79,13 +72,25 @@ const Dashboard = () => {
   const lunchprot = useRef(null);
   const lunchsug = useRef(null);
   const lunchsalt = useRef(null);
+
+  //callendar controlls ok
   const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
 
+  let [changeddate, setChangeddate] = useState(null);
+
   const handleChildData = async (data) => {
-    setDate(data);
-    setLoading(true);
+    setChangeddate(data);
+    console.log("data load from calendar");
   };
 
+  useEffect(() => {
+    if (changeddate !== null) {
+      console.log("State updated:", changeddate);
+      dataload();
+    }
+  }, [changeddate]); // Runs whenever `changeddate` changes
+
+  ///recomendation model data fetch starts here ok
   const displayrec = async () => {
     try {
       const storedUser = localStorage.getItem("userDetails");
@@ -162,6 +167,7 @@ const Dashboard = () => {
       console.error("Error fetching data:", error);
     }
   };
+  ///recomendation model data fetch ends here
   const wtdata = [
     {
       name: "Jan",
@@ -213,42 +219,47 @@ const Dashboard = () => {
     },
   ];
 
+  ///function to add food data to database ok
   const showdata = async (mealType) => {
-    const storedUser = localStorage.getItem("userDetails");
-    const j = JSON.parse(storedUser);
-    setLoading(true);
-    if (nutrients) {
-      const foodData = {
-        foodName: nutrients.food_name,
-        calories: nutrients.nf_calories,
-        protein: nutrients.nf_protein,
-        fat: nutrients.nf_total_fat,
-        sugars: nutrients.nf_sugars,
-        salt: nutrients.nf_sodium,
-        carbohydrates: nutrients.nf_total_carbohydrate,
-        mealType: mealType,
-        userid: j._id,
-        date: date,
-        weight: uw,
-      };
-
-      console.log("Food added:", foodData);
-
-      const jk = await fetch("http://localhost:3000/addfoodindb", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(foodData),
-      });
-      if (jk.ok) {
-        console.log("Food added successfully!");
+    const dates = changeddate || date;
+    try {
+      const storedUser = localStorage.getItem("userDetails");
+      const j = JSON.parse(storedUser);
+      if (nutrients) {
+        const foodData = {
+          foodName: nutrients.food_name,
+          calories: nutrients.nf_calories,
+          protein: nutrients.nf_protein,
+          fat: nutrients.nf_total_fat,
+          sugars: nutrients.nf_sugars,
+          salt: nutrients.nf_sodium,
+          carbohydrates: nutrients.nf_total_carbohydrate,
+          mealType: mealType,
+          userid: j._id,
+          date: dates,
+          weight: uw,
+        };
+        console.log("Food added:", foodData);
+        const jk = await fetch("http://localhost:3000/addfoodindb", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(foodData),
+        });
+        if (jk.ok) {
+          console.log("Food added successfully!");
+        }
+      } else {
+        console.log("No food data available!");
       }
-    } else {
-      console.log("No food data available!");
+    } catch {
+    } finally {
+      dataload();
     }
   };
 
+  ///calorie bar css controller
   useEffect(() => {
     const percentage = (totalcal / requiredcal) * 100;
     setCalpercentage(percentage);
@@ -270,119 +281,7 @@ const Dashboard = () => {
     }
   }, [calpercentage, requiredcal, totalcal]);
 
-  const handleclick = (a) => {
-    if (a == 0) {
-      nutref.current.style.display = "flex";
-      foodref.current.style.display = "none";
-      logref.current.style.display = "none";
-    } else if (a == 1) {
-      nutref.current.style.display = "none";
-      foodref.current.style.display = "flex";
-      logref.current.style.display = "none";
-    } else if (a == 2) {
-      nutref.current.style.display = "none";
-      foodref.current.style.display = "none";
-      logref.current.style.display = "block";
-    } else if (a == 3) {
-      localStorage.setItem("userDetails", 10);
-      // Redirect to home
-      navigate("/");
-    }
-  };
-
-  const handleSearch = async () => {
-    try {
-      // if (!query) {
-      //   foodlogref1.current.style.display = "none";
-      //   show.current.style.display = "none";
-      // }
-      if (query) {
-        const response = await fetch(
-          `https://trackapi.nutritionix.com/v2/search/instant?query=${query}`,
-          {
-            headers: {
-              "x-app-id": "e7116065",
-              "x-app-key": "3b93010629df15ac33bdf9235b3c3ec5",
-              "content-Type": "application/json",
-            },
-          }
-        );
-
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-
-        const data = await response.json();
-        setCommon(data.common || []);
-        setBranded(data.branded || []);
-      }
-    } catch (err) {
-      setError(err.toString());
-    } finally {
-      console.log(common);
-      console.log(branded);
-    }
-  };
-
-  const shower2 = () => {
-    show2.current.classList.remove("signblock");
-    su202.current.classList.add("signblock");
-  };
-
-  // Function to handle displaying nutrient data
-  const fetchNutrientData = async (foodName) => {
-    try {
-      const response = await fetch(
-        `https://trackapi.nutritionix.com/v2/natural/nutrients`,
-        {
-          method: "POST",
-          headers: {
-            "x-app-id": "e7116065",
-            "x-app-key": "3b93010629df15ac33bdf9235b3c3ec5",
-            "content-Type": "application/json",
-          },
-          body: JSON.stringify({ query: foodName }), // Sending food name to get nutrient data
-        }
-      );
-
-      if (!response.ok) {
-        throw new Error("Failed to fetch nutrient data");
-      }
-
-      const data = await response.json();
-      setNutrients(data.foods[0]); // Set nutrient data for the first food item
-    } catch (err) {
-      setError(err.toString());
-    }
-  };
-  const addweightindb = async () => {
-    try {
-      console.log("weight added", uw);
-      // alert("weight added is " + uw);
-      const storedUser = localStorage.getItem("userDetails");
-      const j = JSON.parse(storedUser);
-      const wtData = {
-        userid: j._id,
-        date: date,
-        weight: uw,
-      };
-      const jk = await fetch("http://localhost:3000/addwtindb", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(wtData),
-      });
-      if (jk.ok) {
-        console.log("Weight added successfully!");
-      }
-    } catch {
-      console.log("error");
-    } finally {
-      setLoading(true);
-    }
-  };
-
+  ///function to set the user bmr , calories
   useEffect(() => {
     const storedUser = localStorage.getItem("userDetails");
     const j = JSON.parse(storedUser);
@@ -423,33 +322,160 @@ const Dashboard = () => {
     setRequiredcal(merobmr);
   }, [uw]);
 
-  useEffect(() => {
+  //dashboard toggle controll ok
+  const handleclick = (a) => {
+    if (a == 0) {
+      nutref.current.style.display = "flex";
+      foodref.current.style.display = "none";
+      logref.current.style.display = "none";
+    } else if (a == 1) {
+      nutref.current.style.display = "none";
+      foodref.current.style.display = "flex";
+      logref.current.style.display = "none";
+    } else if (a == 2) {
+      nutref.current.style.display = "none";
+      foodref.current.style.display = "none";
+      logref.current.style.display = "block";
+    } else if (a == 3) {
+      localStorage.setItem("userDetails", 10);
+      // Redirect to home
+      navigate("/");
+    }
+  };
+
+  ///function to search food data from the nutronix api call
+  const handleSearch = async () => {
+    console.log(query);
+    try {
+      // if (!query) {
+      //   foodlogref1.current.style.display = "none";
+      //   show.current.style.display = "none";
+      // }
+      if (query) {
+        const response = await fetch(
+          `https://trackapi.nutritionix.com/v2/search/instant?query=${query}`,
+          {
+            headers: {
+              "x-app-id": "e7116065",
+              "x-app-key": "3b93010629df15ac33bdf9235b3c3ec5",
+              "content-Type": "application/json",
+            },
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+
+        const data = await response.json();
+        setCommon(data.common || []);
+        setBranded(data.branded || []);
+      }
+    } catch (err) {
+      setError(err.toString());
+    } finally {
+      console.log(common);
+      console.log(branded);
+    }
+  };
+  const shower2 = () => {
+    show2.current.classList.remove("signblock");
+    su202.current.classList.add("signblock");
+  };
+
+  // Function to handle displaying nutrient data
+  const fetchNutrientData = async (foodName) => {
+    try {
+      const response = await fetch(
+        `https://trackapi.nutritionix.com/v2/natural/nutrients`,
+        {
+          method: "POST",
+          headers: {
+            "x-app-id": "e7116065",
+            "x-app-key": "3b93010629df15ac33bdf9235b3c3ec5",
+            "content-Type": "application/json",
+          },
+          body: JSON.stringify({ query: foodName }), // Sending food name to get nutrient data
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch nutrient data");
+      }
+
+      const data = await response.json();
+      setNutrients(data.foods[0]); // Set nutrient data for the first food item
+    } catch (err) {
+      setError(err.toString());
+    }
+  };
+
+  //function to add weight in db ok
+  const addweightindb = async () => {
+    const dates = changeddate || date;
+    console.log(changeddate, date, dates);
+    try {
+      console.log("weight added", uw);
+      // alert("weight added is " + uw);
+      const storedUser = localStorage.getItem("userDetails");
+      const j = JSON.parse(storedUser);
+      const wtData = {
+        userid: j._id,
+        date: dates,
+        weight: uw,
+      };
+      const jk = await fetch("http://localhost:3000/addwtindb", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(wtData),
+      });
+      if (jk.ok) {
+        console.log("Weight added successfully!");
+      }
+    } catch {
+      console.log("error");
+    } finally {
+      setLoading(true);
+    }
+  };
+
+  //function to load data in dashboard on dashboard render
+  const dataload = async () => {
+    // console.log("changed date", changeddate);
+    // console.log("default", date);
     const storedUser = localStorage.getItem("userDetails");
     const j = JSON.parse(storedUser);
-    console.log(date);
+
+    const dates = changeddate ? changeddate : date;
     const jakie = async () => {
       const response = await fetch("http://localhost:3000/getuserdata", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ user_id: j._id, date: date }),
+        body: JSON.stringify({ user_id: j._id, date: dates }),
       });
       const datax = await response.json();
-      // console.log(datax);
+      // console.log("return data", datax);
       if (datax.length > 0) {
-        const [a1, [a2]] = datax;
-        // console.log(a1);
-        console.log(a2.weight);
+        const [a1, a2] = datax;
+        // console.log("Food data", a1);
+        // console.log("weightdata", a2);
+
+        if (a2.length > 0) {
+          // console.log("wtt=", a2[0].weight);
+          setUw(a2[0].weight);
+        } else {
+          setUw(j.weight);
+        }
+
         const ubreak = [];
         const ulunch = [];
         const udinner = [];
         const usnacks = [];
-        if (a2) {
-          setUw(a2.weight);
-        } else {
-          setUw(j.weight);
-        }
+
         for (let i = 0; i < a1.length; i++) {
           if (a1[i].mealtype == "Breakfast") {
             ubreak.push(a1[i].cal);
@@ -461,7 +487,6 @@ const Dashboard = () => {
             usnacks.push(a1[i].cal);
           }
         }
-
         const jasper = (a) => {
           let j = 0;
           for (let i = 0; i < a.length; i++) {
@@ -469,15 +494,18 @@ const Dashboard = () => {
           }
           return j;
         };
-
         const b1 = jasper(ubreak);
         const b2 = jasper(ulunch);
         const b3 = jasper(udinner);
         const b4 = jasper(usnacks);
+        // console.log(b1, b2, b3, b4);
         setUb(b1);
         setUl(b2);
         setUd(b3);
         setUs(b4);
+        const mkultra = b1 + b2 + b3 + b4;
+        setTotalcal(mkultra.toFixed(2));
+        // console.log(totalcal);
       } else {
         setUb(0);
         setUl(0);
@@ -485,14 +513,16 @@ const Dashboard = () => {
         setUs(0);
         setUw(j.weight);
         console.log("No data found");
+        setTotalcal(0);
       }
     };
-    console.log(ub, ul, ud, us);
-    const mkultra = ub + ul + ud + us;
-    setTotalcal(mkultra.toFixed(2));
     jakie();
     setLoading(false);
-  }, [loading, ul, ub, ud, us]);
+  };
+
+  useEffect(() => {
+    dataload();
+  }, []);
 
   return (
     <>
@@ -521,6 +551,7 @@ const Dashboard = () => {
         </div>
 
         <div className="dashboard12">
+          {/* to track user nutrition */}
           <div className="foodlog" ref={logref}>
             <div className="foodlog1">
               <h1 className="userloginfo">{username} Log</h1>
@@ -528,7 +559,6 @@ const Dashboard = () => {
                 <input
                   type="search"
                   placeholder="Search food"
-                  value={query}
                   // onMouseEnter={(e) => {
                   //   setQuery(e.target.value);
                   //   handleSearch();
@@ -628,6 +658,7 @@ const Dashboard = () => {
                     </p>
                     {/* Display more nutrients as needed */}
                   </div>
+
                   <div className="foodadderindb">
                     <h2>Add to</h2>
                     <div className="foodadderindb1">
@@ -714,10 +745,8 @@ const Dashboard = () => {
               <input
                 type="number"
                 placeholder="Weight in kg"
-                onChange={(e) => {
-                  const j = e.target.value;
-                  setUw(e.target.value);
-                }}
+                value={uw}
+                onChange={(e) => setUw(e.target.value)}
               ></input>
               <button
                 onClick={() => {
@@ -728,8 +757,11 @@ const Dashboard = () => {
               </button>
             </div>
             <div className="weighttracker">
-              <LineChart width={880} height={300} data={wtdata}>
-                <XAxis dataKey="name" />
+              {/* <LineChart width={880} height={300} data={wtdata}>
+                <XAxis
+                  dataKey="name"
+                  tickFormatter={(tick) => tick || "Unknown"}
+                />
                 <YAxis />
                 <Tooltip />
                 <Legend />
@@ -738,7 +770,7 @@ const Dashboard = () => {
                   fill="#82ca9d"
                   activeBar={<Rectangle fill="gold" stroke="purple" />}
                 />
-              </LineChart>
+              </LineChart> */}
             </div>
             <div className="ufoodadder2 signblock" ref={show2}>
               <div

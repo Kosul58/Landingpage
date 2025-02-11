@@ -29,29 +29,22 @@ const closeConn = async () => {
 };
 
 const fetchdata = async (data, date) => {
+  console.log(typeof date);
   await connectDB();
   try {
-    const user = await UDBFood.find({
-      userid: data,
-      date: date,
+    let user = await UDBFood.find({ userid: data });
+    user = user.filter((x) => {
+      if (x.date === date) {
+        return x;
+      }
     });
     const user2 = await Uw.find({ userid: data, date: date });
-    if (user.length > 0) {
-      return [user, user2];
-    } else {
-      return 0;
-    }
+    return [user, user2];
   } catch (error) {
     console.error("Error fetching data:", error.message);
     return 0;
-    // } finally {
-    //   setTimeout(async () => {
-    //     try {
-    //       await closeConn();
-    //     } catch (err) {
-    //       console.error("Error during delayed closeConn:", err.message);
-    //     }
-    //   }, 2000);
+  } finally {
+    await closeConn();
   }
 };
 

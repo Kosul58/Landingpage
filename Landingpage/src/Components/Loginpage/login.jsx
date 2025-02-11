@@ -17,8 +17,6 @@ const Login = () => {
 
   const hanglelogin = async (event) => {
     event.preventDefault(); // Prevent form refresh
-    console.log(uname, password);
-
     try {
       const response = await fetch("http://localhost:3000/login", {
         method: "POST",
@@ -28,11 +26,8 @@ const Login = () => {
 
       if (response.ok) {
         const [result] = await response.json();
-        console.log("Login successful:", result);
-
         // Store user details in localStorage or context (optional)
         localStorage.setItem("userDetails", JSON.stringify(result));
-
         // Redirect to dashboard
         navigate("/dashboard");
       } else {
@@ -44,7 +39,6 @@ const Login = () => {
       alert("Server error, please try again later");
     }
   };
-
   return (
     <>
       <Navbar />

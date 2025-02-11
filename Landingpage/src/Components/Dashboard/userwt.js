@@ -43,5 +43,4 @@ const addwtindb = async (data) => {
     await closeConn();
   }
 };
-
 export default addwtindb;
